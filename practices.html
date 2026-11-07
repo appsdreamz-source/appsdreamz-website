@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Practices and partnerships | AppsDreamz</title>
+<meta name="description" content="Oracle Applications is the practice; the rest exist because a clean configuration does not stay clean on its own.">
+<link rel="canonical" href="https://appsdreamz.com/practices.html">
+<meta property="og:title" content="Practices and partnerships | AppsDreamz">
+<meta property="og:description" content="Oracle Applications is the practice; the rest exist because a clean configuration does not stay clean on its own.">
+<meta property="og:image" content="https://appsdreamz.com/og/home.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="images/appsdreamz-mark.png">
+<link rel="apple-touch-icon" href="images/appsdreamz-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Inter:wght@400;500;600&display=swap">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+</style>
+<style>
+html, body { margin: 0; padding: 0; background: #F4F8FB; }
+  body { font-family: "Inter", Arial, sans-serif; color: #071C35; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  h1, h2, h3 { font-family: "Inter Tight", "Inter", Arial, sans-serif; margin: 0; font-weight: 400; }
+  p { text-wrap: pretty; }
+  a { color: #071C35; text-decoration: none; border-bottom: 1px solid #29ABE2; }
+  a:hover { color: #071C35; border-bottom-color: #071C35; }
+  .row:hover, .ledger:hover { background: #E8F6FC; }
+  .plogo:hover { filter: none !important; opacity: 1 !important; }
+  @media (max-width: 720px) { .clients { gap: 24px 28px !important; } }
+  .row, .ledger { transition: background 160ms ease; }
+  ::selection { background: #E8F6FC; }
+  :focus-visible { outline: 2px solid #071C35; outline-offset: 3px; }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  @media (max-width: 720px) {
+    .o-head { order: 1 !important; }
+    .o-hero { order: 2 !important; }
+    .o-band { order: 3 !important; }
+    #lifecycle { order: 4 !important; }
+    #start { order: 5 !important; }
+    .o-rest { order: 6 !important; }
+    footer { order: 7 !important; }
+    .sticky-cta { order: 8 !important; }
+  }
+  @keyframes drift { from { transform: scale(1.06); } to { transform: scale(1); } }
+  .stages > div { min-width: 0; }
+  .stages > div > span:last-child { overflow-wrap: anywhere; }
+  @media (max-width: 1200px) { .hero-copy { padding-right: 48px !important; } .stages > div { padding-right: 12px !important; margin-right: 12px !important; } }
+  @media (max-width: 1400px) and (min-width: 901px) {
+    .stages { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 22px 0 !important; }
+    .stages > div:nth-child(even), .stages > div:nth-child(5) { border-right: 0 !important; margin-right: 0 !important; }
+  }
+  @media (max-width: 900px) {
+    .hero2 { grid-template-columns: 1fr !important; min-height: 0 !important; }
+    .hero-copy, .hero-fig { grid-column: auto !important; }
+    .hero-copy { padding: 64px 32px 56px !important; }
+    .hero-fig { min-height: 620px !important; margin: 0 32px 48px !important; }
+  }
+  @media (max-width: 720px) {
+    .hero-copy { padding: 56px 20px 48px !important; }
+    .hero-fig { margin: 0 20px 40px !important; min-height: 640px !important; }
+    .hero-frame, .hero-inner { inset: 14px !important; }
+    .hero-inner { padding: 18px 18px 20px !important; }
+    .stages { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 18px 0 !important; }
+    .stages > div { border-right: 0 !important; margin-right: 0 !important; }
+    .proof { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 14px !important; }
+  }
+  @media (max-width: 1080px) {
+    .pad { padding-left: 32px !important; padding-right: 32px !important; }
+    .split { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .two { grid-template-columns: 1fr !important; gap: 56px !important; }
+    .lifecycle { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .row { grid-template-columns: minmax(0, 1fr) !important; gap: 8px !important; }
+    .row-label { padding-bottom: 4px !important; }
+    .chain { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+    .rail { display: none !important; }
+    .phases { grid-template-columns: 1fr !important; }
+    .phase-join { border-left: 0 !important; border-top: 4px solid #29ABE2 !important; padding: 32px 0 0 !important; margin-top: 32px !important; }
+    .phases > div:first-child { padding-right: 0 !important; }
+    .breaks { grid-template-columns: 1fr !important; gap: 24px !important; }
+    .creds { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  }
+  @media (max-width: 720px) {
+    .pad { padding-left: 20px !important; padding-right: 20px !important; }
+    .creds { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 24px !important; }
+    .sect { padding-top: 72px !important; padding-bottom: 72px !important; }
+    .lifecycle { grid-template-columns: 1fr !important; }
+    .h-hero { font-size: 40px !important; }
+    .fig-inner { inset: 12px !important; }
+    .h-sect { font-size: 28px !important; }
+    .h-sub { font-size: 20px !important; }
+    .body { font-size: 17px !important; }
+    .numeral { font-size: 56px !important; }
+    .spec-row { grid-template-columns: 1fr !important; gap: 2px !important; }
+    .chain { grid-template-columns: 1fr !important; }
+    .case-h { font-size: 26px !important; }
+    .sticky-cta { display: block !important; }
+  }
+
+
+  .h-sect, .h-hero, .case-h { color: #071C35; }
+  .h-sect { letter-spacing: -0.015em !important; font-weight: 400 !important; }
+  h1, h2, h3, .h-hero, .h-sect, .case-h { font-optical-sizing: auto; }
+  body { font-size: 16px; line-height: 1.625; font-feature-settings: "cv11", "ss03"; }
+  ::selection { background: #29ABE2; color: #FFFFFF; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #0B6E9C; outline-offset: 3px; }
+  .foot-slash { position: absolute; right: 0; bottom: 0; width: 132px; height: 232px; background: #29ABE2; clip-path: polygon(62% 0, 100% 0, 100% 100%, 0 100%, 0 100%); pointer-events: none; }
+  @media (max-width: 720px) { .foot-slash { width: 64px; height: 112px; } }
+  .slash { position: absolute; top: 0; bottom: 0; right: 0; width: min(34vw, 460px); pointer-events: none; overflow: hidden; }
+  .slash i { position: absolute; top: -2%; bottom: -2%; display: block; transform: skewX(-26.5deg); transform-origin: top; }
+  .slash .s1 { right: 8%; width: 18%; background: #29ABE2; }
+  .slash .s2 { right: -4%; width: 6%; background: #0B6E9C; }
+  .slash .s3 { right: -13%; width: 3.2%; background: #5B6B7C; }
+  @media (max-width: 900px) { .slash { width: 38vw; opacity: .9; } }
+  @keyframes drift { from { transform: scale(1.06); } to { transform: scale(1); } }
+  html.js-reveal .sect, html.js-reveal .rv { opacity: 0; transform: translateY(22px); transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1); }
+  html.js-reveal .sect.in, html.js-reveal .rv.in { opacity: 1; transform: none; }
+  @media print { html.js-reveal .sect, html.js-reveal .rv { opacity: 1 !important; transform: none !important; } .site-head { position: static !important; } .sticky-cta { display: none !important; } }
+  .site-head { position: sticky; top: 0; z-index: 40; background: rgba(244,248,251,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-head nav a { white-space: nowrap; }
+  @media (max-width: 1180px) { .site-head nav { gap: 8px 18px !important; } .site-head nav a { font-size: 16px !important; } }
+  @media (max-width: 1040px) { .site-head .brand > span { display: none !important; } }
+  @media (max-width: 720px) {
+    .site-head .brand img { height: 56px !important; } footer img[alt="AppsDreamz"] { height: 60px !important; }
+    .site-head > div { padding: 14px 20px 12px !important; gap: 10px 24px !important; }
+    .site-head nav { justify-content: flex-start !important; gap: 0 18px !important; width: 100%; }
+    .site-head nav a { font-size: 15px !important; padding: 6px 0 !important; min-height: 36px !important; }
+    .site-head nav a.hv1 { padding: 6px 14px !important; margin-left: auto; }
+  }
+  .fig-inner { position: absolute; inset: 20px; border: 1px solid rgba(255,255,255,0.18); pointer-events: none; }
+  @media (max-width: 720px) { .fig-inner { inset: 12px !important; } .fig-cap { left: 24px !important; bottom: 24px !important; } }
+  .hv0:hover { color: #071C35 !important; }
+  .hv1:hover { background: #071C35 !important; color: #F4F8FB !important; }
+  .hv2:hover { background: #071C35 !important; color: #F4F8FB !important; }
+  .hv3:hover { color: #071C35 !important; border-bottom-color: #071C35 !important; }
+  .hv4:hover { background: #FFFFFF !important; color: #071C35 !important; }
+  .hv5:hover { border-color: #071C35 !important; color: #071C35 !important; }
+  .site-head nav a[aria-current="page"] { box-shadow: inset 0 -2px 0 #29ABE2; }
+  .slash-sm { width: min(26vw, 340px); }
+  .slash-sm i { top: -40%; bottom: -40%; }
+  .nextlink { display: inline-flex; flex-direction: column; gap: 4px; color: #FFFFFF; border-bottom: 0; padding-left: 28px; border-left: 1px solid #1B3552; transition: border-color 160ms ease; }
+  .nextlink span { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #A9C7DB; }
+  .nextlink strong { font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 24px; letter-spacing: -0.01em; }
+  .nextlink:hover { border-left-color: #29ABE2; color: #FFFFFF; border-bottom: 0; }
+  @media (max-width: 720px) { .cta-band .slash, .crumb .slash { display: none; } .nextlink { padding-left: 0; border-left: 0; } }
+  .areas-toggle summary { outline: none; }
+  .areas-toggle summary::-webkit-details-marker { display: none; }
+  .areas-toggle[open] summary .areas-chevron { transform: rotate(225deg); }
+  .areas-toggle summary:focus-visible { outline: 2px solid #071C35; outline-offset: 3px; }
+  @media (max-width: 560px) { .areas-toggle > div[style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; gap: 28px !important; } }
+</style>
+<script>(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var h=document.documentElement;h.classList.add('js-reveal');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.06});var seen=new WeakSet();function scan(){document.querySelectorAll('.sect,.rv').forEach(function(el){if(seen.has(el))return;seen.add(el);var r=el.getBoundingClientRect();if(r.top<innerHeight*0.9){el.classList.add('in');}else{io.observe(el);}});}scan();new MutationObserver(scan).observe(document.documentElement,{childList:true,subtree:true});setTimeout(function(){document.querySelectorAll('.sect,.rv').forEach(function(el){el.classList.add('in');});},6000);})();</script>
+</head>
+<body>
+<div style="background: #F4F8FB; display: flex; flex-direction: column;">
+
+  <header class="o-head site-head" style="border-bottom: 1px solid #D5E1EA;">
+    <div class="pad" style="max-width: 1240px; margin: 0 auto; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
+      <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 20px; border-bottom: 0;">
+        <img src="images/appsdreamz-logo.png" alt="AppsDreamz" width="1200" height="456" style="height: 68px; width: auto; display: block;">
+      </a>
+      <nav style="display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; justify-content: flex-end;">
+        <a class="hv0" href="services.html#lifecycle" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">What we do</a>
+        <a class="hv0" href="modules.html#modules" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Modules</a>
+        <a class="hv0" href="how-we-work.html#how-we-work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">How we work</a>
+        <a class="hv0" href="work.html#work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Work</a>
+        <a class="hv0" href="engagements.html#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Where to start</a>
+        <a class="hv1" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="font-size: 17px; color: #F4F8FB; background: #071C35; padding: 12px 20px; border-bottom: 0; min-height: 44px; display: inline-flex; align-items: center;">Book a call</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="crumb" aria-label="Breadcrumb" style="position: relative; overflow: hidden; background: #F4F8FB; border-bottom: 1px solid #D5E1EA;">
+    <div class="slash slash-sm" aria-hidden="true"><i class="s1"></i><i class="s2"></i><i class="s3"></i></div>
+    <div class="pad" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 22px 48px; font-family: 'Inter', Arial, sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5B6B7C;">
+      <a href="index.html" style="color: #0B6E9C; border-bottom: 0;">Home</a><span style="margin: 0 12px; color: #29ABE2;">/</span><span style="color: #071C35;">Practices</span>
+    </div>
+  </nav>
+
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #D5E1EA;">
+    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 72px; margin-bottom: 64px; align-items: end;">
+      <div><h1 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">Practices</h1></div>
+      <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Oracle Applications is the practice; the rest exist because a clean configuration does not stay clean on its own.</p>
+    </div>
+    <div style="border-top: 1px solid #071C35;">
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
+        <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Oracle Applications</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Fusion HCM across the suite, and E-Business Suite where a client still runs it — including the upgrade and coexistence work between the two. <a href="engagements.html#start">Module coverage in detail</a></p>
+      </div>
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
+        <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Integrations and Extensions</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Interfaces that assert an expected volume and total before a file leaves the tenant, alert a named owner on a partial post, and can be reprocessed without anyone remembering the sequence.</p>
+      </div>
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
+        <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Oracle AI and Agents</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Agent Studio and the published HCM agents, on processes that are ready for them. An agent on an unstable process automates the workaround.</p>
+      </div>
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
+        <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Managed Services</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Cycle support and quarterly release regression testing from the consultants who did the build. Each quarter's report names what should stop recurring, and the configuration change that would end it.</p>
+      </div>
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #071C35;">
+        <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Training</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">The configuration, not the click path: what the fast formula does, where the statutory rules live, and what to check before a cycle is released. In your tenant, on your data.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #D5E1EA;">
+    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 72px; align-items: end; margin-bottom: 48px;">
+      <div>
+        <div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 20px;">Partnerships built on delivery</h2></div>
+        <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.8; color: #5B6B7C;">White-label delivery<br>Client or partner badge<br>Named consultants</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 18px;">
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; max-width: 62ch;">These are consultancies and systems integrators who have paid us to deliver Oracle Fusion HCM work — in most cases under their own badge, in front of their own client. Being the firm a competitor subcontracts its payroll work to is a harder reference than a logo wall, so it is the one we lead with.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; max-width: 62ch;">The relationships last because the delivery is predictable: a named senior consultant, a scope agreed before the fee, and an escalation route that goes to the person doing the work. Partners come back for the second programme, which is the only measure of a partnership that means anything.</p>
+      </div>
+    </div>
+
+    <p style="margin: 0 0 22px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #5B6B7C; border-top: 1px solid #D5E1EA; padding-top: 22px;">Partners and clients</p>
+    <div class="clients" style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px 42px; margin-bottom: 56px;">
+      <img class="plogo" src="images/logos/appstec.png" alt="AppsTec Consulting" style="height: 26px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
+      <img class="plogo" src="images/logos/appslink.png" alt="Appslink Consulting" style="height: 24px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
+      <img class="plogo" src="images/logos/qualidad.png" alt="The Qualidad" style="height: 26px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
+      <img class="plogo" src="images/logos/qspear.png" alt="QSpear" style="height: 34px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
+      <img class="plogo" src="images/logos/satcon.png" alt="SatCon" style="height: 38px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
+      <img class="plogo" src="images/logos/appzlogic.png" alt="Appzlogic" style="height: 24px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
+      <img class="plogo" src="images/logos/augsta.png" alt="Augsta" style="height: 22px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
+      <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; color: #071C35;">Manureva Digital</span>
+    </div>
+
+    <div class="creds" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px;">
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">8</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">partner and client organisations have paid for delivery</p>
+        </div>
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">8</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">of twelve Fusion HCM modules we take live ourselves</p>
+        </div>
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">2</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">engagements documented in full, both anonymised</p>
+        </div>
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">3</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">countries of statutory delivery — UAE, Saudi Arabia and India</p>
+        </div>
+    </div>
+
+    <p style="margin: 40px 0 0; font-size: 17px; line-height: 1.65; color: #5B6B7C; max-width: 78ch;">Listed by agreement. Engagement detail stays confidential, which is why the two case studies on <a href="work.html#work">Work</a> are anonymised and why there are no client-attributed percentages anywhere on this site. <a href="modules.html#modules">Module grading</a> shows exactly which modules we own and which we only support.</p>
+  </section>
+
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #D5E1EA;">
+    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 72px; align-items: start;">
+      <div>
+        <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.9; color: #5B6B7C; border-top: 1px solid #071C35; padding-top: 20px;">Named consultant<br>Senior-only delivery<br>No pyramid staffing</p>
+      </div>
+      <div>
+        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">09 — Who you will be speaking to</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 28px;">The consultant who scopes the work does the work</h2></div>
+        <p class="body" style="margin: 0 0 20px; font-size: 19px; line-height: 1.6; max-width: 62ch;">The call is with the consultant, and so is the work. AppsDreamz is deliberately small: the problems clients bring us — a payroll closing on a correction queue, a programme that has stopped converging — are not solved by adding people. They are solved by someone who has closed GCC payrolls reading the configuration against the employment contracts.</p>
+        <p class="body" style="margin: 0 0 28px; font-size: 19px; line-height: 1.6; max-width: 62ch;">So we turn down work we cannot staff with that person, and we say on the first call if the problem is not ours to fix.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <footer style="position: relative; overflow: hidden; border-top: 1px solid #071C35; background: #F4F8FB;">
+    <div class="foot-slash" aria-hidden="true"></div>
+    <div class="pad" style="max-width: 1240px; margin: 0 auto; padding: 56px 48px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px;">
+      <div>
+        <img src="images/appsdreamz-logo.png" alt="AppsDreamz" width="1200" height="456" style="height: 72px; width: auto; display: block; margin-bottom: 20px;">
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #071C35; max-width: 40ch;">Oracle Fusion HCM implementation, localisation, integration and managed support across the GCC and India.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <a class="hv0" href="services.html#lifecycle" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">What we do</a>
+        <a class="hv0" href="modules.html#modules" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Module coverage</a>
+        <a class="hv0" href="how-we-work.html#how-we-work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">How we work</a>
+        <a class="hv0" href="engagements.html#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Where engagements start</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <a class="hv0" href="modules.html#modules" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Talent and Recruiting</a>
+        <a class="hv0" href="engagements.html#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Health Check detail</a>
+        <a class="hv0" href="engagements.html#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Design Review</a>
+        <a class="hv0" href="practices.html" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Practices and partnerships</a>
+        <a class="hv0" href="contact.html#contact" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Contact</a>
+      </div>
+      <div style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 2; color: #071C35;">
+        <div>aneel@appsdreamz.com</div>
+        <div>Mon to Fri, 09:00 to 18:00 GST</div>
+        <div style="color: #5B6B7C;">Replies within one working day</div>
+      </div>
+    </div>
+    <div class="pad" style="max-width: 1240px; margin: 0 auto; padding: 24px 48px 48px;">
+      <p class="legal" style="margin: 0 0 8px; font-size: 15px; line-height: 1.7; color: #5B6B7C; max-width: 80ch; border-top: 1px solid #D5E1EA; padding-top: 24px;">Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p>
+      <p class="legal" style="margin: 0; font-size: 15px; line-height: 1.7; color: #5B6B7C; max-width: 80ch;">AppsDreamz is an independent consultancy. © 2026 AppsDreamz.</p>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" style="display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: #F4F8FB; border-top: 1px solid #071C35; padding: 12px 20px;">
+    <a href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="display: block; text-align: center; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 16px 20px; border-bottom: 0;">Book a free 45-minute call</a>
+  </div>
+
+</div>
+</body>
+</html>
