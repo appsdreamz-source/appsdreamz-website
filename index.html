@@ -9,330 +9,28 @@
 <meta property="og:description" content="Implementation, localisation, integration and managed support across the full Oracle Fusion HCM suite, for GCC and India statutory reality.">
 <meta property="og:image" content="https://appsdreamz.com/og/home.png">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23123A56'/%3E%3Crect x='6' y='6' width='20' height='3' fill='%2329ABE2'/%3E%3Crect x='6' y='14' width='14' height='3' fill='%23FBFAF7'/%3E%3Crect x='6' y='22' width='20' height='3' fill='%23FBFAF7'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="images/appsdreamz-mark.png">
+<link rel="apple-touch-icon" href="images/appsdreamz-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Inter:wght@400;500;600&display=swap">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-/* cyrillic-ext */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-400-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-400-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-400-vietnamese.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-400-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-400-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-500-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-500-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-500-vietnamese.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-500-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'IBM Plex Mono';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/ibm-plex-mono-500-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/source-serif-4-400-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/source-serif-4-400-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/source-serif-4-400-greek.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/source-serif-4-400-vietnamese.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/source-serif-4-400-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("fonts/source-serif-4-400-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/source-serif-4-500-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/source-serif-4-500-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/source-serif-4-500-greek.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/source-serif-4-500-vietnamese.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/source-serif-4-500-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/source-serif-4-500-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/source-serif-4-600-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/source-serif-4-600-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/source-serif-4-600-greek.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/source-serif-4-600-vietnamese.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/source-serif-4-600-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("fonts/source-serif-4-600-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/source-serif-4-700-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/source-serif-4-700-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/source-serif-4-700-greek.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* vietnamese */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/source-serif-4-700-vietnamese.woff2") format('woff2');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/source-serif-4-700-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Source Serif 4';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("fonts/source-serif-4-700-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 </style>
 <style>
-html, body { margin: 0; padding: 0; background: #FBFAF7; }
-  body { font-family: "Source Serif 4", Georgia, serif; color: #241F1B; -webkit-font-smoothing: antialiased; }
+html, body { margin: 0; padding: 0; background: #F4F8FB; }
+  body { font-family: "Inter", Arial, sans-serif; color: #071C35; -webkit-font-smoothing: antialiased; }
   * { box-sizing: border-box; }
-  h1, h2, h3 { font-family: "Source Serif 4", Georgia, serif; margin: 0; font-weight: 600; }
+  h1, h2, h3 { font-family: "Inter Tight", "Inter", Arial, sans-serif; margin: 0; font-weight: 400; }
   p { text-wrap: pretty; }
-  a { color: #123A56; text-decoration: none; border-bottom: 1px solid #9FC3DA; }
-  a:hover { color: #241F1B; border-bottom-color: #241F1B; }
-  .row:hover, .ledger:hover { background: #F4F2EE; }
+  a { color: #071C35; text-decoration: none; border-bottom: 1px solid #29ABE2; }
+  a:hover { color: #071C35; border-bottom-color: #071C35; }
+  .row:hover, .ledger:hover { background: #E8F6FC; }
   .plogo:hover { filter: none !important; opacity: 1 !important; }
   @media (max-width: 720px) { .clients { gap: 24px 28px !important; } }
   .row, .ledger { transition: background 160ms ease; }
-  ::selection { background: #CFE4F2; }
-  :focus-visible { outline: 2px solid #123A56; outline-offset: 3px; }
+  ::selection { background: #E8F6FC; }
+  :focus-visible { outline: 2px solid #071C35; outline-offset: 3px; }
   @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
   @media (max-width: 720px) {
@@ -378,7 +76,7 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
     .chain { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
     .rail { display: none !important; }
     .phases { grid-template-columns: 1fr !important; }
-    .phase-join { border-left: 0 !important; border-top: 4px solid #F2A48D !important; padding: 32px 0 0 !important; margin-top: 32px !important; }
+    .phase-join { border-left: 0 !important; border-top: 4px solid #29ABE2 !important; padding: 32px 0 0 !important; margin-top: 32px !important; }
     .phases > div:first-child { padding-right: 0 !important; }
     .breaks { grid-template-columns: 1fr !important; gap: 24px !important; }
     .creds { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
@@ -401,18 +99,30 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
   }
 
 
-  .h-sect, .h-hero, .case-h { color: #123A56; }
-  .h-sect { letter-spacing: -0.02em !important; }
+  .h-sect, .h-hero, .case-h { color: #071C35; }
+  .h-sect { letter-spacing: -0.015em !important; font-weight: 400 !important; }
+  h1, h2, h3, .h-hero, .h-sect, .case-h { font-optical-sizing: auto; }
+  body { font-size: 16px; line-height: 1.625; font-feature-settings: "cv11", "ss03"; }
+  ::selection { background: #29ABE2; color: #FFFFFF; }
+  a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #0B6E9C; outline-offset: 3px; }
+  .foot-slash { position: absolute; right: 0; bottom: 0; width: 132px; height: 232px; background: #29ABE2; clip-path: polygon(62% 0, 100% 0, 100% 100%, 0 100%, 0 100%); pointer-events: none; }
+  @media (max-width: 720px) { .foot-slash { width: 64px; height: 112px; } }
+  .slash { position: absolute; top: 0; bottom: 0; right: 0; width: min(34vw, 460px); pointer-events: none; overflow: hidden; }
+  .slash i { position: absolute; top: -2%; bottom: -2%; display: block; transform: skewX(-26.5deg); transform-origin: top; }
+  .slash .s1 { right: 8%; width: 18%; background: #29ABE2; }
+  .slash .s2 { right: -4%; width: 6%; background: #0B6E9C; }
+  .slash .s3 { right: -13%; width: 3.2%; background: #5B6B7C; }
+  @media (max-width: 900px) { .slash { width: 38vw; opacity: .9; } }
   @keyframes drift { from { transform: scale(1.06); } to { transform: scale(1); } }
   html.js-reveal .sect, html.js-reveal .rv { opacity: 0; transform: translateY(22px); transition: opacity 800ms cubic-bezier(.2,.7,.2,1), transform 800ms cubic-bezier(.2,.7,.2,1); }
   html.js-reveal .sect.in, html.js-reveal .rv.in { opacity: 1; transform: none; }
   @media print { html.js-reveal .sect, html.js-reveal .rv { opacity: 1 !important; transform: none !important; } .site-head { position: static !important; } .sticky-cta { display: none !important; } }
-  .site-head { position: sticky; top: 0; z-index: 40; background: rgba(251,250,247,0.86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  .site-head { position: sticky; top: 0; z-index: 40; background: rgba(244,248,251,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
   .site-head nav a { white-space: nowrap; }
   @media (max-width: 1180px) { .site-head nav { gap: 8px 18px !important; } .site-head nav a { font-size: 16px !important; } }
   @media (max-width: 1040px) { .site-head .brand > span { display: none !important; } }
   @media (max-width: 720px) {
-    .site-head .brand img { height: 52px !important; } footer img[alt="AppsDreamz"] { height: 52px !important; }
+    .site-head .brand img { height: 56px !important; } footer img[alt="AppsDreamz"] { height: 60px !important; }
     .site-head > div { padding: 14px 20px 12px !important; gap: 10px 24px !important; }
     .site-head nav { justify-content: flex-start !important; gap: 0 18px !important; width: 100%; }
     .site-head nav a { font-size: 15px !important; padding: 6px 0 !important; min-height: 36px !important; }
@@ -420,74 +130,73 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
   }
   .fig-inner { position: absolute; inset: 20px; border: 1px solid rgba(255,255,255,0.18); pointer-events: none; }
   @media (max-width: 720px) { .fig-inner { inset: 12px !important; } .fig-cap { left: 24px !important; bottom: 24px !important; } }
-  .hv0:hover { color: #123A56 !important; }
-  .hv1:hover { background: #241F1B !important; color: #FBFAF7 !important; }
-  .hv2:hover { background: #0B2233 !important; color: #FBFAF7 !important; }
-  .hv3:hover { color: #123A56 !important; border-bottom-color: #123A56 !important; }
-  .hv4:hover { background: #FFFFFF !important; color: #0B2233 !important; }
-  .hv5:hover { border-color: #241F1B !important; color: #241F1B !important; }
+  .hv0:hover { color: #071C35 !important; }
+  .hv1:hover { background: #071C35 !important; color: #F4F8FB !important; }
+  .hv2:hover { background: #071C35 !important; color: #F4F8FB !important; }
+  .hv3:hover { color: #071C35 !important; border-bottom-color: #071C35 !important; }
+  .hv4:hover { background: #FFFFFF !important; color: #071C35 !important; }
+  .hv5:hover { border-color: #071C35 !important; color: #071C35 !important; }
   .areas-toggle summary { outline: none; }
   .areas-toggle summary::-webkit-details-marker { display: none; }
   .areas-toggle[open] summary .areas-chevron { transform: rotate(225deg); }
-  .areas-toggle summary:focus-visible { outline: 2px solid #123A56; outline-offset: 3px; }
+  .areas-toggle summary:focus-visible { outline: 2px solid #071C35; outline-offset: 3px; }
   @media (max-width: 560px) { .areas-toggle > div[style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; gap: 28px !important; } }
 </style>
 <script>(function(){if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;var h=document.documentElement;h.classList.add('js-reveal');var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:0.06});var seen=new WeakSet();function scan(){document.querySelectorAll('.sect,.rv').forEach(function(el){if(seen.has(el))return;seen.add(el);var r=el.getBoundingClientRect();if(r.top<innerHeight*0.9){el.classList.add('in');}else{io.observe(el);}});}scan();new MutationObserver(scan).observe(document.documentElement,{childList:true,subtree:true});setTimeout(function(){document.querySelectorAll('.sect,.rv').forEach(function(el){el.classList.add('in');});},6000);})();</script>
 </head>
 <body>
-<div style="background: #FBFAF7; display: flex; flex-direction: column;">
+<div style="background: #F4F8FB; display: flex; flex-direction: column;">
 
-  <header class="o-head site-head" style="border-bottom: 1px solid #DDD7CD;">
+  <header class="o-head site-head" style="border-bottom: 1px solid #D5E1EA;">
     <div class="pad" style="max-width: 1240px; margin: 0 auto; padding: 18px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;">
       <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 20px; border-bottom: 0;">
-        <img src="images/appsdreamz-logo.png" alt="AppsDreamz" width="3430" height="1405" style="height: 64px; width: auto; display: block;">
-        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.5; color: #6B635B; border-left: 1px solid #C6BEB2; padding-left: 20px; align-self: stretch; display: flex; align-items: center;">Oracle Fusion HCM</span>
+        <img src="images/appsdreamz-logo.png" alt="AppsDreamz" width="1200" height="456" style="height: 68px; width: auto; display: block;">
       </a>
       <nav style="display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; justify-content: flex-end;">
-        <a class="hv0" href="#lifecycle" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">What we do</a>
-        <a class="hv0" href="#modules" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Modules</a>
-        <a class="hv0" href="#how-we-work" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">How we work</a>
-        <a class="hv0" href="#work" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Work</a>
-        <a class="hv0" href="#start" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Where to start</a>
-        <a class="hv1" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="font-size: 17px; color: #FBFAF7; background: #123A56; padding: 12px 20px; border-bottom: 0; min-height: 44px; display: inline-flex; align-items: center;">Book a call</a>
+        <a class="hv0" href="#lifecycle" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">What we do</a>
+        <a class="hv0" href="#modules" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Modules</a>
+        <a class="hv0" href="#how-we-work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">How we work</a>
+        <a class="hv0" href="#work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Work</a>
+        <a class="hv0" href="#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Where to start</a>
+        <a class="hv1" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="font-size: 17px; color: #F4F8FB; background: #071C35; padding: 12px 20px; border-bottom: 0; min-height: 44px; display: inline-flex; align-items: center;">Book a call</a>
       </nav>
     </div>
   </header>
 
-  <section class="o-hero" style="position: relative; background: #FBFAF7; border-bottom: 1px solid #DDD7CD;">
+  <section class="o-hero" style="position: relative; background: #F4F8FB; border-bottom: 1px solid #D5E1EA;">
     <div class="hero2" style="display: grid; grid-template-columns: minmax(48px, 120px) minmax(0, 640px) minmax(0, 600px) minmax(0, 1fr); align-items: stretch; min-height: 720px;">
       <div class="hero-copy" style="grid-column: 2; display: flex; flex-direction: column; justify-content: center; padding: 96px 64px 88px 0;">
         <div style="display: flex; align-items: center; gap: 14px; margin: 0 0 34px; animation: rise 700ms cubic-bezier(.2,.7,.2,1) both;">
           <span style="width: 10px; height: 10px; background: #29ABE2; flex: none;"></span>
-          <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: #6B635B;">GCC client-facing · India delivery</p>
+          <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 13px; text-transform: uppercase; color: #5B6B7C;">GCC client-facing · India delivery</p>
         </div>
-        <h1 class="h-hero" style="font-size: clamp(44px, 4.9vw, 74px); line-height: 1.0; letter-spacing: -0.028em; max-width: 17ch; color: #123A56; animation: rise 700ms 120ms cubic-bezier(.2,.7,.2,1) both;">Oracle Fusion HCM, from design to the payroll run that has to be right.</h1>
-        <p class="body" style="margin: 34px 0 0; font-size: 20px; line-height: 1.55; color: #241F1B; max-width: 50ch; animation: rise 700ms 240ms cubic-bezier(.2,.7,.2,1) both;">Implementation, localisation, integration and managed support across the full suite — delivered for GCC and India statutory reality, not adapted to it afterwards.</p>
+        <h1 class="h-hero" style="font-size: clamp(44px, 4.9vw, 74px); line-height: 1.05; letter-spacing: -0.02em; font-weight: 300; max-width: 17ch; color: #071C35; animation: rise 700ms 120ms cubic-bezier(.2,.7,.2,1) both;">Oracle Fusion HCM, from design to the payroll run that has to be right.</h1>
+        <p class="body" style="margin: 34px 0 0; font-size: 20px; line-height: 1.55; color: #071C35; max-width: 50ch; animation: rise 700ms 240ms cubic-bezier(.2,.7,.2,1) both;">Implementation, localisation, integration and managed support across the full suite — delivered for GCC and India statutory reality, not adapted to it afterwards.</p>
         <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; margin-top: 42px; animation: rise 700ms 360ms cubic-bezier(.2,.7,.2,1) both;">
-          <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="position: relative; display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #FBFAF7; background: #123A56; padding: 19px 32px; border-bottom: 0; transition: background 180ms ease;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
-          <a class="hv3" href="#start" style="font-size: 19px; color: #241F1B; border-bottom: 1px solid #241F1B; padding-bottom: 2px;">See how the Health Check works</a>
+          <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="position: relative; display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 19px 32px; border-bottom: 0; transition: background 180ms ease;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
+          <a class="hv3" href="#start" style="font-size: 19px; color: #071C35; border-bottom: 1px solid #071C35; padding-bottom: 2px;">See how the Health Check works</a>
         </div>
-        <div class="proof" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 64px; padding-top: 26px; border-top: 1px solid #DDD7CD; animation: rise 700ms 480ms cubic-bezier(.2,.7,.2,1) both;">
+        <div class="proof" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 64px; padding-top: 26px; border-top: 1px solid #D5E1EA; animation: rise 700ms 480ms cubic-bezier(.2,.7,.2,1) both;">
           <div>
-            <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 34px; font-weight: 600; line-height: 1; color: #123A56; letter-spacing: -0.02em;">12</span>
-            <span style="display: block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.6; color: #6B635B;">HCM modules covered, Core HR to Learning</span>
+            <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 34px; line-height: 1; color: #071C35; letter-spacing: -0.02em;">12</span>
+            <span style="display: block; margin-top: 10px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12.5px; line-height: 1.6; color: #5B6B7C;">HCM modules covered, Core HR to Learning</span>
           </div>
           <div>
-            <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 34px; font-weight: 600; line-height: 1; color: #123A56; letter-spacing: -0.02em;">8</span>
-            <span style="display: block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.6; color: #6B635B;">named partners and white-label clients</span>
+            <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 34px; line-height: 1; color: #071C35; letter-spacing: -0.02em;">8</span>
+            <span style="display: block; margin-top: 10px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12.5px; line-height: 1.6; color: #5B6B7C;">named partners and white-label clients</span>
           </div>
           <div>
-            <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 34px; font-weight: 600; line-height: 1; color: #123A56; letter-spacing: -0.02em;">3<span style="font-size: 20px; margin-left: 3px;">wks</span></span>
-            <span style="display: block; margin-top: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.6; color: #6B635B;">fixed-fee Health Check, USD 7,500</span>
+            <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 34px; line-height: 1; color: #071C35; letter-spacing: -0.02em;">3<span style="font-size: 20px; margin-left: 3px;">wks</span></span>
+            <span style="display: block; margin-top: 10px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12.5px; line-height: 1.6; color: #5B6B7C;">fixed-fee Health Check, USD 7,500</span>
           </div>
         </div>
       </div>
 
-      <figure class="hero-fig" style="grid-column: 3 / 5; position: relative; margin: 0; min-height: 560px; background: #061521; overflow: hidden; animation: rise 900ms 200ms cubic-bezier(.2,.7,.2,1) both;">
+      <figure class="hero-fig" style="grid-column: 3 / 5; position: relative; margin: 0; min-height: 560px; background: #071C35; overflow: hidden; animation: rise 900ms 200ms cubic-bezier(.2,.7,.2,1) both;">
         <div class="hero-photo" style="position: absolute; inset: 0; filter: grayscale(1) contrast(1.08) brightness(0.86); animation: drift 2400ms cubic-bezier(.2,.7,.2,1) both;">
           <img src="images/hero-working-session.png" alt="Working session in a GCC office: consultants over a laptop and printed payroll output" loading="eager" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
         </div>
-        <div style="position: absolute; inset: 0; background: #123A56; mix-blend-mode: multiply; opacity: 0.92; pointer-events: none;"></div>
+        <div style="position: absolute; inset: 0; background: #071C35; mix-blend-mode: multiply; opacity: 0.92; pointer-events: none;"></div>
         <div style="position: absolute; inset: 0; background: #29ABE2; mix-blend-mode: soft-light; opacity: 0.35; pointer-events: none;"></div>
         <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,21,33,0.28) 0%, rgba(6,21,33,0.05) 32%, rgba(6,21,33,0.55) 62%, rgba(6,21,33,0.96) 100%); pointer-events: none;"></div>
         <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none;"></div>
@@ -498,36 +207,36 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
 
         <div class="hero-inner" style="position: absolute; inset: 22px; display: flex; flex-direction: column; justify-content: space-between; padding: 26px 30px 28px;">
           <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px;">
-            <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: #29ABE2;">FIG. 01 — WHERE WE ARE ENGAGED</p>
-            <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.04em; color: #CBE4F1;">Oracle Fusion HCM</p>
+            <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; color: #29ABE2;">FIG. 01 — WHERE WE ARE ENGAGED</p>
+            <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; color: #E8F6FC;">Oracle Fusion HCM</p>
           </div>
           <div>
-            <p style="margin: 0 0 26px; font-family: 'Source Serif 4', serif; font-size: clamp(24px, 2vw, 30px); font-weight: 500; line-height: 1.2; letter-spacing: -0.012em; color: #FFFFFF; max-width: 26ch;">Five stages. Join at any one — including after someone else finished.</p>
+            <p style="margin: 0 0 26px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: clamp(24px, 2vw, 30px); line-height: 1.2; letter-spacing: -0.012em; color: #FFFFFF; max-width: 26ch;">Five stages. Join at any one — including after someone else finished.</p>
             <div class="stages" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid rgba(255,255,255,0.22); padding-top: 20px;">
             <div style="padding: 0 18px 0 0; border-right: 1px solid rgba(255,255,255,0.14); margin-right: 18px;">
-              <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #29ABE2;">01</span>
-              <span style="display: block; margin-top: 10px; font-family: 'Source Serif 4', serif; font-size: 21px; font-weight: 600; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Implement</span>
-              <span style="display: block; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.55; color: #A9C7DB;">design to go-live</span>
+              <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12px; color: #29ABE2;">01</span>
+              <span style="display: block; margin-top: 10px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 21px; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Implement</span>
+              <span style="display: block; margin-top: 8px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 1.55; color: #A9C7DB;">design to go-live</span>
             </div>
             <div style="padding: 0 18px 0 0; border-right: 1px solid rgba(255,255,255,0.14); margin-right: 18px;">
-              <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #29ABE2;">02</span>
-              <span style="display: block; margin-top: 10px; font-family: 'Source Serif 4', serif; font-size: 21px; font-weight: 600; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Localise</span>
-              <span style="display: block; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.55; color: #A9C7DB;">gratuity, WPS, GOSI</span>
+              <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12px; color: #29ABE2;">02</span>
+              <span style="display: block; margin-top: 10px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 21px; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Localise</span>
+              <span style="display: block; margin-top: 8px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 1.55; color: #A9C7DB;">gratuity, WPS, GOSI</span>
             </div>
             <div style="padding: 0 18px 0 0; border-right: 1px solid rgba(255,255,255,0.14); margin-right: 18px;">
-              <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #29ABE2;">03</span>
-              <span style="display: block; margin-top: 10px; font-family: 'Source Serif 4', serif; font-size: 21px; font-weight: 600; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Integrate</span>
-              <span style="display: block; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.55; color: #A9C7DB;">bank, statutory, finance</span>
+              <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12px; color: #29ABE2;">03</span>
+              <span style="display: block; margin-top: 10px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 21px; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Integrate</span>
+              <span style="display: block; margin-top: 8px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 1.55; color: #A9C7DB;">bank, statutory, finance</span>
             </div>
             <div style="padding: 0 18px 0 0; border-right: 1px solid rgba(255,255,255,0.14); margin-right: 18px;">
-              <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #29ABE2;">04</span>
-              <span style="display: block; margin-top: 10px; font-family: 'Source Serif 4', serif; font-size: 21px; font-weight: 600; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Stabilise</span>
-              <span style="display: block; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.55; color: #A9C7DB;">cycles that stopped settling</span>
+              <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12px; color: #29ABE2;">04</span>
+              <span style="display: block; margin-top: 10px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 21px; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Stabilise</span>
+              <span style="display: block; margin-top: 8px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 1.55; color: #A9C7DB;">cycles that stopped settling</span>
             </div>
             <div style="padding: 0 18px 0 0;  margin-right: 0;">
-              <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; color: #29ABE2;">05</span>
-              <span style="display: block; margin-top: 10px; font-family: 'Source Serif 4', serif; font-size: 21px; font-weight: 600; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Run</span>
-              <span style="display: block; margin-top: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.55; color: #A9C7DB;">managed support</span>
+              <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12px; color: #29ABE2;">05</span>
+              <span style="display: block; margin-top: 10px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 21px; line-height: 1.1; color: #FFFFFF; letter-spacing: -0.01em;">Run</span>
+              <span style="display: block; margin-top: 8px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 12px; line-height: 1.55; color: #A9C7DB;">managed support</span>
             </div>
             </div>
           </div>
@@ -536,190 +245,190 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
     </div>
   </section>
 
-  <section class="o-band" id="how-we-work" style="position: relative; background: #0B2233; color: #CBE4F1; overflow: hidden;">
+  <section class="o-band" id="how-we-work" style="position: relative; background: #071C35; color: #E8F6FC; overflow: hidden;">
     <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none;"></div>
     <div class="pad" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 88px 48px 96px;">
       <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 56px; align-items: end; margin-bottom: 56px;">
-        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #8FC4DF;">01</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.12; letter-spacing: -0.01em; color: #FFFFFF;">One record, from the contract to the balance sheet</h2></div>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #CBE4F1; max-width: 60ch;">Hiring, talent, pay and statutory reporting are the same record at different moments. Oracle validates each module on its own terms. Nothing validates the handoffs between them — so that is where we design the checks.</p>
+        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #8FC4DF;">01</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.12; letter-spacing: -0.01em; color: #FFFFFF;">One record, from the contract to the balance sheet</h2></div>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #E8F6FC; max-width: 60ch;">Hiring, talent, pay and statutory reporting are the same record at different moments. Oracle validates each module on its own terms. Nothing validates the handoffs between them — so that is where we design the checks.</p>
       </div>
 
       <div class="rail" style="display: grid; grid-template-columns: 0.85fr 1fr 1.15fr 1.15fr 0.75fr; gap: 24px; padding-top: 26px; border-top: 1.5px solid #8FC4DF; margin-bottom: 64px;">
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <span style="width: 14px; height: 14px; background: #FFFFFF;"></span>
-            <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 600; line-height: 1.25; color: #FFFFFF; max-width: 15ch;">Employment contract</span>
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: #FFFFFF; max-width: 15ch;">Employment contract</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <span style="width: 10px; height: 10px; background: #29ABE2;"></span>
-            <span style="font-family: 'Source Serif 4', serif; font-size: 17px; font-weight: 500; line-height: 1.25; color: #CBE4F1; max-width: 15ch;">Hire</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 17px; line-height: 1.25; color: #E8F6FC; max-width: 15ch;">Hire</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <span style="width: 10px; height: 10px; background: #29ABE2;"></span>
-            <span style="font-family: 'Source Serif 4', serif; font-size: 17px; font-weight: 500; line-height: 1.25; color: #CBE4F1; max-width: 15ch;">Develop and reward</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 17px; line-height: 1.25; color: #E8F6FC; max-width: 15ch;">Develop and reward</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <span style="width: 10px; height: 10px; background: #29ABE2;"></span>
-            <span style="font-family: 'Source Serif 4', serif; font-size: 17px; font-weight: 500; line-height: 1.25; color: #CBE4F1; max-width: 15ch;">Pay and comply</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 500; font-size: 17px; line-height: 1.25; color: #E8F6FC; max-width: 15ch;">Pay and comply</span>
           </div>
           <div style="display: flex; flex-direction: column; gap: 12px;">
             <span style="width: 14px; height: 14px; background: #FFFFFF;"></span>
-            <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 600; line-height: 1.25; color: #FFFFFF; max-width: 15ch;">Balance sheet</span>
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: #FFFFFF; max-width: 15ch;">Balance sheet</span>
           </div>
       </div>
 
       <div class="phases" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0;">
         <div style="padding-right: 40px;">
-          <p style="margin: 0 0 6px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #29ABE2;">Phase 01</p>
+          <p style="margin: 0 0 6px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #29ABE2;">Phase 01</p>
           <h3 class="h-sub" style="font-size: 26px; line-height: 1.2; color: #FFFFFF; margin-bottom: 22px;">Hire</h3>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Recruiting</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">requisition, offer, approval chain</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Recruiting</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">requisition, offer, approval chain</span>
         </div>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Onboarding</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">visa, medical, mobilisation dates</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Onboarding</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">visa, medical, mobilisation dates</span>
         </div>
         </div>
 
-        <div class="phase-join" style="padding: 0 40px; border-left: 4px solid #F2A48D;">
-          <p style="margin: 0 0 6px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #29ABE2;">Phase 02</p>
+        <div class="phase-join" style="padding: 0 40px; border-left: 4px solid #29ABE2;">
+          <p style="margin: 0 0 6px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #29ABE2;">Phase 02</p>
           <h3 class="h-sub" style="font-size: 26px; line-height: 1.2; color: #FFFFFF; margin-bottom: 22px;">Develop and reward</h3>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Talent Management</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">goals, performance, succession</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Talent Management</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">goals, performance, succession</span>
         </div>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Learning</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">catalogue, assignment, compliance evidence</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Learning</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">catalogue, assignment, compliance evidence</span>
         </div>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Compensation</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">review cycles, grades, allowances</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Compensation</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">review cycles, grades, allowances</span>
         </div>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Benefits</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">medical and life, deduction feed</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Benefits</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">medical and life, deduction feed</span>
         </div>
         </div>
 
-        <div class="phase-join" style="padding-left: 40px; border-left: 4px solid #F2A48D;">
-          <p style="margin: 0 0 6px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #29ABE2;">Phase 03</p>
+        <div class="phase-join" style="padding-left: 40px; border-left: 4px solid #29ABE2;">
+          <p style="margin: 0 0 6px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #29ABE2;">Phase 03</p>
           <h3 class="h-sub" style="font-size: 26px; line-height: 1.2; color: #FFFFFF; margin-bottom: 22px;">Pay and comply</h3>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Core HR</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">structures, positions, assignments</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Core HR</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">structures, positions, assignments</span>
         </div>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Absence and Time and Labor</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">accrual, shift and overtime rules</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Absence and Time and Labor</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">accrual, shift and overtime rules</span>
         </div>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Payroll</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">fast formulas, retro, gratuity</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Payroll</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">fast formulas, retro, gratuity</span>
         </div>
-        <div style="padding: 14px 0; border-top: 1px solid #22435C;">
-          <span style="display: block; font-family: 'Source Serif 4', serif; font-size: 20px; font-weight: 500; line-height: 1.25; color: #FFFFFF;">Statutory files</span>
-          <span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.5; color: #8FC4DF;">WPS, GOSI, provident fund</span>
+        <div style="padding: 14px 0; border-top: 1px solid #1B3552;">
+          <span style="display: block; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 20px; line-height: 1.25; color: #FFFFFF;">Statutory files</span>
+          <span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.5; color: #8FC4DF;">WPS, GOSI, provident fund</span>
         </div>
         </div>
       </div>
 
-      <div class="breaks" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 48px; border-top: 1px solid #22435C; padding-top: 24px;">
+      <div class="breaks" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 48px; border-top: 1px solid #1B3552; padding-top: 24px;">
         <div>
-          <p style="margin: 0 0 8px; display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #F2A48D;"><span style="width: 22px; height: 4px; background: #F2A48D;"></span>Handoff 01</p>
-          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CBE4F1;">Offer terms into the employee record. Visa and mobilisation dates tracked outside onboarding arrive at payroll as a retro.</p>
+          <p style="margin: 0 0 8px; display: flex; align-items: center; gap: 10px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #29ABE2;"><span style="width: 22px; height: 4px; background: #29ABE2;"></span>Handoff 01</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #E8F6FC;">Offer terms into the employee record. Visa and mobilisation dates tracked outside onboarding arrive at payroll as a retro.</p>
         </div>
         <div>
-          <p style="margin: 0 0 8px; display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #F2A48D;"><span style="width: 22px; height: 4px; background: #F2A48D;"></span>Handoff 02</p>
-          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CBE4F1;">Allowances into the gratuity base. A restructure in Compensation moves the base and nothing recalculates the provision.</p>
+          <p style="margin: 0 0 8px; display: flex; align-items: center; gap: 10px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #29ABE2;"><span style="width: 22px; height: 4px; background: #29ABE2;"></span>Handoff 02</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #E8F6FC;">Allowances into the gratuity base. A restructure in Compensation moves the base and nothing recalculates the provision.</p>
         </div>
         <div>
-          <p style="margin: 0 0 8px; display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #F2A48D;"><span style="width: 22px; height: 4px; background: #F2A48D;"></span>Handoff 03</p>
-          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #CBE4F1;">Pay into the statutory return. Files pass validation, misclassify a component, and the reconciliation finds it weeks later.</p>
+          <p style="margin: 0 0 8px; display: flex; align-items: center; gap: 10px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #29ABE2;"><span style="width: 22px; height: 4px; background: #29ABE2;"></span>Handoff 03</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #E8F6FC;">Pay into the statutory return. Files pass validation, misclassify a component, and the reconciliation finds it weeks later.</p>
         </div>
       </div>
       <p style="margin: 40px 0 0;"><a href="#how-we-work" style="font-size: 19px; color: #FFFFFF; border-bottom-color: #8FC4DF;">The five-layer verification model in full</a></p>
     </div>
   </section>
 
-  <section class="o-rest" style="border-top: 1px solid #DDD7CD;">
-    <figure style="position: relative; margin: 0; width: 100%; height: clamp(340px, 46vw, 560px); background: #061521; overflow: hidden;">
+  <section class="o-rest" style="border-top: 1px solid #D5E1EA;">
+    <figure style="position: relative; margin: 0; width: 100%; height: clamp(340px, 46vw, 560px); background: #071C35; overflow: hidden;">
       <div style="position: absolute; inset: 0; filter: grayscale(1) contrast(1.08) brightness(0.86);"><img src="images/fig-02-working-session.png" alt="Working session at a table with a laptop and printed payroll output" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
-      <div style="position: absolute; inset: 0; background: #123A56; mix-blend-mode: multiply; opacity: 0.92; pointer-events: none;"></div><div style="position: absolute; inset: 0; background: #29ABE2; mix-blend-mode: soft-light; opacity: 0.35; pointer-events: none;"></div>
+      <div style="position: absolute; inset: 0; background: #071C35; mix-blend-mode: multiply; opacity: 0.92; pointer-events: none;"></div><div style="position: absolute; inset: 0; background: #29ABE2; mix-blend-mode: soft-light; opacity: 0.35; pointer-events: none;"></div>
       <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,21,33,0.1) 0%, rgba(6,21,33,0.05) 50%, rgba(6,21,33,0.85) 100%); pointer-events: none;"></div>
       <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none;"></div>
       <div class="fig-inner"><span style="position: absolute; top: -7px; left: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; top: -7px; right: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; bottom: -7px; left: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; bottom: -7px; right: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span></div>
-      <figcaption class="fig-cap" style="position: absolute; left: 48px; bottom: 44px; right: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: #CBE4F1;"><span style="color: #29ABE2;">FIG. 02 — DUBAI · RIYADH · BENGALURU</span><span>The three places an engagement is run from</span></figcaption>
+      <figcaption class="fig-cap" style="position: absolute; left: 48px; bottom: 44px; right: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; color: #E8F6FC;"><span style="color: #29ABE2;">FIG. 02 — DUBAI · RIYADH · BENGALURU</span><span>The three places an engagement is run from</span></figcaption>
     </figure>
   </section>
 
-  <section class="sect pad" id="lifecycle" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad" id="lifecycle" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 72px; margin-bottom: 72px; align-items: end;">
-      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">02</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">What we do</h2></div>
-      <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Five stages of the same practice. Most firms sell one of them; the difficult work is almost always in what one stage hands to the next.</p>
+      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">02</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">What we do</h2></div>
+      <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Five stages of the same practice. Most firms sell one of them; the difficult work is almost always in what one stage hands to the next.</p>
     </div>
     <div class="lifecycle" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px 56px;">
       <div>
-        <p class="numeral" style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 96px; line-height: 0.9; color: #D5E1EA;">1</p>
-        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #241F1B; padding-top: 16px;">Implement</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 46ch;">Full-suite Fusion HCM programmes from design through go-live, phased where a single date carries too much risk.</p>
+        <p class="numeral" style="margin: 0 0 4px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 300; font-size: 96px; line-height: 0.9; color: #D5E1EA;">1</p>
+        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #071C35; padding-top: 16px;">Implement</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 46ch;">Full-suite Fusion HCM programmes from design through go-live, phased where a single date carries too much risk.</p>
       </div>
       <div>
-        <p class="numeral" style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 96px; line-height: 0.9; color: #D5E1EA;">2</p>
-        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #241F1B; padding-top: 16px;">Localise</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 46ch;">GCC and India statutory design: gratuity bases built from contract terms, WPS and GOSI file structures, leave accrual on contract rather than calendar, India payroll compliance.</p>
+        <p class="numeral" style="margin: 0 0 4px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 300; font-size: 96px; line-height: 0.9; color: #D5E1EA;">2</p>
+        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #071C35; padding-top: 16px;">Localise</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 46ch;">GCC and India statutory design: gratuity bases built from contract terms, WPS and GOSI file structures, leave accrual on contract rather than calendar, India payroll compliance.</p>
       </div>
       <div>
-        <p class="numeral" style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 96px; line-height: 0.9; color: #D5E1EA;">3</p>
-        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #241F1B; padding-top: 16px;">Integrate</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 46ch;">Bank, statutory, finance, assessment and job board interfaces, built to surface a failure the moment it happens rather than weeks later through the data it corrupted.</p>
+        <p class="numeral" style="margin: 0 0 4px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 300; font-size: 96px; line-height: 0.9; color: #D5E1EA;">3</p>
+        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #071C35; padding-top: 16px;">Integrate</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 46ch;">Bank, statutory, finance, assessment and job board interfaces, built to surface a failure the moment it happens rather than weeks later through the data it corrupted.</p>
       </div>
       <div>
-        <p class="numeral" style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 96px; line-height: 0.9; color: #D5E1EA;">4</p>
-        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #241F1B; padding-top: 16px;">Stabilise</h3>
-        <p class="body" style="margin: 0 0 18px; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 46ch;">Programmes that stopped converging, payroll running on manual correction, hiring happening outside the system.</p>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 46ch;">Every cycle completes, so nobody calls it broken. Payroll exceptions get worked through on the Thursday before pay date. An offer is approved over email because the chain in the system stalls. A performance cycle closes because HR chased it in a spreadsheet. The workaround becomes the process, and two years later HR, payroll and talent acquisition have absorbed correction work that no one budgeted for and no one reports.</p>
+        <p class="numeral" style="margin: 0 0 4px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 300; font-size: 96px; line-height: 0.9; color: #D5E1EA;">4</p>
+        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #071C35; padding-top: 16px;">Stabilise</h3>
+        <p class="body" style="margin: 0 0 18px; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 46ch;">Programmes that stopped converging, payroll running on manual correction, hiring happening outside the system.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 46ch;">Every cycle completes, so nobody calls it broken. Payroll exceptions get worked through on the Thursday before pay date. An offer is approved over email because the chain in the system stalls. A performance cycle closes because HR chased it in a spreadsheet. The workaround becomes the process, and two years later HR, payroll and talent acquisition have absorbed correction work that no one budgeted for and no one reports.</p>
       </div>
       <div>
-        <p class="numeral" style="margin: 0 0 4px; font-family: 'Source Serif 4', serif; font-size: 96px; line-height: 0.9; color: #D5E1EA;">5</p>
-        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #241F1B; padding-top: 16px;">Run</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 46ch;">Managed support, quarterly release regression testing, and cycle support from a named team. The regression pack we test against is written from your own configuration, not a template.</p>
+        <p class="numeral" style="margin: 0 0 4px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 300; font-size: 96px; line-height: 0.9; color: #D5E1EA;">5</p>
+        <h3 class="h-sub" style="font-size: 24px; line-height: 1.2; margin-bottom: 14px; border-top: 1px solid #071C35; padding-top: 16px;">Run</h3>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 46ch;">Managed support, quarterly release regression testing, and cycle support from a named team. The regression pack we test against is written from your own configuration, not a template.</p>
       </div>
     </div>
   </section>
 
   <section class="pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 0 48px 112px;">
-    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: end; border-top: 1px solid #241F1B; padding-top: 32px;">
-      <p class="body" style="margin: 0; font-size: 21px; line-height: 1.5; color: #241F1B; max-width: 46ch;">Wherever you are on that line, the first conversation is free and forty-five minutes long.</p>
-      <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="justify-self: start; display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #FBFAF7; background: #123A56; padding: 18px 30px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
+    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: end; border-top: 1px solid #071C35; padding-top: 32px;">
+      <p class="body" style="margin: 0; font-size: 21px; line-height: 1.5; color: #071C35; max-width: 46ch;">Wherever you are on that line, the first conversation is free and forty-five minutes long.</p>
+      <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="justify-self: start; display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 18px 30px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
     </div>
   </section>
 
-  <section class="sect pad o-rest" id="modules" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad o-rest" id="modules" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 72px; align-items: start;">
-      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">03</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">Module coverage</h2></div>
+      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">03</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">Module coverage</h2></div>
       <div>
-        <p class="body" style="margin: 0 0 40px; font-size: 21px; line-height: 1.55; color: #241F1B; max-width: 56ch;">Twelve modules, graded by what we actually do. Eight we have taken live.</p>
-        <div style="display: flex; flex-direction: column; gap: 20px; border-top: 1px solid #241F1B; padding-top: 26px; margin-bottom: 36px;">
+        <p class="body" style="margin: 0 0 40px; font-size: 21px; line-height: 1.55; color: #071C35; max-width: 56ch;">Twelve modules, graded by what we actually do. Eight we have taken live.</p>
+        <div style="display: flex; flex-direction: column; gap: 20px; border-top: 1px solid #071C35; padding-top: 26px; margin-bottom: 36px;">
         <div style="display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 0 14px; align-items: start;">
-          <span style="width: 10px; height: 10px; margin-top: 7px; background: #123A56; border: 0;"></span>
+          <span style="width: 10px; height: 10px; margin-top: 7px; background: #071C35; border: 0;"></span>
           <div>
-            <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6B635B;">Delivered</span>
-            <span style="display: block; margin-top: 4px; font-size: 17px; line-height: 1.55; color: #241F1B;">We own design, build and go-live. Core HR, Payroll, Absence, Time and Labor, Recruiting, Talent, Learning, Integrations.</span>
+            <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #5B6B7C;">Delivered</span>
+            <span style="display: block; margin-top: 4px; font-size: 17px; line-height: 1.55; color: #071C35;">We own design, build and go-live. Core HR, Payroll, Absence, Time and Labor, Recruiting, Talent, Learning, Integrations.</span>
           </div>
         </div>
         <div style="display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 0 14px; align-items: start;">
-          <span style="width: 10px; height: 10px; margin-top: 7px; background: transparent; border: 2px solid #241F1B;"></span>
+          <span style="width: 10px; height: 10px; margin-top: 7px; background: transparent; border: 2px solid #071C35;"></span>
           <div>
-            <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6B635B;">Supported</span>
-            <span style="display: block; margin-top: 4px; font-size: 17px; line-height: 1.55; color: #241F1B;">Configured and tested inside a programme we do not lead. Compensation, Benefits, HR Helpdesk.</span>
+            <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #5B6B7C;">Supported</span>
+            <span style="display: block; margin-top: 4px; font-size: 17px; line-height: 1.55; color: #071C35;">Configured and tested inside a programme we do not lead. Compensation, Benefits, HR Helpdesk.</span>
           </div>
         </div>
         <div style="display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 0 14px; align-items: start;">
           <span style="width: 10px; height: 10px; margin-top: 7px; background: transparent; border: 1px solid #8C2F1F;"></span>
           <div>
-            <span style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6B635B;">Advisory</span>
-            <span style="display: block; margin-top: 4px; font-size: 17px; line-height: 1.55; color: #241F1B;">Scoping and review only. Workforce Health and Safety.</span>
+            <span style="display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #5B6B7C;">Advisory</span>
+            <span style="display: block; margin-top: 4px; font-size: 17px; line-height: 1.55; color: #071C35;">Scoping and review only. Workforce Health and Safety.</span>
           </div>
         </div>
         </div>
@@ -728,130 +437,130 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
     </div>
   </section>
 
-  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 72px;">
       <div>
-        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">04</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 24px;">Designing for GCC statutory reality</h2></div>
-        <p style="margin: 0 0 32px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.9; color: #6B635B;">Read against the contract, not the template</p>
-        <div style="border-top: 1px solid #241F1B;">
-          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #DDD7CD;">
-            <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 500; line-height: 1.25; color: #241F1B;">Gratuity base</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; color: #6B635B;">which allowances the contract makes eligible</span>
+        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">04</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 24px;">Designing for GCC statutory reality</h2></div>
+        <p style="margin: 0 0 32px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.9; color: #5B6B7C;">Read against the contract, not the template</p>
+        <div style="border-top: 1px solid #071C35;">
+          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #D5E1EA;">
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: #071C35;">Gratuity base</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; line-height: 1.6; color: #5B6B7C;">which allowances the contract makes eligible</span>
           </div>
-          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #DDD7CD;">
-            <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 500; line-height: 1.25; color: #241F1B;">WPS file structure</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; color: #6B635B;">component classification, not just validation</span>
+          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #D5E1EA;">
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: #071C35;">WPS file structure</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; line-height: 1.6; color: #5B6B7C;">component classification, not just validation</span>
           </div>
-          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #DDD7CD;">
-            <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 500; line-height: 1.25; color: #241F1B;">GOSI contribution base</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; color: #6B635B;">after every salary restructure</span>
+          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #D5E1EA;">
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: #071C35;">GOSI contribution base</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; line-height: 1.6; color: #5B6B7C;">after every salary restructure</span>
           </div>
-          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #DDD7CD;">
-            <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 500; line-height: 1.25; color: #241F1B;">Leave accrual</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; color: #6B635B;">contractual entitlement, not the calendar</span>
+          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #D5E1EA;">
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: #071C35;">Leave accrual</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; line-height: 1.6; color: #5B6B7C;">contractual entitlement, not the calendar</span>
           </div>
-          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #241F1B;">
-            <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 500; line-height: 1.25; color: #241F1B;">End-of-service provision</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; line-height: 1.6; color: #6B635B;">reconciled back to the balance sheet</span>
+          <div class="ledger" style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 16px 8px; border-bottom: 1px solid #071C35;">
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; line-height: 1.25; color: #071C35;">End-of-service provision</span>
+            <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; line-height: 1.6; color: #5B6B7C;">reconciled back to the balance sheet</span>
           </div>
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 24px;">
-        <figure style="position: relative; margin: 0; width: 100%; aspect-ratio: 16 / 8; background: #061521; overflow: hidden;">
+        <figure style="position: relative; margin: 0; width: 100%; aspect-ratio: 16 / 8; background: #071C35; overflow: hidden;">
           <div style="position: absolute; inset: 0; filter: grayscale(1) contrast(1.1) brightness(0.9);"><img src="images/fig-03-payroll-register.png" alt="A printed payroll register on a desk, marked up line by line" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;"></div>
-          <div style="position: absolute; inset: 0; background: #123A56; mix-blend-mode: multiply; opacity: 0.92; pointer-events: none;"></div><div style="position: absolute; inset: 0; background: #29ABE2; mix-blend-mode: soft-light; opacity: 0.35; pointer-events: none;"></div>
+          <div style="position: absolute; inset: 0; background: #071C35; mix-blend-mode: multiply; opacity: 0.92; pointer-events: none;"></div><div style="position: absolute; inset: 0; background: #29ABE2; mix-blend-mode: soft-light; opacity: 0.35; pointer-events: none;"></div>
           <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,21,33,0.05) 0%, rgba(6,21,33,0.7) 100%); pointer-events: none;"></div>
           <div class="fig-inner" style="inset: 14px;"><span style="position: absolute; top: -7px; left: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; top: -7px; right: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; bottom: -7px; left: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; bottom: -7px; right: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span></div>
-          <figcaption style="position: absolute; left: 30px; bottom: 28px; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.06em; color: #29ABE2;">FIG. 03 — THE PAYROLL REGISTER, READ LINE BY LINE</figcaption>
+          <figcaption style="position: absolute; left: 30px; bottom: 28px; font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; color: #29ABE2;">FIG. 03 — THE PAYROLL REGISTER, READ LINE BY LINE</figcaption>
         </figure>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">GCC localisation is where a technically clean implementation goes wrong without ever raising a flag. A gratuity base that excludes contract-eligible allowances doesn't throw an error. Payroll runs, the payslip looks right, and the end-of-service provision on the balance sheet is understated every month until someone leaves and the accrual doesn't cover the settlement.</p>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">The same pattern sits in WPS file structures that pass validation but misclassify a pay component, in GOSI contribution bases that drift after a salary restructure, and in leave accrual that follows the calendar rather than the contract. None of it appears as a defect. All of it appears eventually as a number that has to be explained. So we start from the employment contracts and design the element set to them, rather than configuring the standard localisation and reconciling afterwards.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">GCC localisation is where a technically clean implementation goes wrong without ever raising a flag. A gratuity base that excludes contract-eligible allowances doesn't throw an error. Payroll runs, the payslip looks right, and the end-of-service provision on the balance sheet is understated every month until someone leaves and the accrual doesn't cover the settlement.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">The same pattern sits in WPS file structures that pass validation but misclassify a pay component, in GOSI contribution bases that drift after a salary restructure, and in leave accrual that follows the calendar rather than the contract. None of it appears as a defect. All of it appears eventually as a number that has to be explained. So we start from the employment contracts and design the element set to them, rather than configuring the standard localisation and reconciling afterwards.</p>
                 <p style="margin: 8px 0 0;"><a href="#how-we-work" style="font-size: 19px;">The same reading applied to hiring, and the full verification model</a></p>
       </div>
     </div>
   </section>
 
-  <section class="sect pad o-rest" id="work" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px 88px; border-top: 1px solid #DDD7CD;">
-    <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">05</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 56px;">Recent work</h2></div>
+  <section class="sect pad o-rest" id="work" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px 88px; border-top: 1px solid #D5E1EA;">
+    <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">05</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 56px;">Recent work</h2></div>
     <div class="two" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px;">
       <article>
-        <p style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.8; color: #6B635B;">GCC property and facilities group, 5,000 to 10,000 employees</p>
-        <h3 class="case-h" style="font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; border-top: 1px solid #241F1B; padding-top: 24px;">A full-suite Fusion HCM programme had stopped converging. We took it live in phases.</h3>
+        <p style="margin: 0 0 20px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.8; color: #5B6B7C;">GCC property and facilities group, 5,000 to 10,000 employees</p>
+        <h3 class="case-h" style="font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; border-top: 1px solid #071C35; padding-top: 24px;">A full-suite Fusion HCM programme had stopped converging. We took it live in phases.</h3>
       </article>
       <article>
-        <p style="margin: 0 0 20px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.8; color: #6B635B;">Middle East media and communications group, 2,000 to 5,000 employees</p>
-        <h3 class="case-h" style="font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; border-top: 1px solid #241F1B; padding-top: 24px;">Exceptions every cycle, retro producing wrong results, and a gratuity base that didn't match the employment contracts.</h3>
+        <p style="margin: 0 0 20px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.8; color: #5B6B7C;">Middle East media and communications group, 2,000 to 5,000 employees</p>
+        <h3 class="case-h" style="font-size: 32px; line-height: 1.2; letter-spacing: -0.01em; border-top: 1px solid #071C35; padding-top: 24px;">Exceptions every cycle, retro producing wrong results, and a gratuity base that didn't match the employment contracts.</h3>
       </article>
     </div>
     <p style="margin: 48px 0 0;"><a href="#work" style="font-size: 19px;">Both engagements in full, with the operational facts</a></p>
   </section>
 
   <section class="pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 0 48px 112px;">
-    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: end; border-top: 1px solid #241F1B; padding-top: 32px;">
-      <p class="body" style="margin: 0; font-size: 21px; line-height: 1.5; color: #241F1B; max-width: 46ch;">Bring us the cycle you dread — payroll, hiring or performance — and we will tell you what is underneath it.</p>
-      <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="justify-self: start; display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #FBFAF7; background: #123A56; padding: 18px 30px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
+    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: end; border-top: 1px solid #071C35; padding-top: 32px;">
+      <p class="body" style="margin: 0; font-size: 21px; line-height: 1.5; color: #071C35; max-width: 46ch;">Bring us the cycle you dread — payroll, hiring or performance — and we will tell you what is underneath it.</p>
+      <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="justify-self: start; display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 18px 30px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
     </div>
   </section>
 
-  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 96px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 96px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 72px; align-items: center;">
-      <p style="margin: 0; font-family: 'Source Serif 4', serif; font-size: clamp(96px, 13vw, 180px); line-height: 0.82; letter-spacing: -0.03em; color: #123A56;">3<span style="font-size: 0.34em; letter-spacing: 0; color: #6B635B; font-family: 'IBM Plex Mono', monospace; margin-left: 0.3em;">weeks</span></p>
+      <p style="margin: 0; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 300; font-size: clamp(96px, 13vw, 180px); line-height: 0.82; letter-spacing: -0.03em; color: #071C35;">3<span style="font-size: 0.34em; letter-spacing: 0; color: #5B6B7C; font-family: 'Inter', Arial, sans-serif; font-weight: 400; margin-left: 0.3em;">weeks</span></p>
       <p class="body" style="margin: 0; font-size: 21px; line-height: 1.55; max-width: 56ch;">is how long it takes to read a live Oracle Fusion HCM implementation against the employment contracts it was built from, and hand back a plan you can act on with or without us.</p>
     </div>
   </section>
 
-  <section class="sect pad" id="start" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad" id="start" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 72px; margin-bottom: 72px; align-items: end;">
-      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">06</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">Where engagements start</h2></div>
-      <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Two entry points, depending on whether the system is already live. Both are fixed fee and both are confirmed on the call before anything is signed.</p>
+      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">06</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">Where engagements start</h2></div>
+      <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Two entry points, depending on whether the system is already live. Both are fixed fee and both are confirmed on the call before anything is signed.</p>
     </div>
 
-    <div style="position: relative; background: #0B2233; color: #F2F0EC; padding: 72px 56px; margin-bottom: 56px; overflow: hidden;">
+    <div style="position: relative; background: #071C35; color: #F4F8FB; padding: 72px 56px; margin-bottom: 56px; overflow: hidden;">
       <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none;"></div>
       <div class="fig-inner"><span style="position: absolute; top: -7px; left: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; top: -7px; right: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; bottom: -7px; left: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span><span style="position: absolute; bottom: -7px; right: -7px; width: 13px; height: 13px; pointer-events: none;"><span style="position: absolute; left: 0; top: 6px; width: 13px; height: 1px; background: #29ABE2;"></span><span style="position: absolute; left: 6px; top: 0; width: 1px; height: 13px; background: #29ABE2;"></span></span></div>
       <div class="two" style="position: relative; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 64px; align-items: start;">
         <div>
-          <p style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #8FC4DF;">For an implementation already live</p>
+          <p style="margin: 0 0 18px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #8FC4DF;">For an implementation already live</p>
           <h3 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; color: #FFFFFF; margin-bottom: 24px;">The Health Check</h3>
-          <p class="body" style="margin: 0 0 20px; font-size: 19px; line-height: 1.6; color: #DCE6E4; max-width: 58ch;">Three weeks against a read-only copy of your production tenant. Eight inspection areas, evidence pulled from your own payroll runs, a written report, a remediation plan sequenced by exposure and effort, and a walkthrough with HR, IT and finance in the room.</p>
-          <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #DCE6E4; max-width: 58ch;">Two scopes. <strong style="font-weight: 600; color: #FFFFFF;">Payroll and Statutory</strong> reads three closed cycles line by line, against the contracts. <strong style="font-weight: 600; color: #FFFFFF;">Talent and Recruiting</strong> reads the requisition-to-hire flow against how your team actually hires. One scope per engagement — additional scopes are quoted separately, because that is what keeps three weeks from becoming a surface scan.</p>
+          <p class="body" style="margin: 0 0 20px; font-size: 19px; line-height: 1.6; color: #E8F6FC; max-width: 58ch;">Three weeks against a read-only copy of your production tenant. Eight inspection areas, evidence pulled from your own payroll runs, a written report, a remediation plan sequenced by exposure and effort, and a walkthrough with HR, IT and finance in the room.</p>
+          <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #E8F6FC; max-width: 58ch;">Two scopes. <strong style="font-weight: 600; color: #FFFFFF;">Payroll and Statutory</strong> reads three closed cycles line by line, against the contracts. <strong style="font-weight: 600; color: #FFFFFF;">Talent and Recruiting</strong> reads the requisition-to-hire flow against how your team actually hires. One scope per engagement — additional scopes are quoted separately, because that is what keeps three weeks from becoming a surface scan.</p>
         </div>
         <div>
-          <div style="border-top: 1px solid #22435C;">
-            <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #22435C;">
-              <span style="font-size: 17px; color: #CBE4F1;">Duration</span>
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; color: #FFFFFF;">3 weeks</span>
+          <div style="border-top: 1px solid #1B3552;">
+            <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #1B3552;">
+              <span style="font-size: 17px; color: #E8F6FC;">Duration</span>
+              <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 24px; color: #FFFFFF;">3 weeks</span>
             </div>
-            <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #22435C;">
-              <span style="font-size: 17px; color: #CBE4F1;">Fixed fee</span>
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 32px; color: #FFFFFF;">USD 7,500</span>
+            <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #1B3552;">
+              <span style="font-size: 17px; color: #E8F6FC;">Fixed fee</span>
+              <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 32px; color: #FFFFFF;">USD 7,500</span>
             </div>
-            <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #22435C;">
-              <span style="font-size: 17px; color: #CBE4F1;">Credit</span>
+            <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #1B3552;">
+              <span style="font-size: 17px; color: #E8F6FC;">Credit</span>
               <span style="font-size: 17px; color: #FFFFFF; text-align: right; max-width: 30ch;">In full, against any work commissioned from the findings</span>
             </div>
             <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0;">
-              <span style="font-size: 17px; color: #CBE4F1;">Access needed</span>
+              <span style="font-size: 17px; color: #E8F6FC;">Access needed</span>
               <span style="font-size: 17px; color: #FFFFFF; text-align: right; max-width: 30ch;">Read-only copy of production, three closed cycles, contract templates</span>
             </div>
           </div>
           <details class="areas-toggle" style="margin-top: 32px;">
-            <summary class="hv4" style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 19px; color: #0B2233; background: #F2F0EC; padding: 16px 26px; list-style: none; -webkit-tap-highlight-color: transparent;">See all eight inspection areas<span class="areas-chevron" aria-hidden="true" style="display: inline-block; width: 9px; height: 9px; border-right: 2px solid #0B2233; border-bottom: 2px solid #0B2233; transform: rotate(45deg); transition: transform 200ms ease; flex: none;"></span></summary>
+            <summary class="hv4" style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 19px; color: #071C35; background: #F4F8FB; padding: 16px 26px; list-style: none; -webkit-tap-highlight-color: transparent;">See all eight inspection areas<span class="areas-chevron" aria-hidden="true" style="display: inline-block; width: 9px; height: 9px; border-right: 2px solid #071C35; border-bottom: 2px solid #071C35; transform: rotate(45deg); transition: transform 200ms ease; flex: none;"></span></summary>
             <div style="margin-top: 28px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px;">
               <div>
-                <div style="border-top: 1px solid #22435C;">
-                  <div style="padding: 14px 0; border-bottom: 1px solid #22435C;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Gratuity base</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">which allowances the contract makes eligible</span></div>
-                  <div style="padding: 14px 0; border-bottom: 1px solid #22435C;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Performance management</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">goals, performance, succession</span></div>
-                  <div style="padding: 14px 0; border-bottom: 1px solid #22435C;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Learning</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">catalogue, assignment, compliance evidence</span></div>
-                  <div style="padding: 14px 0;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Leave accrual and end-of-service provision</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">contractual entitlement, reconciled to the balance sheet</span></div>
+                <div style="border-top: 1px solid #1B3552;">
+                  <div style="padding: 14px 0; border-bottom: 1px solid #1B3552;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Gratuity base</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">which allowances the contract makes eligible</span></div>
+                  <div style="padding: 14px 0; border-bottom: 1px solid #1B3552;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Performance management</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">goals, performance, succession</span></div>
+                  <div style="padding: 14px 0; border-bottom: 1px solid #1B3552;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Learning</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">catalogue, assignment, compliance evidence</span></div>
+                  <div style="padding: 14px 0;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Leave accrual and end-of-service provision</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">contractual entitlement, reconciled to the balance sheet</span></div>
                 </div>
               </div>
               <div>
-                <div style="border-top: 1px solid #22435C;">
-                  <div style="padding: 14px 0; border-bottom: 1px solid #22435C;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Recruiting</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">requisition, offer, approval chain</span></div>
-                  <div style="padding: 14px 0; border-bottom: 1px solid #22435C;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Onboarding</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">visa, medical, mobilisation dates</span></div>
-                  <div style="padding: 14px 0; border-bottom: 1px solid #22435C;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Offer-to-record handoff</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">offer terms landing correctly in the employee record</span></div>
-                  <div style="padding: 14px 0;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Mobilisation-to-payroll handoff</span><span style="display: block; margin-top: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #A9C7DB;">visa and mobilisation dates tracked outside onboarding, before they arrive at payroll as a retro</span></div>
+                <div style="border-top: 1px solid #1B3552;">
+                  <div style="padding: 14px 0; border-bottom: 1px solid #1B3552;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Recruiting</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">requisition, offer, approval chain</span></div>
+                  <div style="padding: 14px 0; border-bottom: 1px solid #1B3552;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Onboarding</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">visa, medical, mobilisation dates</span></div>
+                  <div style="padding: 14px 0; border-bottom: 1px solid #1B3552;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Offer-to-record handoff</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">offer terms landing correctly in the employee record</span></div>
+                  <div style="padding: 14px 0;"><span style="display: block; font-size: 17px; color: #FFFFFF;">Mobilisation-to-payroll handoff</span><span style="display: block; margin-top: 4px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 13px; color: #A9C7DB;">visa and mobilisation dates tracked outside onboarding, before they arrive at payroll as a retro</span></div>
                 </div>
               </div>
             </div>
@@ -860,77 +569,77 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
       </div>
     </div>
 
-    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 64px; align-items: start; border-top: 1px solid #241F1B; padding-top: 40px;">
+    <div class="two" style="display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 64px; align-items: start; border-top: 1px solid #071C35; padding-top: 40px;">
       <div>
-        <p style="margin: 0 0 18px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6B635B;">For a programme in flight or being planned</p>
+        <p style="margin: 0 0 18px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #5B6B7C;">For a programme in flight or being planned</p>
         <h3 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 24px;">Design Review</h3>
-        <p class="body" style="margin: 0 0 20px; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Two to three days reading the design before it becomes the system. This is the cheapest point at which any of it can be changed.</p>
+        <p class="body" style="margin: 0 0 20px; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Two to three days reading the design before it becomes the system. This is the cheapest point at which any of it can be changed.</p>
         <details class="areas-toggle">
-          <summary style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 19px; color: #123A56; list-style: none; -webkit-tap-highlight-color: transparent;">What the Design Review covers<span class="areas-chevron" aria-hidden="true" style="display: inline-block; width: 9px; height: 9px; border-right: 2px solid #123A56; border-bottom: 2px solid #123A56; transform: rotate(45deg); transition: transform 200ms ease; flex: none;"></span></summary>
-          <div style="margin-top: 20px; border-top: 1px solid #241F1B;">
-            <div style="padding: 14px 0; border-bottom: 1px solid #DDD7CD; font-size: 17px; color: #241F1B;">Enterprise structure</div>
-            <div style="padding: 14px 0; border-bottom: 1px solid #DDD7CD; font-size: 17px; color: #241F1B;">Payroll relationship model</div>
-            <div style="padding: 14px 0; border-bottom: 1px solid #DDD7CD; font-size: 17px; color: #241F1B;">The element set against your employment contracts</div>
-            <div style="padding: 14px 0; border-bottom: 1px solid #DDD7CD; font-size: 17px; color: #241F1B;">The integration inventory</div>
-            <div style="padding: 14px 0; border-bottom: 1px solid #DDD7CD; font-size: 17px; color: #241F1B;">The test approach</div>
-            <div style="padding: 14px 0; font-size: 17px; color: #241F1B;">The go-live shape</div>
+          <summary style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 19px; color: #071C35; list-style: none; -webkit-tap-highlight-color: transparent;">What the Design Review covers<span class="areas-chevron" aria-hidden="true" style="display: inline-block; width: 9px; height: 9px; border-right: 2px solid #071C35; border-bottom: 2px solid #071C35; transform: rotate(45deg); transition: transform 200ms ease; flex: none;"></span></summary>
+          <div style="margin-top: 20px; border-top: 1px solid #071C35;">
+            <div style="padding: 14px 0; border-bottom: 1px solid #D5E1EA; font-size: 17px; color: #071C35;">Enterprise structure</div>
+            <div style="padding: 14px 0; border-bottom: 1px solid #D5E1EA; font-size: 17px; color: #071C35;">Payroll relationship model</div>
+            <div style="padding: 14px 0; border-bottom: 1px solid #D5E1EA; font-size: 17px; color: #071C35;">The element set against your employment contracts</div>
+            <div style="padding: 14px 0; border-bottom: 1px solid #D5E1EA; font-size: 17px; color: #071C35;">The integration inventory</div>
+            <div style="padding: 14px 0; border-bottom: 1px solid #D5E1EA; font-size: 17px; color: #071C35;">The test approach</div>
+            <div style="padding: 14px 0; font-size: 17px; color: #071C35;">The go-live shape</div>
           </div>
         </details>
       </div>
       <div>
-        <div style="border-top: 1px solid #DDD7CD;">
-          <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #DDD7CD;">
-            <span style="font-size: 17px; color: #6B635B;">Duration</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; color: #241F1B;">2 to 3 days</span>
+        <div style="border-top: 1px solid #D5E1EA;">
+          <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #D5E1EA;">
+            <span style="font-size: 17px; color: #5B6B7C;">Duration</span>
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 24px; color: #071C35;">2 to 3 days</span>
           </div>
-          <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #DDD7CD;">
-            <span style="font-size: 17px; color: #6B635B;">Fixed fee</span>
-            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 24px; color: #241F1B;">USD 2,500</span>
+          <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #D5E1EA;">
+            <span style="font-size: 17px; color: #5B6B7C;">Fixed fee</span>
+            <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 24px; color: #071C35;">USD 2,500</span>
           </div>
           <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 16px 0;">
-            <span style="font-size: 17px; color: #6B635B;">Scope</span>
-            <span style="font-size: 17px; color: #241F1B; text-align: right; max-width: 30ch;">Confirmed on the call</span>
+            <span style="font-size: 17px; color: #5B6B7C;">Scope</span>
+            <span style="font-size: 17px; color: #071C35; text-align: right; max-width: 30ch;">Confirmed on the call</span>
           </div>
         </div>
-        <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; margin-top: 32px; font-size: 19px; color: #FBFAF7; background: #123A56; padding: 16px 26px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
+        <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; margin-top: 32px; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 16px 26px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
       </div>
     </div>
   </section>
 
-  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 72px; margin-bottom: 64px; align-items: end;">
-      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">07</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">Practices</h2></div>
-      <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Oracle Applications is the practice; the rest exist because a clean configuration does not stay clean on its own.</p>
+      <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">07</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em;">Practices</h2></div>
+      <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Oracle Applications is the practice; the rest exist because a clean configuration does not stay clean on its own.</p>
     </div>
-    <div style="border-top: 1px solid #241F1B;">
-      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #DDD7CD;">
+    <div style="border-top: 1px solid #071C35;">
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
         <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Oracle Applications</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Fusion HCM across the suite, and E-Business Suite where a client still runs it — including the upgrade and coexistence work between the two. <a href="#start">Module coverage in detail</a></p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Fusion HCM across the suite, and E-Business Suite where a client still runs it — including the upgrade and coexistence work between the two. <a href="#start">Module coverage in detail</a></p>
       </div>
-      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #DDD7CD;">
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
         <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Integrations and Extensions</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Interfaces that assert an expected volume and total before a file leaves the tenant, alert a named owner on a partial post, and can be reprocessed without anyone remembering the sequence.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Interfaces that assert an expected volume and total before a file leaves the tenant, alert a named owner on a partial post, and can be reprocessed without anyone remembering the sequence.</p>
       </div>
-      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #DDD7CD;">
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
         <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Oracle AI and Agents</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Agent Studio and the published HCM agents, on processes that are ready for them. An agent on an unstable process automates the workaround.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Agent Studio and the published HCM agents, on processes that are ready for them. An agent on an unstable process automates the workaround.</p>
       </div>
-      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #DDD7CD;">
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #D5E1EA;">
         <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Managed Services</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Cycle support and quarterly release regression testing from the consultants who did the build. Each quarter's report names what should stop recurring, and the configuration change that would end it.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Cycle support and quarterly release regression testing from the consultants who did the build. Each quarter's report names what should stop recurring, and the configuration change that would end it.</p>
       </div>
-      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #241F1B;">
+      <div class="row" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 40px; padding: 26px 0; border-bottom: 1px solid #071C35;">
         <h3 class="h-sub row-label" style="font-size: 24px; line-height: 1.25;">Training</h3>
-        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">The configuration, not the click path: what the fast formula does, where the statutory rules live, and what to check before a cycle is released. In your tenant, on your data.</p>
+        <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">The configuration, not the click path: what the fast formula does, where the statutory rules live, and what to check before a cycle is released. In your tenant, on your data.</p>
       </div>
     </div>
   </section>
 
-  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 72px; align-items: end; margin-bottom: 48px;">
       <div>
-        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">08</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 20px;">Partnerships built on delivery</h2></div>
-        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.8; color: #6B635B;">White-label delivery<br>Client or partner badge<br>Named consultants</p>
+        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">08</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 20px;">Partnerships built on delivery</h2></div>
+        <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.8; color: #5B6B7C;">White-label delivery<br>Client or partner badge<br>Named consultants</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 18px;">
         <p class="body" style="margin: 0; font-size: 19px; line-height: 1.6; max-width: 62ch;">These are consultancies and systems integrators who have paid us to deliver Oracle Fusion HCM work — in most cases under their own badge, in front of their own client. Being the firm a competitor subcontracts its payroll work to is a harder reference than a logo wall, so it is the one we lead with.</p>
@@ -938,7 +647,7 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
       </div>
     </div>
 
-    <p style="margin: 0 0 22px; font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #6B635B; border-top: 1px solid #DDD7CD; padding-top: 22px;">Partners and clients</p>
+    <p style="margin: 0 0 22px; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #5B6B7C; border-top: 1px solid #D5E1EA; padding-top: 22px;">Partners and clients</p>
     <div class="clients" style="display: flex; flex-wrap: wrap; align-items: center; gap: 30px 42px; margin-bottom: 56px;">
       <img class="plogo" src="images/logos/appstec.png" alt="AppsTec Consulting" style="height: 26px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
       <img class="plogo" src="images/logos/appslink.png" alt="Appslink Consulting" style="height: 24px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
@@ -947,107 +656,108 @@ html, body { margin: 0; padding: 0; background: #FBFAF7; }
       <img class="plogo" src="images/logos/satcon.png" alt="SatCon" style="height: 38px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
       <img class="plogo" src="images/logos/appzlogic.png" alt="Appzlogic" style="height: 24px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
       <img class="plogo" src="images/logos/augsta.png" alt="Augsta" style="height: 22px; width: auto; display: block; filter: grayscale(1); opacity: 0.55; transition: filter 200ms ease, opacity 200ms ease;">
-      <span style="font-family: 'Source Serif 4', serif; font-size: 19px; font-weight: 500; color: #45403A;">Manureva Digital</span>
+      <span style="font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 500; font-size: 19px; color: #071C35;">Manureva Digital</span>
     </div>
 
     <div class="creds" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px;">
-        <div style="padding: 20px 0; border-top: 1px solid #241F1B;">
-          <p style="margin: 0 0 6px; font-family: 'Source Serif 4', serif; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #123A56;">8</p>
-          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #241F1B; max-width: 24ch;">partner and client organisations have paid for delivery</p>
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">8</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">partner and client organisations have paid for delivery</p>
         </div>
-        <div style="padding: 20px 0; border-top: 1px solid #241F1B;">
-          <p style="margin: 0 0 6px; font-family: 'Source Serif 4', serif; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #123A56;">8</p>
-          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #241F1B; max-width: 24ch;">of twelve Fusion HCM modules we take live ourselves</p>
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">8</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">of twelve Fusion HCM modules we take live ourselves</p>
         </div>
-        <div style="padding: 20px 0; border-top: 1px solid #241F1B;">
-          <p style="margin: 0 0 6px; font-family: 'Source Serif 4', serif; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #123A56;">2</p>
-          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #241F1B; max-width: 24ch;">engagements documented in full, both anonymised</p>
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">2</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">engagements documented in full, both anonymised</p>
         </div>
-        <div style="padding: 20px 0; border-top: 1px solid #241F1B;">
-          <p style="margin: 0 0 6px; font-family: 'Source Serif 4', serif; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #123A56;">3</p>
-          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #241F1B; max-width: 24ch;">countries of statutory delivery — UAE, Saudi Arabia and India</p>
+        <div style="padding: 20px 0; border-top: 1px solid #071C35;">
+          <p style="margin: 0 0 6px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 400; font-size: 46px; line-height: 1; letter-spacing: -0.02em; color: #071C35;">3</p>
+          <p style="margin: 0; font-size: 17px; line-height: 1.5; color: #071C35; max-width: 24ch;">countries of statutory delivery — UAE, Saudi Arabia and India</p>
         </div>
     </div>
 
-    <p style="margin: 40px 0 0; font-size: 17px; line-height: 1.65; color: #6B635B; max-width: 78ch;">Listed by agreement. Engagement detail stays confidential, which is why the two case studies on <a href="#work">Work</a> are anonymised and why there are no client-attributed percentages anywhere on this site. <a href="#modules">Module grading</a> shows exactly which modules we own and which we only support.</p>
+    <p style="margin: 40px 0 0; font-size: 17px; line-height: 1.65; color: #5B6B7C; max-width: 78ch;">Listed by agreement. Engagement detail stays confidential, which is why the two case studies on <a href="#work">Work</a> are anonymised and why there are no client-attributed percentages anywhere on this site. <a href="#modules">Module grading</a> shows exactly which modules we own and which we only support.</p>
   </section>
 
-  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad o-rest" style="max-width: 1240px; margin: 0 auto; padding: 112px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 72px; align-items: start;">
       <div>
-        <p style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 1.9; color: #6B635B; border-top: 1px solid #241F1B; padding-top: 20px;">Named consultant<br>Senior-only delivery<br>No pyramid staffing</p>
+        <p style="margin: 0; font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 1.9; color: #5B6B7C; border-top: 1px solid #071C35; padding-top: 20px;">Named consultant<br>Senior-only delivery<br>No pyramid staffing</p>
       </div>
       <div>
-        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6B635B;">09 — Who you will be speaking to</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 28px;">The consultant who scopes the work does the work</h2></div>
+        <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">09 — Who you will be speaking to</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 28px;">The consultant who scopes the work does the work</h2></div>
         <p class="body" style="margin: 0 0 20px; font-size: 19px; line-height: 1.6; max-width: 62ch;">The call is with the consultant, and so is the work. AppsDreamz is deliberately small: the problems clients bring us — a payroll closing on a correction queue, a programme that has stopped converging — are not solved by adding people. They are solved by someone who has closed GCC payrolls reading the configuration against the employment contracts.</p>
         <p class="body" style="margin: 0 0 28px; font-size: 19px; line-height: 1.6; max-width: 62ch;">So we turn down work we cannot staff with that person, and we say on the first call if the problem is not ours to fix.</p>
       </div>
     </div>
   </section>
 
-  <section class="sect pad o-rest" id="contact" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #DDD7CD;">
+  <section class="sect pad o-rest" id="contact" style="max-width: 1240px; margin: 0 auto; padding: 128px 48px; border-top: 1px solid #D5E1EA;">
     <div class="two" style="display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 72px; align-items: start;">
       <div>
         <h2 class="h-hero" style="font-size: 56px; line-height: 1.1; letter-spacing: -0.015em; max-width: 26ch; margin-bottom: 28px;">Tell us where you are — planning, mid-programme, or live and not settled.</h2>
-        <p class="body" style="margin: 0 0 40px; font-size: 19px; line-height: 1.6; color: #241F1B; max-width: 62ch;">Forty-five minutes, no obligation, and you leave with our read on whether the problem is configuration, data, process or scope.</p>
+        <p class="body" style="margin: 0 0 40px; font-size: 19px; line-height: 1.6; color: #071C35; max-width: 62ch;">Forty-five minutes, no obligation, and you leave with our read on whether the problem is configuration, data, process or scope.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 16px;">
-          <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #FBFAF7; background: #123A56; padding: 17px 28px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
-          <a class="hv5" href="#contact" style="display: inline-flex; align-items: center; font-size: 19px; color: #241F1B; border: 1px solid #C6BEB2; border-bottom: 1px solid #C6BEB2; padding: 16px 24px;">Send a message instead</a>
+          <a class="hv2" href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 14px; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 17px 28px; border-bottom: 0;">Book a free 45-minute call<span style="display: inline-block; width: 22px; height: 1px; background: #29ABE2;"></span></a>
+          <a class="hv5" href="#contact" style="display: inline-flex; align-items: center; font-size: 19px; color: #071C35; border: 1px solid #C5D3DE; border-bottom: 1px solid #C5D3DE; padding: 16px 24px;">Send a message instead</a>
         </div>
       </div>
-      <div style="border-top: 1px solid #241F1B; padding-top: 24px;">
-        <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #DDD7CD;">
-          <span style="font-size: 17px; color: #6B635B;">Email</span>
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #241F1B;">aneel@appsdreamz.com</span>
+      <div style="border-top: 1px solid #071C35; padding-top: 24px;">
+        <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #D5E1EA;">
+          <span style="font-size: 17px; color: #5B6B7C;">Email</span>
+          <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #071C35;">aneel@appsdreamz.com</span>
         </div>
-        <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #DDD7CD;">
-          <span style="font-size: 17px; color: #6B635B;">Response time</span>
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #241F1B;">One working day</span>
+        <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #D5E1EA;">
+          <span style="font-size: 17px; color: #5B6B7C;">Response time</span>
+          <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #071C35;">One working day</span>
         </div>
-        <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #DDD7CD;">
-          <span style="font-size: 17px; color: #6B635B;">Hours</span>
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #241F1B;">Mon to Fri, 09:00 to 18:00 GST</span>
+        <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 14px 0; border-bottom: 1px solid #D5E1EA;">
+          <span style="font-size: 17px; color: #5B6B7C;">Hours</span>
+          <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #071C35;">Mon to Fri, 09:00 to 18:00 GST</span>
         </div>
         <div class="spec-row" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: baseline; padding: 14px 0;">
-          <span style="font-size: 17px; color: #6B635B;">Registered office</span>
-          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; color: #241F1B;">Bengaluru, India</span>
+          <span style="font-size: 17px; color: #5B6B7C;">Registered office</span>
+          <span style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; color: #071C35;">Bengaluru, India</span>
         </div>
       </div>
     </div>
   </section>
 
-  <footer style="border-top: 1px solid #241F1B; background: #FBFAF7;">
+  <footer style="position: relative; overflow: hidden; border-top: 1px solid #071C35; background: #F4F8FB;">
+    <div class="foot-slash" aria-hidden="true"></div>
     <div class="pad" style="max-width: 1240px; margin: 0 auto; padding: 56px 48px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 48px;">
       <div>
-        <img src="images/appsdreamz-logo.png" alt="AppsDreamz" width="3430" height="1405" style="height: 60px; width: auto; display: block; margin-bottom: 20px;">
-        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #241F1B; max-width: 40ch;">Oracle Fusion HCM implementation, localisation, integration and managed support across the GCC and India.</p>
+        <img src="images/appsdreamz-logo.png" alt="AppsDreamz" width="1200" height="456" style="height: 72px; width: auto; display: block; margin-bottom: 20px;">
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #071C35; max-width: 40ch;">Oracle Fusion HCM implementation, localisation, integration and managed support across the GCC and India.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 4px;">
-        <a class="hv0" href="#lifecycle" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">What we do</a>
-        <a class="hv0" href="#modules" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">Module coverage</a>
-        <a class="hv0" href="#how-we-work" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">How we work</a>
-        <a class="hv0" href="#start" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">Where engagements start</a>
+        <a class="hv0" href="#lifecycle" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">What we do</a>
+        <a class="hv0" href="#modules" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Module coverage</a>
+        <a class="hv0" href="#how-we-work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">How we work</a>
+        <a class="hv0" href="#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Where engagements start</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 4px;">
-        <a class="hv0" href="#modules" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">Talent and Recruiting</a>
-        <a class="hv0" href="#start" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">Health Check detail</a>
-        <a class="hv0" href="#start" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">Design Review</a>
-        <a class="hv0" href="#contact" style="font-size: 17px; color: #241F1B; border-bottom: 0; padding: 10px 0;">Contact</a>
+        <a class="hv0" href="#modules" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Talent and Recruiting</a>
+        <a class="hv0" href="#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Health Check detail</a>
+        <a class="hv0" href="#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Design Review</a>
+        <a class="hv0" href="#contact" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 10px 0;">Contact</a>
       </div>
-      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; line-height: 2; color: #241F1B;">
+      <div style="font-family: 'Inter', Arial, sans-serif; font-weight: 400; font-size: 14px; line-height: 2; color: #071C35;">
         <div>aneel@appsdreamz.com</div>
         <div>Mon to Fri, 09:00 to 18:00 GST</div>
-        <div style="color: #6B635B;">Replies within one working day</div>
+        <div style="color: #5B6B7C;">Replies within one working day</div>
       </div>
     </div>
     <div class="pad" style="max-width: 1240px; margin: 0 auto; padding: 24px 48px 48px;">
-      <p class="legal" style="margin: 0 0 8px; font-size: 15px; line-height: 1.7; color: #6B635B; max-width: 80ch; border-top: 1px solid #DDD7CD; padding-top: 24px;">Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p>
-      <p class="legal" style="margin: 0; font-size: 15px; line-height: 1.7; color: #6B635B; max-width: 80ch;">AppsDreamz is an independent consultancy. © 2026 AppsDreamz.</p>
+      <p class="legal" style="margin: 0 0 8px; font-size: 15px; line-height: 1.7; color: #5B6B7C; max-width: 80ch; border-top: 1px solid #D5E1EA; padding-top: 24px;">Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p>
+      <p class="legal" style="margin: 0; font-size: 15px; line-height: 1.7; color: #5B6B7C; max-width: 80ch;">AppsDreamz is an independent consultancy. © 2026 AppsDreamz.</p>
     </div>
   </footer>
 
-  <div class="sticky-cta" style="display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: #FBFAF7; border-top: 1px solid #241F1B; padding: 12px 20px;">
-    <a href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="display: block; text-align: center; font-size: 19px; color: #FBFAF7; background: #123A56; padding: 16px 20px; border-bottom: 0;">Book a free 45-minute call</a>
+  <div class="sticky-cta" style="display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: #F4F8FB; border-top: 1px solid #071C35; padding: 12px 20px;">
+    <a href="https://cal.com/appsdreamz/45-minute-call" target="_blank" rel="noopener" style="display: block; text-align: center; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 16px 20px; border-bottom: 0;">Book a free 45-minute call</a>
   </div>
 
 </div>
