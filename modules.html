@@ -29,6 +29,25 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Organization","ProfessionalService"],"@id":"https://appsdreamz.com/#org","name":"AppsDreamz","legalName":"AppsDreamz Systems Private Limited","url":"https://appsdreamz.com/","logo":"https://appsdreamz.com/images/appsdreamz-logo.png","image":"https://appsdreamz.com/images/og-home.png","email":"aneel@appsdreamz.com","description":"Oracle Fusion HCM implementation, localisation, integration and managed support for organisations worldwide.","address":{"@type":"PostalAddress","streetAddress":"Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara","addressLocality":"Bengaluru","addressRegion":"Karnataka","postalCode":"560068","addressCountry":"IN"},"areaServed":"Worldwide","knowsAbout":["Oracle Fusion HCM","Oracle Fusion Payroll","Payroll localisation by country","GCC payroll localisation","Oracle E-Business Suite","Oracle HCM integrations","Oracle Fusion HCM managed services"],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}},{"@type":"WebSite","@id":"https://appsdreamz.com/#website","url":"https://appsdreamz.com/","name":"AppsDreamz","publisher":{"@id":"https://appsdreamz.com/#org"},"inLanguage":"en"},{"@type":"WebPage","@id":"https://appsdreamz.com/modules.html#page","url":"https://appsdreamz.com/modules.html","name":"Module coverage | AppsDreamz Oracle Fusion HCM","description":"Twelve Oracle Fusion HCM modules, graded by what we actually do. Eight we have taken live. Plus how we design for statutory reality, country by country.","isPartOf":{"@id":"https://appsdreamz.com/#website"},"about":{"@id":"https://appsdreamz.com/#org"},"inLanguage":"en"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://appsdreamz.com/"},{"@type":"ListItem","position":2,"name":"Module coverage","item":"https://appsdreamz.com/modules.html"}]}]}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+/* booking form */
+.bookcard{background:#071C35;color:#F4F8FB;padding:36px;position:relative;scroll-margin-top:96px}
+.bookcard::before{content:"";position:absolute;top:0;left:0;width:72px;height:4px;background:#29ABE2}
+.bk-h{font-family:'Inter Tight',Arial,sans-serif;font-weight:400;font-size:28px;line-height:1.2;margin:8px 0 10px;color:#F4F8FB}
+.bk-sub{margin:0 0 24px;font-size:16px;line-height:1.5;color:#B9CCDA}
+.bk-l{display:block;font-family:'Inter',Arial,sans-serif;font-weight:500;font-size:14px;color:#F4F8FB;margin:0 0 8px}
+.bk-i{display:block;width:100%;box-sizing:border-box;min-height:48px;margin:0 0 20px;padding:12px 16px;font:400 16px 'Inter',Arial,sans-serif;color:#F4F8FB;background:rgba(244,248,251,.08);border:1px solid rgba(244,248,251,.28);border-radius:0}
+.bk-i::placeholder{color:#8FA5B8}
+.bk-i:focus{outline:2px solid #29ABE2;outline-offset:1px;border-color:#29ABE2}
+.bk-i.bad{border-color:#FF8A80}
+.bk-sel{background:#F4F8FB;color:#071C35;appearance:auto}
+.bk-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bk-btn{display:block;width:100%;min-height:52px;margin-top:4px;font:600 17px 'Inter',Arial,sans-serif;color:#071C35;background:#29ABE2;border:0;cursor:pointer;transition:background .2s}
+.bk-btn:hover{background:#5CC3EC}
+.bk-btn:focus-visible{outline:2px solid #F4F8FB;outline-offset:3px}
+.bk-note{margin:18px 0 0;font-size:13px;line-height:1.5;color:#8FA5B8}
+.bk-err{margin:14px 0 0;font-size:14px;color:#FFB3AB}
+@media(max-width:640px){.bookcard{padding:28px 20px}.bk-row{grid-template-columns:1fr;gap:0}}
 </style>
 <style>
 html, body { margin: 0; padding: 0; background: #F4F8FB; }
@@ -179,7 +198,7 @@ html, body { margin: 0; padding: 0; background: #F4F8FB; }
         <a class="hv0" href="how-we-work.html#how-we-work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">How we work</a>
         <a class="hv0" href="work.html#work" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Work</a>
         <a class="hv0" href="engagements.html#start" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Where to start</a>
-        <a class="hv1" href="mailto:aneel@appsdreamz.com?subject=Book%20a%20free%2045-minute%20call&body=Hello%20AppsDreamz%2C%0A%0AI%27d%20like%20to%20book%20a%2045-minute%20call.%0A%0AName%3A%0ACompany%3A%0ACountry%3A%0APreferred%20date%20and%20time%20(with%20time%20zone)%3A%0AWhat%20we%27d%20like%20to%20discuss%3A%0A" style="font-size: 17px; color: #F4F8FB; background: #071C35; padding: 12px 20px; border-bottom: 0; min-height: 44px; display: inline-flex; align-items: center;">Book a call</a>
+        <a class="hv1" href="contact.html#book" style="font-size: 17px; color: #F4F8FB; background: #071C35; padding: 12px 20px; border-bottom: 0; min-height: 44px; display: inline-flex; align-items: center;">Book a call</a>
       </nav>
     </div>
   </header>
@@ -273,7 +292,7 @@ html, body { margin: 0; padding: 0; background: #F4F8FB; }
       <p style="margin: 0 0 14px; font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #29ABE2;">Start with a conversation</p>
       <p style="margin: 0 0 36px; font-family: 'Inter Tight', 'Inter', Arial, sans-serif; font-weight: 300; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.2; letter-spacing: -0.015em; color: #FFFFFF; max-width: 22ch;">The first conversation is free and forty-five minutes long.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 20px 40px; align-items: center;">
-        <a class="hv4 cta-btn" href="mailto:aneel@appsdreamz.com?subject=Book%20a%20free%2045-minute%20call&body=Hello%20AppsDreamz%2C%0A%0AI%27d%20like%20to%20book%20a%2045-minute%20call.%0A%0AName%3A%0ACompany%3A%0ACountry%3A%0APreferred%20date%20and%20time%20(with%20time%20zone)%3A%0AWhat%20we%27d%20like%20to%20discuss%3A%0A" style="display: inline-flex; align-items: center; gap: 14px; font-size: 17px; font-weight: 500; color: #071C35; background: #FFFFFF; padding: 16px 26px; border-bottom: 0;">Book a free 45-minute call <span aria-hidden="true">→</span></a>
+        <a class="hv4 cta-btn" href="contact.html#book" style="display: inline-flex; align-items: center; gap: 14px; font-size: 17px; font-weight: 500; color: #071C35; background: #FFFFFF; padding: 16px 26px; border-bottom: 0;">Book a free 45-minute call <span aria-hidden="true">→</span></a>
         <a href="how-we-work.html" class="nextlink"><span>Next</span><strong>How we work</strong></a>
       </div>
     </div>
@@ -312,9 +331,19 @@ html, body { margin: 0; padding: 0; background: #F4F8FB; }
   </footer>
 
   <div class="sticky-cta" style="display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: #F4F8FB; border-top: 1px solid #071C35; padding: 12px 20px;">
-    <a href="mailto:aneel@appsdreamz.com?subject=Book%20a%20free%2045-minute%20call&body=Hello%20AppsDreamz%2C%0A%0AI%27d%20like%20to%20book%20a%2045-minute%20call.%0A%0AName%3A%0ACompany%3A%0ACountry%3A%0APreferred%20date%20and%20time%20(with%20time%20zone)%3A%0AWhat%20we%27d%20like%20to%20discuss%3A%0A" style="display: block; text-align: center; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 16px 20px; border-bottom: 0;">Book a free 45-minute call</a>
+    <a href="contact.html#book" style="display: block; text-align: center; font-size: 19px; color: #F4F8FB; background: #071C35; padding: 16px 20px; border-bottom: 0;">Book a free 45-minute call</a>
   </div>
 
 </div>
+<script>
+(function(){var f=document.getElementById('bookform');if(!f)return;
+f.addEventListener('submit',function(e){e.preventDefault();
+var g=function(n){return f.elements[n].value.trim()};
+var ok=true;['name','email','size'].forEach(function(n){var el=f.elements[n];var v=g(n);var bad=!v||(n==='email'&&!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v));el.classList.toggle('bad',bad);if(bad)ok=false});
+document.getElementById('bk-err').hidden=ok;if(!ok)return;
+var body='Hello AppsDreamz,\n\nI would like to book a free 45-minute call.\n\nFull name: '+g('name')+'\nWork email: '+g('email')+'\nPhone: '+g('phone')+'\nCompany size: '+g('size')+'\nCountry: '+g('country')+'\n';
+location.href='mailto:aneel@appsdreamz.com?subject='+encodeURIComponent('Book a free 45-minute call')+'&body='+encodeURIComponent(body);
+});})();
+</script>
 </body>
 </html>
