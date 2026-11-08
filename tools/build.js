@@ -183,7 +183,7 @@ function header(p, current) {
   <a class="brand" href="${p || './'}" aria-label="AppsDreamz home"><img src="${p}images/appsdreamz-logo.png" alt="AppsDreamz" width="1200" height="456"></a>
   <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><i></i></button>
   <nav id="site-nav" aria-label="Main"><ul class="menu">${groups}</ul>
-    <a class="btn head-cta" href="${p}book-diagnostic/">Book a 45-minute diagnostic</a></nav>
+    <a class="btn head-cta" href="${p}book-diagnostic/">Book a diagnostic${ARROW}</a></nav>
 </div></header>`;
 }
 
@@ -195,7 +195,7 @@ function footer(p) {
   <div class="fcol"><p class="fh">Company</p><ul><li><a href="${p}clients-results/">Clients &amp; Results</a></li><li><a href="${p}about/">About</a></li><li><a href="${p}about/leadership/">Leadership</a></li><li><a href="${p}about/delivery-method/">Delivery method</a></li><li><a href="${p}about/security-data-handling/">Security &amp; data handling</a></li></ul><p class="fh">Insights</p><ul><li><a href="${p}insights/">All insights</a></li><li><a href="${p}resources/payroll-statutory-risk-checklist/">Risk checklist</a></li></ul></div>
   <div class="fcol contactc"><p class="fh">Contact</p><p><a href="mailto:${EMAIL}">${EMAIL}</a><br>Mon to Fri, 09:00 to 18:00 GST (UTC+4)<br>Replies within one working day</p><p>Dubai · Riyadh · Bengaluru</p>${btn(p + 'book-diagnostic/', 'Book a diagnostic', 'btn small')}</div>
 </div>
-<div class="in legal"><p>Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p><p>AppsDreamz is an independent consultancy. © ${new Date().getFullYear()} AppsDreamz. <span class="legal-links"><a href="${p}legal/privacy/">Privacy notice</a> · <a href="${p}legal/cookies/">Cookie notice</a> · <a href="${p}about/security-data-handling/">Security &amp; data handling</a></span></p></div>
+<div class="in legal"><p>Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p><p>AppsDreamz is an independent consultancy. © ${new Date().getFullYear()} AppsDreamz. <span class="legal-links"><a href="${p}legal/privacy/">Privacy notice</a> · <a href="${p}legal/cookies/">Cookie notice</a> · <a href="${p}about/security-data-handling/">Security &amp; data handling</a> · <button type="button" class="linkbtn" data-cookie-settings>Cookie settings</button></span></p></div>
 </footer>
 <div class="sticky-cta" aria-hidden="true"><a href="${p}book-diagnostic/" tabindex="-1">Book a 45-minute diagnostic</a></div>`;
 }
@@ -253,6 +253,13 @@ ${crumbHtml}
 ${body(p)}
 </main>
 ${footer(p)}
+<div class="cookie" id="cookie" role="dialog" aria-modal="false" aria-labelledby="cookie-t" aria-describedby="cookie-d" hidden>
+  <div class="cookie-in">
+    <div class="cookie-txt"><p class="cookie-t" id="cookie-t"><span class="sl" aria-hidden="true"></span>Your privacy, your choice</p>
+      <p id="cookie-d">We use only what the site needs to work. With your consent we would also use privacy-friendly analytics to see which pages help visitors. No advertising cookies, ever. <a href="${p}legal/cookies/">Cookie notice</a></p></div>
+    <div class="cookie-btns"><button type="button" class="btn ghost-dark small" data-consent="denied">Essential only</button><button type="button" class="btn small" data-consent="granted">Accept analytics</button></div>
+  </div>
+</div>
 <script src="${p}assets/site.js" defer></script>
 </body>
 </html>
@@ -1205,11 +1212,18 @@ pages.push(page({
 }));
 pages.push(page({
   file: 'legal/cookies/index.html', current: 'legal/cookies/',
-  title: 'Cookie Notice | AppsDreamz', desc: 'AppsDreamz does not set cookies on this website.',
+  title: 'Cookie Notice | AppsDreamz', desc: 'How AppsDreamz uses cookies and similar storage, and how to change your consent choice.',
   crumbs: [['legal/cookies/', 'Cookie notice']],
   body: p => `<section class="sect"><div class="in post-body legal-body">${eyebrow('Legal')}<h1>Cookie notice</h1><p class="byline">Last updated ${new Date(TODAY).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-<p>This website does not set cookies and does not use analytics, advertising or tracking cookies. The risk checklist keeps your ticks only on the page while it is open.</p>
-<p>Fonts are loaded from Google Fonts, which receives your IP address to deliver them. If we add analytics in future, we will update this notice and ask for your consent first.</p>
+<p>When you first visit, a banner asks whether you accept analytics. You can choose <strong>Essential only</strong> or <strong>Accept analytics</strong>, and change your mind at any time with the <button type="button" class="linkbtn" data-cookie-settings>Cookie settings</button> link in the footer of every page.</p>
+<h2>Essential storage</h2>
+<p>We store your consent choice in your browser (local storage, key <code>ad-consent</code>) so we do not ask again on every page. It holds only "granted" or "denied" and the date you chose. It is not sent to us.</p>
+<h2>Analytics (only with consent)</h2>
+<p>No analytics tool is active on this website today. If we switch one on, it loads only after you select Accept analytics, and we will name the provider, the cookies it sets and how long they last here before it goes live.</p>
+<h2>What we never use</h2>
+<p>No advertising, retargeting or social media tracking cookies. The risk checklist keeps your ticks only on the page while it is open.</p>
+<h2>Third parties</h2>
+<p>Fonts are loaded from Google Fonts, which receives your IP address to deliver them.</p>
 <p>Questions: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
 </div></section>`
 }));

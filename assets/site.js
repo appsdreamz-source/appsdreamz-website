@@ -46,6 +46,13 @@
   });
   mobile.addEventListener && mobile.addEventListener('change', function () { setNav(false); });
 
+  /* ---------- header scroll state ---------- */
+  var head = document.querySelector('.site-head');
+  if (head) {
+    var hs = function () { head.classList.toggle('scrolled', window.scrollY > 8); };
+    window.addEventListener('scroll', hs, { passive: true }); hs();
+  }
+
   /* ---------- sticky mobile CTA ---------- */
   var sticky = document.querySelector('.sticky-cta');
   var formArea = document.getElementById('book');
@@ -54,7 +61,7 @@
     if (formArea && 'IntersectionObserver' in window) {
       new IntersectionObserver(function (es) { formVisible = es[0].isIntersecting; update(); }).observe(formArea);
     }
-    var update = function () { sticky.classList.toggle('show', window.scrollY > 480 && !formVisible); };
+    var update = function () { var cb = document.getElementById('cookie'); sticky.classList.toggle('show', window.scrollY > 480 && !formVisible && (!cb || cb.hidden)); };
     window.addEventListener('scroll', update, { passive: true });
     update();
   }
@@ -74,6 +81,33 @@
     var pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
     marks.forEach(function (m) { if (pct >= m && !hit[m]) { hit[m] = 1; dl.push({ event: 'scroll_depth', percent: m }); } });
   }, { passive: true });
+
+  /* ---------- cookie consent ----------
+     Set ANALYTICS_SRC to a GA4 / Plausible script URL; it loads only after "Accept analytics". */
+  var ANALYTICS_SRC = '';
+  var CKEY = 'ad-consent';
+  var banner = document.getElementById('cookie');
+  function getConsent() { try { return JSON.parse(localStorage.getItem(CKEY) || 'null'); } catch (e) { return null; } }
+  function applyConsent(state) {
+    dl.push({ event: 'consent_update', analytics_storage: state, ad_storage: 'denied' });
+    if (state === 'granted' && ANALYTICS_SRC && !document.getElementById('an-tag')) {
+      var t = document.createElement('script'); t.id = 'an-tag'; t.async = true; t.src = ANALYTICS_SRC; document.head.appendChild(t);
+    }
+  }
+  dl.push({ event: 'consent_default', analytics_storage: 'denied', ad_storage: 'denied' });
+  var saved = getConsent();
+  if (saved && saved.v) applyConsent(saved.v);
+  else if (banner) banner.hidden = false;
+  if (banner) banner.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-consent]'); if (!b) return;
+    var v = b.getAttribute('data-consent');
+    try { localStorage.setItem(CKEY, JSON.stringify({ v: v, d: new Date().toISOString().slice(0, 10) })); } catch (e2) {}
+    banner.hidden = true; applyConsent(v); window.dispatchEvent(new Event('scroll'));
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-cookie-settings]') || !banner) return;
+    banner.hidden = false; var f = banner.querySelector('[data-consent="granted"]'); if (f) f.focus();
+  });
 
   /* ---------- risk checklist ---------- */
   var cl = document.getElementById('checklist');
