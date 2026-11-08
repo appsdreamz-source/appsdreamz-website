@@ -53,6 +53,34 @@
     window.addEventListener('scroll', hs, { passive: true }); hs();
   }
 
+  /* ---------- hero module map ---------- */
+  var hmap = document.querySelector('.hmap');
+  var hdata = document.getElementById('hm-data');
+  if (hmap && hdata) {
+    var HM = JSON.parse(hdata.textContent);
+    var nodes = [].slice.call(hmap.querySelectorAll('.hm-node'));
+    var links = [].slice.call(hmap.querySelectorAll('.hm-link'));
+    var card = hmap.querySelector('.hcard.ready');
+    var cur = 'payroll';
+    var pick = function (k) {
+      if (k === cur || !HM[k]) return;
+      cur = k;
+      nodes.forEach(function (n) { var on = n.getAttribute('data-k') === k; n.classList.toggle('hot', on); n.setAttribute('aria-pressed', String(on)); });
+      links.forEach(function (l) { l.classList.toggle('hot', l.getAttribute('data-k') === k); });
+      hmap.classList.toggle('ai-on', k === 'ai');
+      card.querySelector('.hc-t').textContent = HM[k].t;
+      card.querySelector('.go').textContent = HM[k].c;
+      card.querySelector('ul').innerHTML = HM[k].l.map(function (t, i) { return '<li style="--i:' + i + ';animation-delay:' + (i * 0.12) + 's">' + t.replace(/[<>&]/g, '') + '</li>'; }).join('');
+      dl.push({ event: 'hero_module_select', module: k });
+    };
+    nodes.forEach(function (n) {
+      var k = n.getAttribute('data-k');
+      n.addEventListener('mouseenter', function () { pick(k); });
+      n.addEventListener('focus', function () { pick(k); });
+      n.addEventListener('click', function () { pick(k); });
+    });
+  }
+
   /* ---------- sticky mobile CTA ---------- */
   var sticky = document.querySelector('.sticky-cta');
   var formArea = document.getElementById('book');

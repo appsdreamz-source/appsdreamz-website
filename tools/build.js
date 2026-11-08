@@ -312,6 +312,16 @@ ${related(p, o.related)}`
 const pages = [];
 
 /* ---------- HOME ---------- */
+const HMAP = [
+  { k: 'corehr', label: 'Core HR', x: 320.0, y: 115.0, title: 'Core HR readiness', chip: 'GO', checks: ['Enterprise structures validated', 'Person and assignment data reconciled', 'Security roles mapped to duties', 'Approval workflows tested'] },
+  { k: 'recruiting', label: 'Recruiting', x: 456.8, y: 180.9, title: 'Recruiting readiness', chip: 'GO', checks: ['Requisition templates aligned', 'Offer approvals routed correctly', 'Offer terms match the employee record', 'Onboarding journeys tested'] },
+  { k: 'absence', label: 'Absence', x: 490.6, y: 328.9, title: 'Absence readiness', chip: 'GO', checks: ['Accrual plans match entitlement', 'Carry-over and encashment tested', 'Absence mapped to payroll elements', 'Balances reconciled after migration'] },
+  { k: 'payroll', label: 'Payroll', x: 395.9, y: 447.7, title: 'Payroll run readiness', chip: 'GO', checks: ['Gross-to-net reconciled', 'Statutory bases validated', 'Costing to GL balanced', 'Bank and WPS files checked'] },
+  { k: 'time', label: 'Time and Labor', x: 244.1, y: 447.7, title: 'Time and Labor readiness', chip: 'GO', checks: ['Time rules and categories validated', 'Overtime mapped to pay elements', 'Approvals and cut-offs tested', 'Reported time reconciled to pay'] },
+  { k: 'talent', label: 'Talent', x: 149.4, y: 328.9, title: 'Talent readiness', chip: 'GO', checks: ['Goal and review templates configured', 'Performance cycles tested end to end', 'Talent profiles migrated', 'Succession data validated'] },
+  { k: 'ai', label: 'AI Agents', x: 183.2, y: 180.9, title: 'Fusion AI agents', chip: 'ADVISORY', checks: ['Use cases scoped against real workload', 'Data access and security reviewed', 'Agent Studio workflows designed', 'Human approval points defined'], ai: 1 }
+];
+
 pages.push(page({
   file: 'index.html',
   title: 'Oracle Fusion HCM Implementation, Payroll &amp; Remediation | AppsDreamz',
@@ -327,29 +337,33 @@ pages.push(page({
     <div class="row">${btn(p + 'book-diagnostic/', 'Book a 45-minute diagnostic', 'btn on-dark')}<a class="btn ghost" href="#problems">See how we fix Fusion HCM issues</a></div>
   </div>
   <figure class="hmap" aria-labelledby="hmap-cap">
-    <figcaption id="hmap-cap" class="vh">Illustration: the Oracle Fusion HCM modules AppsDreamz covers (Core HR, Recruiting, Absence, Payroll, Time and Labor, Talent) connected to one core, with a payroll run readiness check and statutory localisation for UAE, KSA and India.</figcaption>
+    <figcaption id="hmap-cap" class="vh">Interactive illustration: the Oracle Fusion HCM modules AppsDreamz covers (Core HR, Recruiting, Absence, Payroll, Time and Labor, Talent) and Fusion AI agents, connected to one core. Select a module to see the readiness checks we run for it.</figcaption>
     <div class="hmap-stage">
-    <p class="hm-tag">Fusion HCM · end to end <span>Illustrative</span></p>
-    <svg viewBox="96 66 448 448" aria-hidden="true" focusable="false">
+    <p class="hm-tag">Fusion HCM · end to end <span>Select a module</span></p>
+    <div class="hm-canvas">
+    <svg viewBox="72 64 496 452" aria-hidden="true" focusable="false">
       <defs>
         <radialGradient id="hg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#29ABE2" stop-opacity=".28"/><stop offset="1" stop-color="#29ABE2" stop-opacity="0"/></radialGradient>
       </defs>
       <circle cx="320" cy="290" r="230" fill="url(#hg)"/>
-      <circle cx="320" cy="290" r="170" class="hm-ring"/>
-      <circle cx="320" cy="290" r="214" class="hm-ring2"/>
-      ${[[320,120,'Core HR'],[467,205,'Recruiting'],[467,375,'Absence'],[320,460,'Payroll',1],[173,375,'Time and Labor'],[173,205,'Talent']].map(([x,y,t,hot],i)=>`<line x1="320" y1="290" x2="${x}" y2="${y}" class="hm-link${hot?' hot':''}" style="--d:${i*.35}s"/>`).join('')}
+      <circle cx="320" cy="290" r="175" class="hm-ring"/>
+      <circle cx="320" cy="290" r="222" class="hm-ring2"/>
+      <g class="hm-agents">${[0,120,240].map(d=>`<circle cx="${(320+222*Math.cos(d*Math.PI/180)).toFixed(1)}" cy="${(290+222*Math.sin(d*Math.PI/180)).toFixed(1)}" r="4"/>`).join('')}</g>
+      ${HMAP.map((m,i)=>`<line x1="320" y1="290" x2="${m.x}" y2="${m.y}" class="hm-link${m.k==='payroll'?' hot':''}${m.ai?' ai':''}" data-k="${m.k}" style="--d:${i*.3}s"/>`).join('')}
       <rect x="250" y="240" width="140" height="100" class="hm-core"/>
       <path d="M250 240h22l-12 100h-10z" class="hm-core-sl"/>
       <text x="331" y="276" class="hm-k">ORACLE FUSION</text>
       <text x="331" y="312" class="hm-big">HCM</text>
       <text x="331" y="330" class="hm-s">end to end</text>
-      ${[[320,120,'Core HR'],[467,205,'Recruiting'],[467,375,'Absence'],[320,460,'Payroll',1],[173,375,'Time and Labor'],[173,205,'Talent']].map(([x,y,t,hot],i)=>`<g class="hm-node${hot?' hot':''}" style="--d:${i*.12}s"><rect x="${x-64}" y="${y-21}" width="128" height="42"/><text x="${x}" y="${y+5}">${t}</text></g>`).join('')}
     </svg>
-    <div class="hcards"><div class="hcard ready"><p class="hc-h">Payroll run readiness <span class="go">GO</span></p>
-      <ul>${['Gross-to-net reconciled','Statutory bases validated','Costing to GL balanced','Bank and WPS files checked'].map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ul></div>
+    ${HMAP.map((m,i)=>`<button type="button" class="hm-node${m.k==='payroll'?' hot':''}${m.ai?' ai':''}" data-k="${m.k}" aria-pressed="${m.k==='payroll'}" style="--d:${i*.1}s;left:${((m.x-72)/496*100).toFixed(2)}%;top:${((m.y-64)/452*100).toFixed(2)}%">${m.ai?'<span class="spark" aria-hidden="true"></span>':''}${m.label}</button>`).join('')}
+    </div>
+    </div>
+    <div class="hcards"><div class="hcard ready" aria-live="polite"><p class="hc-h"><span class="hc-t">${HMAP[3].title}</span> <span class="go">${HMAP[3].chip}</span></p>
+      <ul>${HMAP[3].checks.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ul></div>
     <div class="hcard stat"><p class="hc-h">Statutory localisation</p>
       <p class="hc-chips"><span>UAE WPS</span><span>KSA GOSI</span><span>Gratuity · EOS</span><span>India statutory</span></p></div></div>
-    </div>
+    <script type="application/json" id="hm-data">${JSON.stringify(Object.fromEntries(HMAP.map(m=>[m.k,{t:m.title,c:m.chip,l:m.checks}])))}</script>
     <ol class="hlife" aria-label="Where we work in the lifecycle">${['Design','Build','Test','Go-live','Run','Support'].map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ol>
     <p class="hmap-note">Illustrative: the modules and checks we deliver, not client data.</p>
   </figure>
