@@ -318,30 +318,47 @@ pages.push(page({
   desc: 'Specialist Oracle Fusion HCM partner: implementation, remediation, statutory payroll localisation, integrations and managed support. Fixed-fee Health Check.',
   current: '',
   body: p => `
-<section class="hero home"><div class="in">
+<section class="hero home dark"><span class="hero-grid" aria-hidden="true"></span><span class="hero-glow" aria-hidden="true"></span><span class="hero-slash" aria-hidden="true"></span><div class="in">
   <div class="hero-copy">
     ${eyebrow('Oracle Fusion HCM specialists · GCC, India and global')}
-    <h1>Oracle Fusion HCM, from design to the payroll run that has to be right.</h1>
+    <h1>Oracle Fusion HCM, from design to the payroll run <span class="hl">that has to be right.</span></h1>
     <p class="lead">AppsDreamz helps Oracle Fusion HCM customers implement, remediate, localise, integrate, and operate HR and payroll processes with confidence.</p>
     <p class="sub-lead">We find and fix the configuration, data, process, integration, and statutory-localisation failures that standard validation misses, before they reach payroll, compliance, or the balance sheet.</p>
-    <div class="row">${btn(p + 'book-diagnostic/', 'Book a 45-minute diagnostic')}<a class="btn ghost-dark" href="#problems">See how we fix Fusion HCM issues</a></div>
+    <div class="row">${btn(p + 'book-diagnostic/', 'Book a 45-minute diagnostic', 'btn on-dark')}<a class="btn ghost" href="#problems">See how we fix Fusion HCM issues</a></div>
   </div>
-  <figure class="board" aria-labelledby="board-cap">
-    <figcaption id="board-cap" class="figcap">FIG. 01 — Payroll run control register · illustrative</figcaption>
-    <table>
-      <thead><tr><th scope="col">Check</th><th scope="col">Read against</th><th scope="col">Status</th></tr></thead>
-      <tbody>
-      ${[['Gratuity base', 'Contract-eligible allowances'], ['WPS file', 'Component classification'], ['GOSI base', 'Salary after restructure'], ['Leave accrual', 'Contractual entitlement'], ['Offer → employee record', 'Approved offer terms'], ['End-of-service provision', 'Balance sheet']].map(([a, b], i) => `<tr style="--i:${i}"><td>${a}</td><td>${b}</td><td><span class="st"><span class="chk">Checking</span><span class="ok">Reconciled</span></span></td></tr>`).join('')}
-      </tbody>
-    </table>
-    <p class="board-foot">Six of the checks a Health Check runs on every closed cycle.</p>
+  <figure class="hmap" aria-labelledby="hmap-cap">
+    <figcaption id="hmap-cap" class="vh">Illustration: the Oracle Fusion HCM modules AppsDreamz covers (Core HR, Recruiting, Absence, Payroll, Time and Labor, Talent) connected to one core, with a payroll run readiness check and statutory localisation for UAE, KSA and India.</figcaption>
+    <div class="hmap-stage">
+    <p class="hm-tag">Fusion HCM · end to end <span>Illustrative</span></p>
+    <svg viewBox="96 66 448 448" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="hg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#29ABE2" stop-opacity=".28"/><stop offset="1" stop-color="#29ABE2" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="320" cy="290" r="230" fill="url(#hg)"/>
+      <circle cx="320" cy="290" r="170" class="hm-ring"/>
+      <circle cx="320" cy="290" r="214" class="hm-ring2"/>
+      ${[[320,120,'Core HR'],[467,205,'Recruiting'],[467,375,'Absence'],[320,460,'Payroll',1],[173,375,'Time and Labor'],[173,205,'Talent']].map(([x,y,t,hot],i)=>`<line x1="320" y1="290" x2="${x}" y2="${y}" class="hm-link${hot?' hot':''}" style="--d:${i*.35}s"/>`).join('')}
+      <rect x="250" y="240" width="140" height="100" class="hm-core"/>
+      <path d="M250 240h22l-12 100h-10z" class="hm-core-sl"/>
+      <text x="331" y="276" class="hm-k">ORACLE FUSION</text>
+      <text x="331" y="312" class="hm-big">HCM</text>
+      <text x="331" y="330" class="hm-s">end to end</text>
+      ${[[320,120,'Core HR'],[467,205,'Recruiting'],[467,375,'Absence'],[320,460,'Payroll',1],[173,375,'Time and Labor'],[173,205,'Talent']].map(([x,y,t,hot],i)=>`<g class="hm-node${hot?' hot':''}" style="--d:${i*.12}s"><rect x="${x-64}" y="${y-21}" width="128" height="42"/><text x="${x}" y="${y+5}">${t}</text></g>`).join('')}
+    </svg>
+    <div class="hcards"><div class="hcard ready"><p class="hc-h">Payroll run readiness <span class="go">GO</span></p>
+      <ul>${['Gross-to-net reconciled','Statutory bases validated','Costing to GL balanced','Bank and WPS files checked'].map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ul></div>
+    <div class="hcard stat"><p class="hc-h">Statutory localisation</p>
+      <p class="hc-chips"><span>UAE WPS</span><span>KSA GOSI</span><span>Gratuity · EOS</span><span>India statutory</span></p></div></div>
+    </div>
+    <ol class="hlife" aria-label="Where we work in the lifecycle">${['Design','Build','Test','Go-live','Run','Support'].map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ol>
+    <p class="hmap-note">Illustrative: the modules and checks we deliver, not client data.</p>
   </figure>
 </div>
 <div class="in"><ul class="proofbar">
-  <li>8 partner and white-label delivery relationships</li>
-  <li>Oracle Fusion HCM, Payroll, Integrations and Statutory Localisation</li>
-  <li>GCC and India payroll expertise</li>
-  <li>Fixed-fee diagnostic and design-review options</li>
+  <li><strong>8</strong>partner and white-label delivery relationships</li>
+  <li><strong>7 modules</strong>delivered end to end, plus integrations and localisation</li>
+  <li><strong>GCC + India</strong>payroll and statutory expertise</li>
+  <li><strong>Fixed fee</strong>diagnostic and design-review options</li>
 </ul></div></section>
 
 <section class="sect" id="problems"><div class="in">
