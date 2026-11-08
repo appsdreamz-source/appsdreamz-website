@@ -210,6 +210,8 @@ const ORG = {
   founder: FOUNDERS.map(([, n, , , li]) => ({ '@type': 'Person', name: n, sameAs: li })),
 };
 
+const ASSET_V = Object.fromEntries(['css', 'js'].map(e => [e, require('crypto').createHash('md5').update(fs.readFileSync(path.join(ROOT, 'assets/site.' + e))).digest('hex').slice(0, 8)]));
+
 function page({ file, title, desc, h1, crumbs, body, current, schema = [], noindex }) {
   const depth = file.split('/').length - 1;
   const p = '../'.repeat(depth);
@@ -242,7 +244,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&family=Inter:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="${p}assets/site.css">
+<link rel="stylesheet" href="${p}assets/site.css?v=${ASSET_V.css}">
 <script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 </head>
@@ -260,7 +262,7 @@ ${footer(p)}
     <div class="cookie-btns"><button type="button" class="btn ghost-dark small" data-consent="denied">Essential only</button><button type="button" class="btn small" data-consent="granted">Accept analytics</button></div>
   </div>
 </div>
-<script src="${p}assets/site.js" defer></script>
+<script src="${p}assets/site.js?v=${ASSET_V.js}" defer></script>
 </body>
 </html>
 `;
