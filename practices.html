@@ -75,6 +75,16 @@
 @media (max-width: 400px){
   .bookcard{padding:24px 16px}
 }
+
+/* founders */
+.founders{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:8px}
+.fcard{background:#FFFFFF;border:1px solid #D5E1EA;padding:32px 28px;text-align:center;transition:border-color .2s}
+.fcard:hover{border-color:#071C35}
+.fcard img{width:112px;height:112px;border-radius:50%;object-fit:cover;object-position:top;display:block;margin:0 auto 20px;border:1px solid #D5E1EA}
+.fcard h3{font-family:'Inter Tight','Inter',Arial,sans-serif;font-weight:500;font-size:22px;line-height:1.25;color:#071C35;margin:0 0 6px}
+.fcard .frole{font-family:'Inter',Arial,sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0B6E9C;margin:0 0 14px}
+.fcard .fbio{font-size:16px;line-height:1.6;color:#5B6B7C;margin:0 auto;max-width:34ch}
+@media (max-width:640px){.founders{grid-template-columns:1fr}}
 </style>
 <style>
 html, body { margin: 0; padding: 0; background: #F4F8FB; }
@@ -322,6 +332,11 @@ html, body { margin: 0; padding: 0; background: #F4F8FB; }
         <div><div style="display: flex; align-items: center; gap: 12px; margin: 0 0 18px;"><span style="width: 8px; height: 8px; background: #29ABE2; flex: none;"></span><span style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; letter-spacing: 0.12em; font-size: 12.5px; text-transform: uppercase; color: #5B6B7C;">09 — Who you will be speaking to</span></div><h2 class="h-sect" style="font-size: 40px; line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 28px;">The consultant who scopes the work does the work</h2></div>
         <p class="body" style="margin: 0 0 20px; font-size: 19px; line-height: 1.6; max-width: 62ch;">The call is with the consultant, and so is the work. AppsDreamz is deliberately small: the problems clients bring us — a payroll closing on a correction queue, a programme that has stopped converging — are not solved by adding people. They are solved by someone who has closed GCC payrolls reading the configuration against the employment contracts.</p>
         <p class="body" style="margin: 0 0 28px; font-size: 19px; line-height: 1.6; max-width: 62ch;">So we turn down work we cannot staff with that person, and we say on the first call if the problem is not ours to fix.</p>
+        <div class="founders" aria-label="Founders">
+          <article class="fcard"><img src="images/team/aneel.jpg" alt="Portrait of Aneel Kumar Bonu" width="112" height="112" loading="lazy"><h3>Aneel Kumar Bonu</h3><p class="frole">Founder &amp; CEO</p><p class="fbio">Driving product vision, customer outcomes, and the future of fair performance systems.</p></article>
+          <article class="fcard"><img src="images/team/prashanth.jpg" alt="Portrait of Prashanth" width="112" height="112" loading="lazy"><h3>Prashanth</h3><p class="frole">Co-founder</p><p class="fbio">Building secure, scalable AI systems that transform people decisions into measurable business outcomes.</p></article>
+        </div>
+
       </div>
     </div>
   </section>
