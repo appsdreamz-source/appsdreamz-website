@@ -313,15 +313,17 @@ const pages = [];
 
 /* ---------- HOME ---------- */
 const HMAP = [
-  { k: 'corehr', label: 'Core HR', x: 320.0, y: 115.0, title: 'Core HR readiness', chip: 'GO', checks: ['Enterprise structures validated', 'Person and assignment data reconciled', 'Security roles mapped to duties', 'Approval workflows tested'] },
-  { k: 'recruiting', label: 'Recruiting', x: 456.8, y: 180.9, title: 'Recruiting readiness', chip: 'GO', checks: ['Requisition templates aligned', 'Offer approvals routed correctly', 'Offer terms match the employee record', 'Onboarding journeys tested'] },
-  { k: 'absence', label: 'Absence', x: 490.6, y: 328.9, title: 'Absence readiness', chip: 'GO', checks: ['Accrual plans match entitlement', 'Carry-over and encashment tested', 'Absence mapped to payroll elements', 'Balances reconciled after migration'] },
-  { k: 'payroll', label: 'Payroll', x: 395.9, y: 447.7, title: 'Payroll run readiness', chip: 'GO', checks: ['Gross-to-net reconciled', 'Statutory bases validated', 'Costing to GL balanced', 'Bank and WPS files checked'] },
-  { k: 'time', label: 'Time and Labor', x: 244.1, y: 447.7, title: 'Time and Labor readiness', chip: 'GO', checks: ['Time rules and categories validated', 'Overtime mapped to pay elements', 'Approvals and cut-offs tested', 'Reported time reconciled to pay'] },
-  { k: 'talent', label: 'Talent', x: 149.4, y: 328.9, title: 'Talent readiness', chip: 'GO', checks: ['Goal and review templates configured', 'Performance cycles tested end to end', 'Talent profiles migrated', 'Succession data validated'] },
-  { k: 'ai', label: 'AI Agents', x: 183.2, y: 180.9, title: 'Fusion AI agents', chip: 'ADVISORY', checks: ['Use cases scoped against real workload', 'Data access and security reviewed', 'Agent Studio workflows designed', 'Human approval points defined'], ai: 1 }
+  { k: 'corehr', label: 'Core HR', x: 320.0, y: 108.0, chip: 'GO', topics: ['Workforce structures', 'Employment records', 'Onboarding journeys', 'Documents', 'Security roles', 'Directory'], checks: ['Structures validated', 'Person data reconciled', 'Security roles mapped', 'Approval workflows tested'] },
+  { k: 'recruiting', label: 'Recruiting', x: 448.7, y: 161.3, chip: 'GO', topics: ['Job requisitions', 'Candidate experience', 'Interviews', 'Job offers', 'Background checks', 'Onboarding'], checks: ['Requisition templates aligned', 'Offer approvals routed', 'Offer terms match the hire', 'Onboarding journeys tested'] },
+  { k: 'talent', label: 'Talent', x: 502.0, y: 290.0, chip: 'GO', topics: ['Performance management', 'Goal setting', 'Succession planning', 'Career management', 'Talent review', 'Profiles and skills'], checks: ['Review templates configured', 'Performance cycles tested', 'Talent profiles migrated', 'Succession data validated'] },
+  { k: 'learning', label: 'Learning', x: 448.7, y: 418.7, chip: 'GO', topics: ['Learning catalogue', 'Courses and offerings', 'Compliance learning', 'Learning journeys', 'Self-service learning', 'Learning reports'], checks: ['Catalogue migrated', 'Assignment rules tested', 'Completion records reconciled', 'Compliance alerts working'] },
+  { k: 'payroll', label: 'Payroll', x: 320.0, y: 472.0, chip: 'GO', topics: ['Elements and earnings', 'Gross-to-net', 'Statutory deductions', 'Costing to GL', 'Payslips and bank files', 'GCC and India statutory'], checks: ['Gross-to-net reconciled', 'Statutory bases validated', 'Costing to GL balanced', 'Bank and WPS files checked'] },
+  { k: 'time', label: 'Time and Labor', x: 191.3, y: 418.7, chip: 'GO', topics: ['Time entry layouts', 'Time rules', 'Overtime and shifts', 'Work schedules', 'Approvals and cut-offs', 'Time to payroll transfer'], checks: ['Time rules validated', 'Overtime mapped to pay', 'Approvals and cut-offs tested', 'Time reconciled to pay'] },
+  { k: 'absence', label: 'Absence', x: 138.0, y: 290.0, chip: 'GO', topics: ['Absence plans', 'Accruals', 'Leave balances', 'Carry-over', 'Leave requests', 'Absence to payroll'], checks: ['Accrual plans match entitlement', 'Carry-over tested', 'Absence mapped to payroll', 'Balances reconciled'] },
+  { k: 'ai', label: 'Fusion AI Agents', x: 191.3, y: 161.3, chip: 'ADVISORY', topics: ['Oracle AI Agent Studio', 'HR helpdesk agents', 'Employee agents', 'Manager agents', 'Generative AI in HCM', 'Security and governance'], checks: ['Use cases scoped', 'Data access reviewed', 'Agent workflows designed', 'Human approval points defined'], ai: 1 }
 ];
 
+const HM0 = HMAP.find(m => m.k === 'payroll');
 pages.push(page({
   file: 'index.html',
   title: 'Oracle Fusion HCM Implementation, Payroll &amp; Remediation | AppsDreamz',
@@ -337,7 +339,7 @@ pages.push(page({
     <div class="row">${btn(p + 'book-diagnostic/', 'Book a 45-minute diagnostic', 'btn on-dark')}<a class="btn ghost" href="#problems">See how we fix Fusion HCM issues</a></div>
   </div>
   <figure class="hmap" aria-labelledby="hmap-cap">
-    <figcaption id="hmap-cap" class="vh">Interactive illustration: the Oracle Fusion HCM modules AppsDreamz covers (Core HR, Recruiting, Absence, Payroll, Time and Labor, Talent) and Fusion AI agents, connected to one core. Select a module to see the readiness checks we run for it.</figcaption>
+    <figcaption id="hmap-cap" class="vh">Interactive illustration: the Oracle Fusion HCM modules AppsDreamz covers (Core HR, Recruiting, Talent, Learning, Payroll, Time and Labor, Absence) and Fusion AI Agents, connected to one core. Select a module to see what should be ready and the readiness checks we run for it.</figcaption>
     <div class="hmap-stage">
     <p class="hm-tag">Fusion HCM · end to end <span>Select a module</span></p>
     <div class="hm-canvas">
@@ -359,11 +361,13 @@ pages.push(page({
     ${HMAP.map((m,i)=>`<button type="button" class="hm-node${m.k==='payroll'?' hot':''}${m.ai?' ai':''}" data-k="${m.k}" aria-pressed="${m.k==='payroll'}" style="--d:${i*.1}s;left:${((m.x-72)/496*100).toFixed(2)}%;top:${((m.y-64)/452*100).toFixed(2)}%">${m.ai?'<span class="spark" aria-hidden="true"></span>':''}${m.label}</button>`).join('')}
     </div>
     </div>
-    <div class="hcards"><div class="hcard ready" aria-live="polite"><p class="hc-h"><span class="hc-t">${HMAP[3].title}</span> <span class="go">${HMAP[3].chip}</span></p>
-      <ul>${HMAP[3].checks.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ul></div>
-    <div class="hcard stat"><p class="hc-h">Statutory localisation</p>
-      <p class="hc-chips"><span>UAE WPS</span><span>KSA GOSI</span><span>Gratuity · EOS</span><span>India statutory</span></p></div></div>
-    <script type="application/json" id="hm-data">${JSON.stringify(Object.fromEntries(HMAP.map(m=>[m.k,{t:m.title,c:m.chip,l:m.checks}])))}</script>
+    <div class="hcards" aria-live="polite">
+      <div class="hcard topics"><p class="hc-h"><span class="hc-t">${HM0.label}</span><span class="hc-sub">What should be ready</span></p>
+        <ul class="hc-chips">${HM0.topics.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ul></div>
+      <div class="hcard ready"><p class="hc-h"><span>Readiness checks</span><span class="go">${HM0.chip}</span></p>
+        <ul class="hc-checks">${HM0.checks.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ul></div>
+    </div>
+    <script type="application/json" id="hm-data">${JSON.stringify(Object.fromEntries(HMAP.map(m=>[m.k,{n:m.label,c:m.chip,t:m.topics,l:m.checks}])))}</script>
     <ol class="hlife" aria-label="Where we work in the lifecycle">${['Design','Build','Test','Go-live','Run','Support'].map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ol>
     <p class="hmap-note">Illustrative: the modules and checks we deliver, not client data.</p>
   </figure>

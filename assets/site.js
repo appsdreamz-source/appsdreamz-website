@@ -60,7 +60,7 @@
     var HM = JSON.parse(hdata.textContent);
     var nodes = [].slice.call(hmap.querySelectorAll('.hm-node'));
     var links = [].slice.call(hmap.querySelectorAll('.hm-link'));
-    var card = hmap.querySelector('.hcard.ready');
+    var esc = function (t) { return String(t).replace(/[<>&]/g, ''); };
     var cur = 'payroll';
     var pick = function (k) {
       if (k === cur || !HM[k]) return;
@@ -68,9 +68,11 @@
       nodes.forEach(function (n) { var on = n.getAttribute('data-k') === k; n.classList.toggle('hot', on); n.setAttribute('aria-pressed', String(on)); });
       links.forEach(function (l) { l.classList.toggle('hot', l.getAttribute('data-k') === k); });
       hmap.classList.toggle('ai-on', k === 'ai');
-      card.querySelector('.hc-t').textContent = HM[k].t;
-      card.querySelector('.go').textContent = HM[k].c;
-      card.querySelector('ul').innerHTML = HM[k].l.map(function (t, i) { return '<li style="--i:' + i + ';animation-delay:' + (i * 0.12) + 's">' + t.replace(/[<>&]/g, '') + '</li>'; }).join('');
+      hmap.querySelector('.hc-t').textContent = HM[k].n;
+      hmap.querySelector('.go').textContent = HM[k].c;
+      var li = function (arr) { return arr.map(function (t, i) { return '<li style="--i:' + i + '">' + esc(t) + '</li>'; }).join(''); };
+      hmap.querySelector('.hc-chips').innerHTML = li(HM[k].t);
+      hmap.querySelector('.hc-checks').innerHTML = li(HM[k].l);
       dl.push({ event: 'hero_module_select', module: k });
     };
     nodes.forEach(function (n) {
