@@ -29,7 +29,7 @@ const NAV = [
   { label: 'Industries', items: [
     ['industries/', 'All markets', 'Where we deliver'],
     ['industries/gcc-middle-east/', 'GCC / Middle East', 'UAE and Saudi Arabia delivery'],
-    ['industries/india/', 'India', 'Statutory payroll from Bengaluru'],
+    ['industries/india/', 'India', 'Indian statutory payroll'],
     ['industries/global-enterprises/', 'Global Enterprises', 'Multi-country Fusion HCM estates'],
   ]},
   { label: 'Clients & Results', items: [
@@ -193,7 +193,7 @@ function footer(p) {
   <div class="fcol"><p class="fh">Services</p><ul>${NAV[0].items.slice(1).map(([h, t]) => `<li><a href="${p}${h}">${t}</a></li>`).join('')}</ul></div>
   <div class="fcol"><p class="fh">Solutions</p><ul>${NAV[1].items.map(([h, t]) => `<li><a href="${p}${h}">${t}</a></li>`).join('')}</ul><p class="fh">Industries</p><ul>${NAV[2].items.slice(1).map(([h, t]) => `<li><a href="${p}${h}">${t}</a></li>`).join('')}</ul></div>
   <div class="fcol"><p class="fh">Company</p><ul><li><a href="${p}clients-results/">Clients &amp; Results</a></li><li><a href="${p}about/">About</a></li><li><a href="${p}about/leadership/">Leadership</a></li><li><a href="${p}about/delivery-method/">Delivery method</a></li><li><a href="${p}about/security-data-handling/">Security &amp; data handling</a></li></ul><p class="fh">Insights</p><ul><li><a href="${p}insights/">All insights</a></li><li><a href="${p}resources/payroll-statutory-risk-checklist/">Risk checklist</a></li></ul></div>
-  <div class="fcol contactc"><p class="fh">Contact</p><p><a href="mailto:${EMAIL}">${EMAIL}</a><br>Mon to Fri, 09:00 to 18:00 GST (UTC+4)<br>Replies within one working day</p><p>Dubai · Riyadh · Bengaluru</p>${btn(p + 'book-diagnostic/', 'Book a diagnostic', 'btn small')}</div>
+  <div class="fcol contactc"><p class="fh">Contact</p><p><a href="mailto:${EMAIL}">${EMAIL}</a><br>Mon to Fri, 09:00 to 18:00 GST (UTC+4)<br>Replies within one working day</p>${btn(p + 'book-diagnostic/', 'Book a diagnostic', 'btn small')}</div>
 </div>
 <div class="in legal"><p>Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p><p>AppsDreamz is an independent consultancy. © ${new Date().getFullYear()} AppsDreamz. <span class="legal-links"><a href="${p}legal/privacy/">Privacy notice</a> · <a href="${p}legal/cookies/">Cookie notice</a> · <a href="${p}about/security-data-handling/">Security &amp; data handling</a> · <button type="button" class="linkbtn" data-cookie-settings>Cookie settings</button></span></p></div>
 </footer>
@@ -690,7 +690,7 @@ pages.push(servicePage({
   eyebrow: 'Solutions · UAE and Saudi Arabia', h1: 'GCC payroll localisation in Oracle Fusion HCM',
   lead: 'Statutory payroll design for the UAE and Saudi Arabia, read against the contract rather than the template.',
   cta1: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'], cta2: ['book-diagnostic/', 'Book a 45-minute diagnostic'],
-  facts: [['Delivered', 'United Arab Emirates, Saudi Arabia'], ['Run from', 'Dubai · Riyadh · Bengaluru']],
+  facts: [['Delivered', 'United Arab Emirates, Saudi Arabia']],
   problemH: 'In the Gulf, WPS and GOSI are where we see it most',
   problem: ['A WPS file can pass validation and still misclassify a pay component. A GOSI contribution base can drift after a salary restructure. A gratuity base can leave out allowances the contract makes eligible.', 'None of these raise an error in Fusion. Each appears later, as a number that finance or an auditor asks you to explain.'],
   who: 'GCC employers on Oracle Fusion HCM, and multinationals adding a UAE or Saudi entity.',
@@ -752,7 +752,7 @@ pages.push(page({
   <a class="case" href="${p}clients-results/case-studies/#payroll-stabilisation"><p class="cmeta">Middle East media and communications group · 2,000–5,000 employees</p><h3>Stabilising payroll that needed correction every cycle</h3><p>Exceptions every cycle, retro producing wrong results, and a gratuity base that did not match the employment contracts.</p><span class="tlink">Read the case${ARROW}</span></a>
 </div></div></section>
 <section class="sect"><div class="in">${sectionHead('Partners and white-label clients', 'The firms that pay us to deliver', 'Consultancies and systems integrators who have paid us to deliver Oracle Fusion HCM work, in most cases under their own badge. Listed by agreement.')}${partnerStrip(p)}<p><a class="tlink" href="${p}clients-results/partner-delivery/">How partner delivery works${ARROW}</a></p></div></section>
-<section class="sect tint"><div class="in split"><div>${sectionHead('Coverage', 'Modules and markets')}<p class="body">Statutory delivery to date: United Arab Emirates, Saudi Arabia, India. Engagements run from Dubai, Riyadh and Bengaluru.</p></div><div>${MODULES}</div></div></section>
+<section class="sect tint"><div class="in split"><div>${sectionHead('Coverage', 'Modules and markets')}<p class="body">Statutory delivery to date: United Arab Emirates, Saudi Arabia, India.</p></div><div>${MODULES}</div></div></section>
 ${ctaBand(p, 'Need more detail before you engage?', 'We share a detailed, anonymised write-up of either engagement, or arrange a reference conversation where the client agrees.', ['book-diagnostic/?type=case-study', 'Request a case study or reference'])}`
 }));
 
@@ -819,7 +819,6 @@ pages.push(page({
   <article class="box"><h3>Training</h3><p>The configuration, not the click path: what the fast formula does, where the statutory rules live, and what to check before a cycle is released. In your tenant, on your data.</p></article>
 </div></div></section>
 <section class="sect"><div class="in split"><div>${sectionHead('Company', 'Where we work from')}</div><div><dl class="facts light">
-  <div><dt>Delivery locations</dt><dd>Dubai · Riyadh · Bengaluru</dd></div>
   <div><dt>Registered office</dt><dd>Bengaluru, India</dd></div>
   <div><dt>CIN</dt><dd>U72900KA2022PTC158740</dd></div>
   <div><dt>Hours</dt><dd>Mon to Fri, 09:00 to 18:00 GST (UTC+4)</dd></div>
@@ -926,7 +925,6 @@ pages.push(page({
   <div><dt>Email</dt><dd><a href="mailto:${EMAIL}">${EMAIL}</a></dd></div>
   <div><dt>Response time</dt><dd>One working day</dd></div>
   <div><dt>Hours</dt><dd>Mon to Fri, 09:00 to 18:00 GST (UTC+4)</dd></div>
-  <div><dt>Delivery locations</dt><dd>Dubai · Riyadh · Bengaluru</dd></div>
   <div><dt>Registered office</dt><dd>Bengaluru, India</dd></div>
 </dl></div></section>`
 }));
@@ -962,7 +960,7 @@ pages.push(servicePage({
   title: 'India Payroll &amp; Statutory Compliance in Oracle Fusion | AppsDreamz',
   desc: 'Oracle Fusion Payroll for India with a control-first approach: statutory configuration, reconciliation, integrations, reporting and audit readiness.',
   eyebrow: 'Solutions · India', h1: 'India payroll and statutory compliance in Oracle Fusion HCM',
-  lead: 'Indian statutory payroll, designed control-first and delivered from Bengaluru. India is one of the three countries where we have delivered statutory design to date.',
+  lead: 'Indian statutory payroll, designed control-first. India is one of the three countries where we have delivered statutory design to date.',
   cta1: ['book-diagnostic/', 'Book a 45-minute diagnostic'], cta2: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'],
   problemH: 'Many obligations, many places to drift',
   problem: ['Indian payroll combines central and state obligations: provident fund, employees’ state insurance, professional tax and labour welfare fund that vary by state, income-tax deduction and reporting, gratuity and statutory bonus.', 'Each depends on how pay components are classified and where employees are based. A component classified once and never revisited, or a state rule applied to the wrong location, does not raise an error. It shows up in a return, a reconciliation or an audit.'],
@@ -1033,17 +1031,17 @@ pages.push(page({
   title: 'Markets We Serve | AppsDreamz Oracle Fusion HCM',
   desc: 'AppsDreamz delivers Oracle Fusion HCM for GCC employers, Indian enterprises and global organisations adding countries to a Fusion HCM estate.',
   crumbs: [['industries/', 'Industries']],
-  body: p => `<section class="hero sub"><div class="in">${eyebrow('Industries and markets')}<h1>Statutory reality, country by country</h1><p class="lead">Statutory delivery to date covers the UAE, Saudi Arabia and India, run from Dubai, Riyadh and Bengaluru. The failure mechanisms are the same in any jurisdiction.</p></div></section>
+  body: p => `<section class="hero sub"><div class="in">${eyebrow('Industries and markets')}<h1>Statutory reality, country by country</h1><p class="lead">Statutory delivery to date covers the UAE, Saudi Arabia and India. The failure mechanisms are the same in any jurisdiction.</p></div></section>
 <section class="sect"><div class="in"><div class="svc-grid">${NAV[2].items.slice(1).map(([h, t, d]) => `<a class="svc" href="${p}${h}"><h2>${t}</h2><p>${d}</p><span class="tlink">Read more${ARROW}</span></a>`).join('')}</div></div></section>
 ${ctaBand(p, 'Operating somewhere else?', 'Tell us where. We will say on the first call exactly what we have and have not delivered in your countries.')}`
 }));
 pages.push(industryPage({
   slug: 'industries/gcc-middle-east/', name: 'GCC / Middle East',
   title: 'Oracle Fusion HCM for GCC Employers | AppsDreamz',
-  desc: 'Oracle Fusion HCM for GCC and Middle East employers: WPS, GOSI, gratuity, expatriate mobilisation and multi-entity payroll, delivered from Dubai and Riyadh.',
+  desc: 'Oracle Fusion HCM for GCC and Middle East employers: WPS, GOSI, gratuity, expatriate mobilisation and multi-entity payroll',
   eyebrow: 'Industries · GCC / Middle East', h1: 'Oracle Fusion HCM for GCC employers',
   lead: 'Expatriate workforces, contract-driven gratuity and statutory files that must be correct, not only valid. Delivered in the UAE and Saudi Arabia.',
-  facts: [['Delivered', 'UAE, Saudi Arabia'], ['Run from', 'Dubai · Riyadh'], ['Case studies', '2 GCC / Middle East']],
+  facts: [['Delivered', 'UAE, Saudi Arabia'], ['Case studies', '2 GCC / Middle East']],
   diffH: 'What makes GCC payroll hard in Fusion',
   diff: ['Visa, medical and mobilisation dates tracked outside onboarding, arriving at payroll as retro', 'Gratuity bases that must follow the allowances each contract makes eligible', 'WPS files that pass validation but misclassify a component', 'GOSI contribution bases that drift after a salary restructure', 'Leave accrual that must follow the contract, not the calendar', 'End-of-service provisions that must reconcile to the balance sheet'],
   links: [['solutions/gcc-payroll-localisation/', 'GCC Payroll Localisation', 'WPS, GOSI, gratuity'], ['solutions/cross-module-handoff-remediation/', 'Cross-Module Handoffs', 'Mobilisation to payroll'], ['solutions/oracle-fusion-hcm-health-check/', 'Health Check', '3 weeks · USD 7,500']],
@@ -1053,10 +1051,10 @@ pages.push(industryPage({
 pages.push(industryPage({
   slug: 'industries/india/', name: 'India',
   title: 'Oracle Fusion HCM for Indian Enterprises | AppsDreamz',
-  desc: 'Oracle Fusion HCM and Payroll for Indian enterprises: statutory payroll, state-level rules, attendance integrations and audit readiness, delivered from Bengaluru.',
+  desc: 'Oracle Fusion HCM and Payroll for Indian enterprises: statutory payroll, state-level rules, attendance integrations and audit readiness.',
   eyebrow: 'Industries · India', h1: 'Oracle Fusion HCM for Indian enterprises',
-  lead: 'Indian statutory payroll in Fusion, designed control-first and delivered from our Bengaluru base.',
-  facts: [['Statutory delivery', 'India'], ['Base', 'Bengaluru']],
+  lead: 'Indian statutory payroll in Fusion, designed control-first.',
+  facts: [['Statutory delivery', 'India']],
   diffH: 'What makes Indian payroll hard in Fusion',
   diff: ['Central and state obligations that depend on where each employee is based', 'Statutory bases that depend on how each pay component is classified', 'Attendance and time data from several sources', 'Income-tax deduction and reporting through the year', 'Audit evidence that has to be produced on request'],
   links: [['solutions/india-payroll-statutory-compliance/', 'India Payroll &amp; Statutory Compliance', 'Control-first design'], ['services/oracle-fusion-hcm-integrations/', 'Integrations', 'Attendance, bank, statutory'], ['solutions/oracle-fusion-hcm-health-check/', 'Health Check', '3 weeks · USD 7,500']],
