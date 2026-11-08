@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://appsdreamz.com/</loc><lastmod>2026-11-08</lastmod><priority>1.0</priority></url>
-  <url><loc>https://appsdreamz.com/services.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://appsdreamz.com/modules.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
-  <url><loc>https://appsdreamz.com/how-we-work.html</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://appsdreamz.com/work.html</loc><lastmod>2026-11-08</lastmod><priority>0.7</priority></url>
-  <url><loc>https://appsdreamz.com/engagements.html</loc><lastmod>2026-11-08</lastmod><priority>0.9</priority></url>
-  <url><loc>https://appsdreamz.com/practices.html</loc><lastmod>2026-11-08</lastmod><priority>0.6</priority></url>
-  <url><loc>https://appsdreamz.com/contact.html</loc><lastmod>2026-11-08</lastmod><priority>0.8</priority></url>
+  <url><loc>https://appsdreamz.com/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/services/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/services/oracle-fusion-hcm-implementation/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/services/oracle-fusion-hcm-remediation-stabilisation/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/services/oracle-fusion-payroll-statutory-localisation/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/services/oracle-fusion-hcm-integrations/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/services/oracle-fusion-hcm-managed-support/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/services/oracle-hcm-ai-agent-studio/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/solutions/oracle-fusion-hcm-health-check/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/solutions/oracle-fusion-hcm-design-review/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/solutions/gcc-payroll-localisation/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/solutions/cross-module-handoff-remediation/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/clients-results/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/clients-results/case-studies/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/clients-results/partner-delivery/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/about/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/about/delivery-method/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/about/security-data-handling/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/book-diagnostic/</loc><lastmod>2026-11-08</lastmod></url>
+  <url><loc>https://appsdreamz.com/contact/</loc><lastmod>2026-11-08</lastmod></url>
 </urlset>
