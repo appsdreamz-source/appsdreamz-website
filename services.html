@@ -48,6 +48,33 @@
 .bk-note{margin:18px 0 0;font-size:13px;line-height:1.5;color:#8FA5B8}
 .bk-err{margin:14px 0 0;font-size:14px;color:#FFB3AB}
 @media(max-width:640px){.bookcard{padding:28px 20px}.bk-row{grid-template-columns:1fr;gap:0}}
+
+/* mobile navigation */
+.nav-toggle{display:none;width:48px;height:48px;border:1px solid #071C35;background:transparent;cursor:pointer;padding:0;position:relative;margin-left:auto}
+.nav-toggle i,.nav-toggle i::before,.nav-toggle i::after{content:"";position:absolute;left:13px;right:13px;height:2px;background:#071C35;transition:transform .2s,opacity .2s}
+.nav-toggle i{top:23px}.nav-toggle i::before{top:-7px;left:0;right:0}.nav-toggle i::after{top:7px;left:0;right:0}
+.nav-toggle[aria-expanded="true"] i{background:transparent}
+.nav-toggle[aria-expanded="true"] i::before{transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] i::after{transform:translateY(-7px) rotate(-45deg)}
+.nav-toggle:focus-visible{outline:2px solid #29ABE2;outline-offset:2px}
+@media (max-width: 860px){
+  .nav-toggle{display:block}
+  .site-head > div{flex-wrap:wrap !important;gap:0 !important}
+  .site-head nav{display:none !important;flex-direction:column !important;align-items:stretch !important;width:100% !important;gap:0 !important;padding:8px 0 16px !important;border-top:1px solid #D5E1EA;margin-top:12px}
+  .site-head nav.open{display:flex !important}
+  .site-head nav a{font-size:19px !important;min-height:52px !important;padding:12px 0 !important;border-bottom:1px solid #E8F0F6 !important;width:100%}
+  .site-head nav a.hv1{margin:16px 0 0 !important;justify-content:center;padding:14px !important;border-bottom:0 !important;width:100%}
+  .site-head{position:sticky;top:0;z-index:50;background:#F4F8FB}
+}
+@media (max-width: 720px){
+  body{padding-bottom:84px}
+  .sticky-cta{display:block !important}
+  a[class^="hv"],button{touch-action:manipulation}
+  h1,h2,h3{overflow-wrap:break-word}
+}
+@media (max-width: 400px){
+  .bookcard{padding:24px 16px}
+}
 </style>
 <style>
 html, body { margin: 0; padding: 0; background: #F4F8FB; }
@@ -192,6 +219,7 @@ html, body { margin: 0; padding: 0; background: #F4F8FB; }
       <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 20px; border-bottom: 0;">
         <img src="images/appsdreamz-logo.png" alt="AppsDreamz" width="1200" height="456" style="height: 68px; width: auto; display: block;">
       </a>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav"><i></i></button>
       <nav style="display: flex; flex-wrap: wrap; gap: 10px 26px; align-items: center; justify-content: flex-end;">
         <a class="hv0" href="services.html#lifecycle" aria-current="page" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">What we do</a>
         <a class="hv0" href="modules.html#modules" style="font-size: 17px; color: #071C35; border-bottom: 0; padding: 12px 0; min-height: 44px; display: inline-flex; align-items: center;">Modules</a>
@@ -310,6 +338,18 @@ document.getElementById('bk-err').hidden=ok;if(!ok)return;
 var body='Hello AppsDreamz,\n\nI would like to book a free 45-minute call.\n\nFull name: '+g('name')+'\nWork email: '+g('email')+'\nPhone: '+g('phone')+'\nCompany size: '+g('size')+'\nCountry: '+g('country')+'\n';
 location.href='mailto:aneel@appsdreamz.com?subject='+encodeURIComponent('Book a free 45-minute call')+'&body='+encodeURIComponent(body);
 });})();
+</script>
+<script>
+(function(){var b=document.querySelector('.nav-toggle'),n=document.querySelector('.site-head nav');if(!b||!n)return;n.id='site-nav';
+function set(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Close menu':'Menu')}
+b.addEventListener('click',function(){set(!n.classList.contains('open'))});
+n.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')set(false)});
+matchMedia('(min-width:861px)').addEventListener('change',function(){set(false)});})();
+</script>
+<script>
+(function(){var s=document.querySelector('.sticky-cta'),b=document.getElementById('book');if(!s||!b||!window.IntersectionObserver)return;
+new IntersectionObserver(function(e){s.style.transform=e[0].isIntersecting?'translateY(100%)':'';s.style.transition='transform .2s'}).observe(b);})();
 </script>
 </body>
 </html>
