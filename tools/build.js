@@ -319,7 +319,7 @@ const HMAP = [
   { k: 'recruiting', label: 'Recruiting', x: 448.7, y: 161.3, chip: 'GO', topics: ['Job requisitions', 'Candidate experience', 'Interviews', 'Job offers', 'Background checks', 'Onboarding'], checks: ['Requisition templates aligned', 'Offer approvals routed', 'Offer terms match the hire', 'Onboarding journeys tested'] },
   { k: 'talent', label: 'Talent', x: 502.0, y: 290.0, chip: 'GO', topics: ['Performance management', 'Goal setting', 'Succession planning', 'Career management', 'Talent review', 'Profiles and skills'], checks: ['Review templates configured', 'Performance cycles tested', 'Talent profiles migrated', 'Succession data validated'] },
   { k: 'learning', label: 'Learning', x: 448.7, y: 418.7, chip: 'GO', topics: ['Learning catalogue', 'Courses and offerings', 'Compliance learning', 'Learning journeys', 'Self-service learning', 'Learning reports'], checks: ['Catalogue migrated', 'Assignment rules tested', 'Completion records reconciled', 'Compliance alerts working'] },
-  { k: 'payroll', label: 'Payroll', x: 320.0, y: 472.0, chip: 'GO', topics: ['Elements and earnings', 'Gross-to-net', 'Statutory deductions', 'Costing to GL', 'Payslips and bank files', 'GCC and India statutory'], checks: ['Gross-to-net reconciled', 'Statutory bases validated', 'Costing to GL balanced', 'Bank and WPS files checked'] },
+  { k: 'payroll', label: 'Payroll', x: 320.0, y: 472.0, chip: 'GO', topics: ['Elements and earnings', 'Gross-to-net', 'Statutory deductions', 'Costing to GL', 'Payslips and bank files', 'Multi-country statutory'], checks: ['Gross-to-net reconciled', 'Statutory bases validated', 'Costing to GL balanced', 'Bank and WPS files checked'] },
   { k: 'time', label: 'Time and Labor', x: 191.3, y: 418.7, chip: 'GO', topics: ['Time entry layouts', 'Time rules', 'Overtime and shifts', 'Work schedules', 'Approvals and cut-offs', 'Time to payroll transfer'], checks: ['Time rules validated', 'Overtime mapped to pay', 'Approvals and cut-offs tested', 'Time reconciled to pay'] },
   { k: 'absence', label: 'Absence', x: 138.0, y: 290.0, chip: 'GO', topics: ['Absence plans', 'Accruals', 'Leave balances', 'Carry-over', 'Leave requests', 'Absence to payroll'], checks: ['Accrual plans match entitlement', 'Carry-over tested', 'Absence mapped to payroll', 'Balances reconciled'] },
   { k: 'ai', label: 'Fusion AI Agents', x: 191.3, y: 161.3, chip: 'ADVISORY', topics: ['Oracle AI Agent Studio', 'HR helpdesk agents', 'Employee agents', 'Manager agents', 'Generative AI in HCM', 'Security and governance'], checks: ['Use cases scoped', 'Data access reviewed', 'Agent workflows designed', 'Human approval points defined'], ai: 1 }
@@ -378,7 +378,7 @@ pages.push(page({
 <div class="in"><ul class="proofbar">
   <li><strong>8</strong>partner and white-label delivery relationships</li>
   <li><strong>7 modules</strong>delivered end to end, plus integrations and localisation</li>
-  <li><strong>GCC + India</strong>payroll and statutory expertise</li>
+  <li><strong>7 countries</strong>statutory payroll delivery, with partners</li>
   <li><strong>Fixed fee</strong>diagnostic and design-review options</li>
 </ul></div></section>
 
@@ -494,7 +494,7 @@ pages.push(servicePage({
     ['Do you implement the full suite or individual modules?', 'Both. We take eight modules live ourselves: Core HR, Payroll, Absence, Time and Labor, Recruiting, Talent, Learning and Integrations. Compensation, Benefits and HR Helpdesk we configure and test inside programmes another firm leads.'],
     ['Can you work alongside our existing implementation partner?', 'Yes. Much of our delivery is for other consultancies, under their badge. We can also take a defined workstream, such as payroll and statutory design, inside a programme someone else leads.'],
     ['How do you decide on a phased go-live?', 'When one date carries too much risk: several countries, payroll and hiring changing together, or a migration that cannot be reconciled in a single cutover. The Design Review examines the go-live shape specifically.'],
-    ['Which countries have you localised?', 'Statutory delivery to date covers the UAE, Saudi Arabia and India. For any other country we tell you on the first call exactly what we have and have not done.'],
+    ['Which countries have you localised?', 'Statutory delivery to date, including work with our delivery partners, covers the UAE, Saudi Arabia, India, Malaysia, Singapore, the United Kingdom and the United States. For any other country we tell you on the first call exactly what we have and have not done.'],
   ],
   related: [['services/oracle-fusion-payroll-statutory-localisation/', 'Payroll &amp; Statutory Localisation', 'Element sets from the contract'], ['services/oracle-fusion-hcm-integrations/', 'Integrations', 'Interfaces that fail loudly'], ['solutions/oracle-fusion-hcm-design-review/', 'Design Review', '2–3 days before build']],
 }));
@@ -526,20 +526,20 @@ pages.push(servicePage({
 pages.push(servicePage({
   slug: 'services/oracle-fusion-payroll-statutory-localisation/', parent: SVC, name: 'Oracle Fusion Payroll &amp; Statutory Localisation',
   title: 'Oracle Fusion Payroll &amp; Statutory Localisation | AppsDreamz',
-  desc: 'Oracle Fusion Payroll design and statutory localisation for the UAE, Saudi Arabia and India: WPS, GOSI, gratuity, end-of-service, leave accrual and reconciliation.',
+  desc: 'Oracle Fusion Payroll design and statutory localisation across the GCC, India, Malaysia, Singapore, the UK and the US: WPS, GOSI, gratuity, end-of-service, leave accrual and reconciliation.',
   eyebrow: 'Services · Localise', h1: 'Oracle Fusion Payroll, designed from the contract and reconciled to the balance sheet',
-  lead: 'Statutory design for each country you operate in, delivered to date across the UAE, Saudi Arabia and India.',
+  lead: 'Statutory design for each country you operate in, delivered to date, including with our delivery partners, across the UAE, Saudi Arabia, India, Malaysia, Singapore, the United Kingdom and the United States.',
   cta1: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'], cta2: ['book-diagnostic/', 'Book a 45-minute diagnostic'],
   problemH: 'Localisation goes wrong without raising a flag',
   problem: ['A gratuity base that excludes contract-eligible allowances does not throw an error. Payroll runs, the payslip looks right, and the end-of-service provision is understated every month until someone leaves and the accrual does not cover the settlement.', 'The same pattern sits in statutory files that pass validation but misclassify a pay component, in contribution bases that drift after a salary restructure, and in leave accrual that follows the calendar rather than the contract. None of it appears as a defect. All of it eventually appears as a number that has to be explained.'],
-  who: 'Payroll directors, finance controllers and HRIS leads in the GCC and India, and multinationals adding those countries.',
+  who: 'Payroll directors, finance controllers and HRIS leads in the GCC, India, Southeast Asia, the UK and the US, and multinationals adding countries to Fusion.',
   what: ['Payroll design and configuration', 'Element sets designed from employment contracts', 'Fast formulas and retro behaviour', 'Gratuity and end-of-service bases', 'WPS file structure and component classification', 'GOSI contribution base after every restructure', 'Leave accrual on contractual entitlement', 'Reconciliation: payroll to GL, provision to balance sheet', 'Exception management', 'Audit readiness'],
   deliverables: ['Element-to-contract mapping', 'Statutory rules register per country', 'Reconciliation pack', 'Exception catalogue with owners'],
   approach: 'We start from the employment contracts and design the element set to them, rather than configuring the standard localisation and reconciling afterwards.',
   outcomes: ['Accurate, auditable payroll runs', 'Provisions that reconcile to the balance sheet', 'Statutory files that are correct, not only valid'],
   proof: 'A Middle East media and communications group came to us with a gratuity base that did not match its employment contracts.',
   faq: [
-    ['Which countries have you delivered?', 'The UAE, Saudi Arabia and India. The mechanism is the same in any jurisdiction, and we tell you on the first call what we have and have not done for yours.'],
+    ['Which countries have you delivered?', 'The UAE, Saudi Arabia, India, Malaysia, Singapore, the United Kingdom and the United States, including work with our delivery partners. The mechanism is the same in any jurisdiction, and we tell you on the first call what we have and have not done for yours.'],
     ['Do you work with Oracle’s delivered localisations?', 'Yes. We start from them and design the element set from your employment contracts, so the configuration reflects your terms rather than a template.'],
     ['Can you validate an existing WPS file?', 'Yes. We check the classification of each pay component in the file, not only that it passes validation, and reconcile it back to the payroll register.'],
     ['How do you test a gratuity base?', 'We list which allowances each contract makes eligible, compare them with the elements feeding the base, and reconcile the end-of-service provision to the balance sheet.'],
@@ -753,7 +753,7 @@ pages.push(page({
   <a class="case" href="${p}clients-results/case-studies/#payroll-stabilisation"><p class="cmeta">Middle East media and communications group · 2,000–5,000 employees</p><h3>Stabilising payroll that needed correction every cycle</h3><p>Exceptions every cycle, retro producing wrong results, and a gratuity base that did not match the employment contracts.</p><span class="tlink">Read the case${ARROW}</span></a>
 </div></div></section>
 <section class="sect"><div class="in">${sectionHead('Partners and white-label clients', 'The firms that pay us to deliver', 'Consultancies and systems integrators who have paid us to deliver Oracle Fusion HCM work, in most cases under their own badge. Listed by agreement.')}${partnerStrip(p)}<p><a class="tlink" href="${p}clients-results/partner-delivery/">How partner delivery works${ARROW}</a></p></div></section>
-<section class="sect tint"><div class="in split"><div>${sectionHead('Coverage', 'Modules and markets')}<p class="body">Statutory delivery to date: United Arab Emirates, Saudi Arabia, India.</p></div><div>${MODULES}</div></div></section>
+<section class="sect tint"><div class="in split"><div>${sectionHead('Coverage', 'Modules and markets')}<p class="body">Statutory delivery to date, including work with our delivery partners: United Arab Emirates, Saudi Arabia, India, Malaysia, Singapore, United Kingdom, United States.</p></div><div>${MODULES}</div></div></section>
 ${ctaBand(p, 'Need more detail before you engage?', 'We share a detailed, anonymised write-up of either engagement, or arrange a reference conversation where the client agrees.', ['book-diagnostic/?type=case-study', 'Request a case study or reference'])}`
 }));
 
@@ -798,7 +798,7 @@ pages.push(page({
   <article class="box"><h3>Named consultants</h3><p>A named senior consultant, a scope agreed before the fee, and an escalation route that goes to the person doing the work.</p></article>
   <article class="box"><h3>Repeat programmes</h3><p>Partners come back for the second programme, which is the only measure of a partnership that means anything.</p></article>
 </div></section>
-<section class="sect"><div class="in split"><div>${sectionHead('Where partners use us', 'The work partners bring')}</div><div>${list(['Payroll and statutory design inside your implementation', 'GCC and India localisation', 'Stabilisation of a programme in trouble', 'Integrations and release regression', 'Specialist review before go-live'], 'ticks')}</div></div></section>
+<section class="sect"><div class="in split"><div>${sectionHead('Where partners use us', 'The work partners bring')}</div><div>${list(['Payroll and statutory design inside your implementation', 'Statutory localisation across seven countries', 'Stabilisation of a programme in trouble', 'Integrations and release regression', 'Specialist review before go-live'], 'ticks')}</div></div></section>
 ${ctaBand(p, 'Need Fusion HCM payroll depth on your next programme?', 'Talk to us about white-label or named delivery. Scope is agreed before the fee.', ['book-diagnostic/?type=partner', 'Request a partner conversation'])}`
 }));
 
@@ -961,7 +961,7 @@ pages.push(servicePage({
   title: 'India Payroll &amp; Statutory Compliance in Oracle Fusion | AppsDreamz',
   desc: 'Oracle Fusion Payroll for India with a control-first approach: statutory configuration, reconciliation, integrations, reporting and audit readiness.',
   eyebrow: 'Solutions · India', h1: 'India payroll and statutory compliance in Oracle Fusion HCM',
-  lead: 'Indian statutory payroll, designed control-first. India is one of the three countries where we have delivered statutory design to date.',
+  lead: 'Indian statutory payroll, designed control-first. India is one of seven countries where we have delivered statutory design to date, including work with our delivery partners.',
   cta1: ['book-diagnostic/', 'Book a 45-minute diagnostic'], cta2: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'],
   problemH: 'Many obligations, many places to drift',
   problem: ['Indian payroll combines central and state obligations: provident fund, employees’ state insurance, professional tax and labour welfare fund that vary by state, income-tax deduction and reporting, gratuity and statutory bonus.', 'Each depends on how pay components are classified and where employees are based. A component classified once and never revisited, or a state rule applied to the wrong location, does not raise an error. It shows up in a return, a reconciliation or an audit.'],
@@ -971,7 +971,7 @@ pages.push(servicePage({
   approach: 'Control-first: every statutory base is defined from the pay components that feed it, and checked before each cycle is released, not after the return is filed.',
   outcomes: ['Statutory bases you can explain component by component', 'Reconciled returns', 'Audit evidence ready when asked'],
   faq: [
-    ['Do you deliver Indian statutory payroll in Fusion?', 'Yes. India is one of the three countries, with the UAE and Saudi Arabia, where we have delivered statutory design to date. We confirm on the first call which components your scope covers.'],
+    ['Do you deliver Indian statutory payroll in Fusion?', 'Yes. India is one of seven countries where we have delivered statutory design to date, alongside the UAE, Saudi Arabia, Malaysia, Singapore, the United Kingdom and the United States, including work with our delivery partners. We confirm on the first call which components your scope covers.'],
     ['Can you review an existing India payroll configuration?', 'Yes, through the Payroll and Statutory scope of a Health Check, which reads three closed cycles against your contracts and policies.'],
   ],
   related: [['services/oracle-fusion-payroll-statutory-localisation/', 'Payroll &amp; Statutory Localisation', 'All countries'], ['industries/india/', 'India', 'Market overview'], ['solutions/oracle-fusion-hcm-health-check/', 'Health Check', 'Payroll &amp; Statutory scope']],
@@ -1032,7 +1032,7 @@ pages.push(page({
   title: 'Markets We Serve | AppsDreamz Oracle Fusion HCM',
   desc: 'AppsDreamz delivers Oracle Fusion HCM for GCC employers, Indian enterprises and global organisations adding countries to a Fusion HCM estate.',
   crumbs: [['industries/', 'Industries']],
-  body: p => `<section class="hero sub"><div class="in">${eyebrow('Industries and markets')}<h1>Statutory reality, country by country</h1><p class="lead">Statutory delivery to date covers the UAE, Saudi Arabia and India. The failure mechanisms are the same in any jurisdiction.</p></div></section>
+  body: p => `<section class="hero sub"><div class="in">${eyebrow('Industries and markets')}<h1>Statutory reality, country by country</h1><p class="lead">Statutory delivery to date, including work with our delivery partners, covers the UAE, Saudi Arabia, India, Malaysia, Singapore, the United Kingdom and the United States. The failure mechanisms are the same in any jurisdiction.</p></div></section>
 <section class="sect"><div class="in"><div class="svc-grid">${NAV[2].items.slice(1).map(([h, t, d]) => `<a class="svc" href="${p}${h}"><h2>${t}</h2><p>${d}</p><span class="tlink">Read more${ARROW}</span></a>`).join('')}</div></div></section>
 ${ctaBand(p, 'Operating somewhere else?', 'Tell us where. We will say on the first call exactly what we have and have not delivered in your countries.')}`
 }));
