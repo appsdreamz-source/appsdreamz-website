@@ -21,8 +21,16 @@ const NAV = [
   { label: 'Solutions', items: [
     ['solutions/oracle-fusion-hcm-health-check/', 'Health Check', '3 weeks · USD 7,500 fixed fee'],
     ['solutions/oracle-fusion-hcm-design-review/', 'Design Review', '2–3 days · USD 2,500 fixed fee'],
+    ['solutions/payroll-run-readiness/', 'Payroll Run Readiness', 'Go/no-go before the first live run'],
     ['solutions/gcc-payroll-localisation/', 'GCC Payroll Localisation', 'UAE and Saudi Arabia'],
+    ['solutions/india-payroll-statutory-compliance/', 'India Payroll & Statutory Compliance', 'Control-first statutory payroll'],
     ['solutions/cross-module-handoff-remediation/', 'Cross-Module Handoffs', 'What Oracle does not validate'],
+  ]},
+  { label: 'Industries', items: [
+    ['industries/', 'All markets', 'Where we deliver'],
+    ['industries/gcc-middle-east/', 'GCC / Middle East', 'UAE and Saudi Arabia delivery'],
+    ['industries/india/', 'India', 'Statutory payroll from Bengaluru'],
+    ['industries/global-enterprises/', 'Global Enterprises', 'Multi-country Fusion HCM estates'],
   ]},
   { label: 'Clients & Results', items: [
     ['clients-results/', 'Overview', 'Evidence, not promises'],
@@ -30,9 +38,14 @@ const NAV = [
     ['clients-results/partner-delivery/', 'Partner & white-label delivery', 'The team other firms subcontract to'],
   ]},
   { label: 'About', items: [
-    ['about/', 'Company & founders', 'Senior-only, deliberately small'],
+    ['about/', 'Company', 'Senior-only, deliberately small'],
+    ['about/leadership/', 'Leadership & experts', 'Who you will be speaking to'],
     ['about/delivery-method/', 'Delivery method', 'How an engagement runs'],
     ['about/security-data-handling/', 'Security & data handling', 'How we treat your tenant and data'],
+  ]},
+  { label: 'Insights', items: [
+    ['insights/', 'All insights', 'Guides for Fusion HCM buyers'],
+    ['resources/payroll-statutory-risk-checklist/', 'Payroll & Statutory Risk Checklist', 'Free self-assessment'],
   ]},
   { label: 'Contact', href: 'contact/' },
 ];
@@ -178,10 +191,11 @@ function footer(p) {
   return `<footer class="site-foot"><span class="foot-slash" aria-hidden="true"></span><div class="in">
   <div class="fcol about"><img src="${p}images/appsdreamz-logo.png" alt="AppsDreamz" width="1200" height="456" class="flogo"><p>Oracle Fusion HCM implementation, remediation, statutory payroll and managed support. Senior consultants only.</p></div>
   <div class="fcol"><p class="fh">Services</p><ul>${NAV[0].items.slice(1).map(([h, t]) => `<li><a href="${p}${h}">${t}</a></li>`).join('')}</ul></div>
-  <div class="fcol"><p class="fh">Solutions</p><ul>${NAV[1].items.map(([h, t]) => `<li><a href="${p}${h}">${t}</a></li>`).join('')}</ul><p class="fh">Company</p><ul><li><a href="${p}clients-results/">Clients &amp; Results</a></li><li><a href="${p}about/">About</a></li><li><a href="${p}about/security-data-handling/">Security &amp; data handling</a></li></ul></div>
+  <div class="fcol"><p class="fh">Solutions</p><ul>${NAV[1].items.map(([h, t]) => `<li><a href="${p}${h}">${t}</a></li>`).join('')}</ul><p class="fh">Industries</p><ul>${NAV[2].items.slice(1).map(([h, t]) => `<li><a href="${p}${h}">${t}</a></li>`).join('')}</ul></div>
+  <div class="fcol"><p class="fh">Company</p><ul><li><a href="${p}clients-results/">Clients &amp; Results</a></li><li><a href="${p}about/">About</a></li><li><a href="${p}about/leadership/">Leadership</a></li><li><a href="${p}about/delivery-method/">Delivery method</a></li><li><a href="${p}about/security-data-handling/">Security &amp; data handling</a></li></ul><p class="fh">Insights</p><ul><li><a href="${p}insights/">All insights</a></li><li><a href="${p}resources/payroll-statutory-risk-checklist/">Risk checklist</a></li></ul></div>
   <div class="fcol contactc"><p class="fh">Contact</p><p><a href="mailto:${EMAIL}">${EMAIL}</a><br>Mon to Fri, 09:00 to 18:00 GST (UTC+4)<br>Replies within one working day</p><p>Dubai · Riyadh · Bengaluru</p>${btn(p + 'book-diagnostic/', 'Book a diagnostic', 'btn small')}</div>
 </div>
-<div class="in legal"><p>Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p><p>AppsDreamz is an independent consultancy. © ${new Date().getFullYear()} AppsDreamz.</p></div>
+<div class="in legal"><p>Registered office: Fourth Floor, No. 752/5/12 A, Flat No. 10, Sneha Residency South Block, NGR Layout, Babu Reddy Road, Rupena Agrahara, Bengaluru, Bengaluru Urban, Karnataka 560068, India. CIN U72900KA2022PTC158740.</p><p>AppsDreamz is an independent consultancy. © ${new Date().getFullYear()} AppsDreamz. <span class="legal-links"><a href="${p}legal/privacy/">Privacy notice</a> · <a href="${p}legal/cookies/">Cookie notice</a> · <a href="${p}about/security-data-handling/">Security &amp; data handling</a></span></p></div>
 </footer>
 <div class="sticky-cta" aria-hidden="true"><a href="${p}book-diagnostic/" tabindex="-1">Book a 45-minute diagnostic</a></div>`;
 }
@@ -294,7 +308,7 @@ const pages = [];
 pages.push(page({
   file: 'index.html',
   title: 'Oracle Fusion HCM Implementation, Payroll &amp; Remediation | AppsDreamz',
-  desc: 'Specialist Oracle Fusion HCM partner: implementation, remediation, statutory payroll localisation, integrations and managed support. Fixed-fee Health Check, USD 7,500.',
+  desc: 'Specialist Oracle Fusion HCM partner: implementation, remediation, statutory payroll localisation, integrations and managed support. Fixed-fee Health Check.',
   current: '',
   body: p => `
 <section class="hero home"><div class="in">
@@ -360,6 +374,7 @@ pages.push(page({
 <section class="sect" id="offers"><div class="in">
   ${sectionHead('Where to start', 'Start with a focused, fixed-fee assessment.', 'Both are fixed fee and both are confirmed on the call before anything is signed.')}
   ${offers(p)}
+  <p class="third">Not ready to engage? <a href="${p}resources/payroll-statutory-risk-checklist/">Use the Oracle Fusion HCM Payroll &amp; Statutory Risk Checklist${ARROW}</a></p>
 </div></section>
 
 <section class="sect tint"><div class="in split">
@@ -384,7 +399,7 @@ pages.push(page({
   <div>${founders(p)}</div>
 </div></section>
 
-${ctaBand(p, 'Get a specialist view of your Oracle Fusion HCM risk.', 'Book a 45-minute diagnostic call with an AppsDreamz Oracle Fusion HCM specialist. We will help you identify the highest-risk configuration, data, integration, payroll, or statutory-localisation issues.', undefined, ['solutions/oracle-fusion-hcm-health-check/', 'See how the Health Check works'])}
+${ctaBand(p, 'Get a specialist view of your Oracle Fusion HCM risk.', 'Book a 45-minute diagnostic call with an AppsDreamz Oracle Fusion HCM specialist. We will help you identify the highest-risk configuration, data, integration, payroll, or statutory-localisation issues.', undefined, ['resources/payroll-statutory-risk-checklist/', 'Use the risk checklist'])}
 `
 }));
 
@@ -560,7 +575,7 @@ pages.push(servicePage({
   eyebrow: 'Solutions · Health Check', h1: 'Oracle Fusion HCM Health Check',
   lead: 'Three weeks to read a live Oracle Fusion HCM implementation against the employment contracts it was built from, and hand back a plan you can act on with or without us.',
   offer: '7500', serviceType: 'Oracle Fusion HCM assessment',
-  cta1: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'], cta2: ['book-diagnostic/', 'Book a 45-minute diagnostic'],
+  cta1: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'], cta2: ['solutions/oracle-fusion-hcm-health-check/report-structure/', 'See the report structure'],
   facts: [['Fee', 'USD 7,500 fixed'], ['Duration', '3 weeks'], ['Credit', 'In full, against work from the findings'], ['Access', 'Read-only copy of production']],
   problemH: 'Who should buy it, and when',
   problem: ['Live customers with recurring exceptions, programmes approaching go-live, organisations whose implementation partner has handed over, and finance teams questioning a provision.', 'Buy it before an audit, before a restructure or salary review, before adding a country, or when the same exception has appeared three cycles running.'],
@@ -572,9 +587,9 @@ pages.push(servicePage({
       <article class="box"><h3>Talent and Recruiting</h3><p>Reads the requisition-to-hire flow against how your team actually hires.</p></article>
     </div>
     <h3 class="minor spaced">Eight inspection areas</h3>
-    <div class="tablewrap"><table class="plain"><tbody>
-      ${[['Gratuity base', 'Which allowances the contract makes eligible'], ['Performance management', 'Goals, performance, succession'], ['Learning', 'Catalogue, assignment, compliance evidence'], ['Leave accrual and end-of-service provision', 'Contractual entitlement, reconciled to the balance sheet'], ['Recruiting', 'Requisition, offer, approval chain'], ['Onboarding', 'Visa, medical, mobilisation dates'], ['Offer-to-record handoff', 'Offer terms landing correctly in the employee record'], ['Mobilisation-to-payroll handoff', 'Dates tracked outside onboarding, before they arrive at payroll as a retro']].map(([a, b]) => `<tr><th scope="row">${a}</th><td>${b}</td></tr>`).join('')}
-    </tbody></table></div>
+    <ol class="inspect">
+      ${[['Gratuity base', 'Which allowances the contract makes eligible', 'Payroll'], ['Leave accrual and end-of-service provision', 'Contractual entitlement, reconciled to the balance sheet', 'Payroll'], ['Mobilisation-to-payroll handoff', 'Dates tracked outside onboarding, before they arrive at payroll as a retro', 'Handoff'], ['Offer-to-record handoff', 'Offer terms landing correctly in the employee record', 'Handoff'], ['Recruiting', 'Requisition, offer, approval chain', 'Talent'], ['Onboarding', 'Visa, medical, mobilisation dates', 'Talent'], ['Performance management', 'Goals, performance, succession', 'Talent'], ['Learning', 'Catalogue, assignment, compliance evidence', 'Talent']].map(([a, b, c], i) => `<li><span class="inum">${String(i + 1).padStart(2, '0')}</span><span class="itag">${c}</span><h4>${a}</h4><p>${b}</p></li>`).join('')}
+    </ol>
     <div class="grid3 spaced">
       <div><h3 class="minor">You provide</h3>${list(['A read-only copy of production', 'Three closed payroll cycles', 'Employment contract templates', 'Time with your payroll, HRIS and finance leads'], 'dash')}</div>
       <div><h3 class="minor">How it runs</h3>${list(['Week 1: access, artefacts, cycle selection', 'Week 2: line-by-line reading and handoff tracing', 'Week 3: report, remediation plan, walkthrough'], 'dash')}</div>
@@ -657,7 +672,7 @@ pages.push(servicePage({
 pages.push(servicePage({
   slug: 'solutions/cross-module-handoff-remediation/', parent: ['solutions/cross-module-handoff-remediation/', 'Solutions'], name: 'Cross-Module Handoff Remediation',
   title: 'Oracle Fusion HCM Cross-Module Handoff Remediation | AppsDreamz',
-  desc: 'Oracle validates each Fusion HCM module on its own terms. We design and fix the checks between them: offer to record, mobilisation to payroll, pay to statutory return.',
+  desc: 'Oracle validates each Fusion HCM module on its own terms. We design the checks between them: offer to record, mobilisation to payroll, pay to statutory return.',
   eyebrow: 'Solutions · Handoffs', h1: 'Fix what Oracle does not validate: the handoffs between modules',
   lead: 'Hiring, talent, pay and statutory reporting are the same record at different moments. Oracle validates each module on its own terms. Nothing validates the handoffs between them, so that is where we design the checks.',
   cta1: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'], cta2: ['book-diagnostic/', 'Book a 45-minute diagnostic'],
@@ -727,7 +742,7 @@ pages.push(page({
 pages.push(page({
   file: 'clients-results/partner-delivery/index.html', current: 'clients-results/partner-delivery/',
   title: 'Partner &amp; White-Label Oracle Fusion HCM Delivery | AppsDreamz',
-  desc: 'Consultancies and systems integrators subcontract Oracle Fusion HCM payroll and statutory work to AppsDreamz, delivered by named senior consultants under their badge.',
+  desc: 'Consultancies and systems integrators subcontract Oracle Fusion HCM payroll and statutory work to AppsDreamz, delivered by named senior consultants.',
   crumbs: [['clients-results/', 'Clients &amp; Results'], ['clients-results/partner-delivery/', 'Partner delivery']],
   body: p => `<section class="hero sub"><div class="in">${eyebrow('Partner &amp; white-label delivery')}<h1>The Oracle Fusion HCM team other consultancies subcontract to</h1>
 <p class="lead">Being the firm a competitor subcontracts its payroll work to is a harder reference than a logo wall, so it is the one we lead with.</p>
@@ -771,7 +786,7 @@ ${related(p, [['about/delivery-method/', 'Delivery method', 'How an engagement r
 pages.push(page({
   file: 'about/delivery-method/index.html', current: 'about/delivery-method/',
   title: 'How an AppsDreamz Engagement Runs | Delivery Method',
-  desc: 'From a 45-minute diagnostic to a fixed-fee Design Review or Health Check, remediation, go-live and managed operations: how AppsDreamz delivers Oracle Fusion HCM work.',
+  desc: 'From a 45-minute diagnostic to a fixed-fee Design Review or Health Check, remediation, go-live and managed operations: how AppsDreamz delivers.',
   crumbs: [['about/', 'About'], ['about/delivery-method/', 'Delivery method']],
   body: p => {
     const steps = [
@@ -870,6 +885,333 @@ pages.push(page({
   <div><dt>Delivery locations</dt><dd>Dubai · Riyadh · Bengaluru</dd></div>
   <div><dt>Registered office</dt><dd>Bengaluru, India</dd></div>
 </dl></div></section>`
+}));
+
+/* ---------- MORE SOLUTIONS ---------- */
+pages.push(servicePage({
+  slug: 'solutions/payroll-run-readiness/', parent: ['solutions/payroll-run-readiness/', 'Solutions'], name: 'Payroll Run Readiness',
+  title: 'Oracle Fusion Payroll Run Readiness | AppsDreamz',
+  desc: 'Is your first Oracle Fusion payroll run ready? Parallel-run reconciliation, element and balance checks, statutory file dry-runs and go/no-go criteria.',
+  eyebrow: 'Solutions · Before the first live run', h1: 'Is your first Fusion payroll run ready?',
+  lead: 'A go/no-go reading of the first live payroll cycle: what has been reconciled, what has only been tested, and what will surface as a correction after pay date.',
+  cta1: ['book-diagnostic/?type=design-review', 'Request a Design Review'], cta2: ['book-diagnostic/', 'Book a 45-minute diagnostic'],
+  problemH: 'Tested is not the same as reconciled',
+  problem: ['Parallel runs that “mostly match” hide the variances that matter: a retro that only fires on a mid-cycle change, an allowance that drops out of the gratuity base, a statutory file that validates but misclassifies a component.', 'The first live run is the most expensive place to find them, because every error becomes a payslip correction in front of employees.'],
+  who: 'Programme owners, payroll leads and finance controllers approaching the first live payroll cycle on Oracle Fusion.',
+  extra: p => `<section class="sect"><div class="in">${sectionHead('Go / no-go', 'What we check before the first live run')}
+    <div class="tablewrap"><table class="plain"><thead><tr><th scope="col">Check</th><th scope="col">Go when</th></tr></thead><tbody>
+    ${[['Parallel-run reconciliation', 'Every variance is explained, owned and either fixed or accepted in writing'], ['Element set against contracts', 'Each pay component traces to a contract term or policy'], ['Balances and cutover values', 'Opening balances reconcile to the legacy system'], ['Retro behaviour', 'Mid-cycle changes produce the expected retro in a test cycle'], ['Gratuity and end-of-service base', 'Contract-eligible allowances are included and the provision reconciles'], ['Statutory files', 'A dry-run file reconciles to the payroll register, component by component'], ['Upstream handoffs', 'Offer, mobilisation, absence and compensation data arrive complete and on time'], ['Exception triage', 'A named owner and a same-day route exist for each exception type']].map(([a, b]) => `<tr><th scope="row">${a}</th><td>${b}</td></tr>`).join('')}
+    </tbody></table></div></div></section>`,
+  what: ['Parallel-run variance analysis', 'Element set and fast formula review', 'Cutover balance reconciliation', 'Retro scenario testing', 'Statutory file dry-run reconciliation', 'Upstream handoff checks', 'Exception triage plan for the first cycles', 'Go/no-go recommendation'],
+  deliverables: ['Variance register with owners', 'Go/no-go criteria and status', 'First-cycle exception triage plan'],
+  approach: 'Run as a Design Review before cutover, or as the Payroll and Statutory scope of a Health Check once real cycles exist.',
+  outcomes: ['A go-live decision based on evidence', 'Known residual risk, owned by name', 'Fewer corrections after the first pay date'],
+  faq: [
+    ['When should readiness be assessed?', 'Before cutover planning is locked, so there is still time to fix what the parallel runs reveal.'],
+    ['Is this a separate engagement?', 'It is scoped as a Design Review before go-live, or as the Payroll and Statutory scope of a Health Check after it.'],
+  ],
+  related: [['solutions/oracle-fusion-hcm-design-review/', 'Design Review', '2–3 days, USD 2,500'], ['services/oracle-fusion-payroll-statutory-localisation/', 'Payroll &amp; Statutory Localisation', 'Designed from the contract'], ['insights/how-to-prepare-payroll-run-readiness/', 'Readiness guide', 'Go/no-go criteria explained']],
+}));
+
+pages.push(servicePage({
+  slug: 'solutions/india-payroll-statutory-compliance/', parent: ['solutions/india-payroll-statutory-compliance/', 'Solutions'], name: 'India Payroll &amp; Statutory Compliance', area: 'India',
+  title: 'India Payroll &amp; Statutory Compliance in Oracle Fusion | AppsDreamz',
+  desc: 'Oracle Fusion Payroll for India with a control-first approach: statutory configuration, reconciliation, integrations, reporting and audit readiness.',
+  eyebrow: 'Solutions · India', h1: 'India payroll and statutory compliance in Oracle Fusion HCM',
+  lead: 'Indian statutory payroll, designed control-first and delivered from Bengaluru. India is one of the three countries where we have delivered statutory design to date.',
+  cta1: ['book-diagnostic/', 'Book a 45-minute diagnostic'], cta2: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'],
+  problemH: 'Many obligations, many places to drift',
+  problem: ['Indian payroll combines central and state obligations: provident fund, employees’ state insurance, professional tax and labour welfare fund that vary by state, income-tax deduction and reporting, gratuity and statutory bonus.', 'Each depends on how pay components are classified and where employees are based. A component classified once and never revisited, or a state rule applied to the wrong location, does not raise an error. It shows up in a return, a reconciliation or an audit.'],
+  who: 'Indian employers on Oracle Fusion HCM, and multinationals running Indian payroll in Fusion alongside other countries.',
+  what: ['Payroll design and configuration for India', 'Pay component classification for each statutory base', 'Location-driven state rules', 'Compliance controls before each cycle is released', 'Payroll-to-GL and statutory reconciliation', 'Attendance, bank and statutory integrations', 'Statutory reporting', 'Audit readiness'],
+  deliverables: ['Statutory rules register for India', 'Component classification matrix', 'Reconciliation pack', 'Pre-release control checklist'],
+  approach: 'Control-first: every statutory base is defined from the pay components that feed it, and checked before each cycle is released, not after the return is filed.',
+  outcomes: ['Statutory bases you can explain component by component', 'Reconciled returns', 'Audit evidence ready when asked'],
+  faq: [
+    ['Do you deliver Indian statutory payroll in Fusion?', 'Yes. India is one of the three countries, with the UAE and Saudi Arabia, where we have delivered statutory design to date. We confirm on the first call which components your scope covers.'],
+    ['Can you review an existing India payroll configuration?', 'Yes, through the Payroll and Statutory scope of a Health Check, which reads three closed cycles against your contracts and policies.'],
+  ],
+  related: [['services/oracle-fusion-payroll-statutory-localisation/', 'Payroll &amp; Statutory Localisation', 'All countries'], ['industries/india/', 'India', 'Market overview'], ['solutions/oracle-fusion-hcm-health-check/', 'Health Check', 'Payroll &amp; Statutory scope']],
+}));
+
+pages.push(servicePage({
+  slug: 'solutions/ebs-fusion-hcm-coexistence/', parent: ['solutions/ebs-fusion-hcm-coexistence/', 'Solutions'], name: 'E-Business Suite and Fusion HCM Coexistence',
+  title: 'Oracle EBS to Fusion HCM Coexistence &amp; Upgrade | AppsDreamz',
+  desc: 'Run Oracle E-Business Suite HR and payroll alongside Fusion HCM, or move between them: coexistence design, data ownership, integrations and upgrade path.',
+  eyebrow: 'Solutions · EBS and Fusion', h1: 'Running E-Business Suite and Fusion HCM side by side',
+  lead: 'Fusion HCM across the suite, and E-Business Suite where a client still runs it, including the upgrade and coexistence work between the two.',
+  problemH: 'Two systems, one employee record',
+  problem: ['During a phased move, some processes run in Fusion and some stay in E-Business Suite. Unless ownership of each data item is explicit, the two systems drift, and payroll inherits the difference.'],
+  who: 'Organisations on Oracle E-Business Suite HR or payroll planning a move to Fusion HCM, or running both during a phased transition.',
+  what: ['Coexistence model and data ownership', 'Integration between EBS and Fusion', 'Payroll split and reconciliation', 'Upgrade and migration path', 'Cutover sequencing'],
+  deliverables: ['Coexistence design', 'Data ownership matrix', 'Integration specifications', 'Migration and cutover plan'],
+  approach: 'Decide which system owns each data item, design the integration to that ownership, and reconcile payroll across the boundary every cycle.',
+  outcomes: ['A clear owner for every data item', 'Payroll that reconciles across both systems', 'A move to Fusion sequenced by risk'],
+  faq: [['Do you still work on E-Business Suite?', 'Yes, where a client still runs it, including upgrade and coexistence work with Fusion HCM.']],
+  related: [['services/oracle-fusion-hcm-implementation/', 'Implementation', 'Design to go-live'], ['services/oracle-fusion-hcm-integrations/', 'Integrations', 'Interfaces that fail loudly'], ['solutions/oracle-fusion-hcm-design-review/', 'Design Review', 'Before you commit']],
+}));
+
+/* ---------- HEALTH CHECK REPORT STRUCTURE ---------- */
+pages.push(page({
+  file: 'solutions/oracle-fusion-hcm-health-check/report-structure/index.html', current: 'solutions/oracle-fusion-hcm-health-check/',
+  title: 'Health Check Report Structure | AppsDreamz Oracle Fusion HCM',
+  desc: 'What an AppsDreamz Oracle Fusion HCM Health Check report contains: findings register, evidence, remediation plan sequenced by exposure and effort, and walkthrough.',
+  crumbs: [['solutions/oracle-fusion-hcm-health-check/', 'Health Check'], ['solutions/oracle-fusion-hcm-health-check/report-structure/', 'Report structure']],
+  body: p => {
+    const secs = [
+      ['Scope and method', 'The scope chosen (Payroll and Statutory, or Talent and Recruiting), the cycles read, the contracts and artefacts used, and who we spoke to.'],
+      ['Summary for leadership', 'The handful of findings that carry the most exposure, in plain language, for HR, IT and finance.'],
+      ['Findings register', 'Every finding with its inspection area, the evidence from your own runs, its exposure and the effort to fix it.'],
+      ['Evidence', 'Extracts from closed cycles and configuration that show each finding, so your team can verify it independently.'],
+      ['Remediation plan', 'Fixes sequenced by exposure and effort, each with a suggested owner, so you can act on it with or without us.'],
+      ['Walkthrough', 'A session with HR, IT and finance in the room to go through the findings and agree next steps.'],
+    ];
+    return `<section class="hero sub"><div class="in">${eyebrow('Health Check · Report structure')}<h1>What the Health Check report contains</h1><p class="lead">The structure every Health Check report follows. The content is always your own evidence, from your own payroll runs.</p><div class="row">${btn(p + 'book-diagnostic/?type=health-check', 'Request the Health Check scope')}</div></div></section>
+<section class="sect"><div class="in"><ol class="steps">${secs.map(([h, t], i) => `<li><span class="snum">${String(i + 1).padStart(2, '0')}</span><div><h2>${h}</h2><p>${t}</p></div></li>`).join('')}</ol></div></section>
+${ctaBand(p, 'Want to see whether the Health Check fits?', 'We confirm the scope on a 45-minute call before anything is signed.', ['book-diagnostic/?type=health-check', 'Request the Health Check scope'])}`;
+  }
+}));
+
+/* ---------- INDUSTRIES ---------- */
+function industryPage(o) {
+  return page({
+    file: o.slug + 'index.html', title: o.title, desc: o.desc, current: o.slug,
+    crumbs: [['industries/', 'Industries'], [o.slug, o.name]],
+    body: p => `<section class="hero sub"><div class="in">${eyebrow(o.eyebrow)}<h1>${o.h1}</h1><p class="lead">${o.lead}</p><div class="row">${btn(p + 'book-diagnostic/', 'Book a 45-minute diagnostic')}</div>${o.facts ? `<dl class="facts">${o.facts.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>` : ''}</div></section>
+<section class="sect"><div class="in split"><div>${sectionHead('What is different here', o.diffH)}</div><div>${list(o.diff, 'ticks')}</div></div></section>
+<section class="sect tint"><div class="in">${sectionHead('Where to start', 'Relevant services and solutions')}<div class="svc-grid">${o.links.map(([h, t, d]) => `<a class="svc" href="${p}${h}"><h2>${t}</h2><p>${d}</p><span class="tlink">Read more${ARROW}</span></a>`).join('')}</div></div></section>
+${o.proof ? `<section class="sect"><div class="in proofline"><p class="eyebrow"><span class="sl" aria-hidden="true"></span>Proof</p><p>${o.proof}</p><a class="tlink" href="${p}clients-results/case-studies/">Read the case studies${ARROW}</a></div></section>` : ''}
+${ctaBand(p, o.ctaH, 'Forty-five minutes with the consultant who would do the work.')}`
+  });
+}
+pages.push(page({
+  file: 'industries/index.html', current: 'industries/',
+  title: 'Markets We Serve | AppsDreamz Oracle Fusion HCM',
+  desc: 'AppsDreamz delivers Oracle Fusion HCM for GCC employers, Indian enterprises and global organisations adding countries to a Fusion HCM estate.',
+  crumbs: [['industries/', 'Industries']],
+  body: p => `<section class="hero sub"><div class="in">${eyebrow('Industries and markets')}<h1>Statutory reality, country by country</h1><p class="lead">Statutory delivery to date covers the UAE, Saudi Arabia and India, run from Dubai, Riyadh and Bengaluru. The failure mechanisms are the same in any jurisdiction.</p></div></section>
+<section class="sect"><div class="in"><div class="svc-grid">${NAV[2].items.slice(1).map(([h, t, d]) => `<a class="svc" href="${p}${h}"><h2>${t}</h2><p>${d}</p><span class="tlink">Read more${ARROW}</span></a>`).join('')}</div></div></section>
+${ctaBand(p, 'Operating somewhere else?', 'Tell us where. We will say on the first call exactly what we have and have not delivered in your countries.')}`
+}));
+pages.push(industryPage({
+  slug: 'industries/gcc-middle-east/', name: 'GCC / Middle East',
+  title: 'Oracle Fusion HCM for GCC Employers | AppsDreamz',
+  desc: 'Oracle Fusion HCM for GCC and Middle East employers: WPS, GOSI, gratuity, expatriate mobilisation and multi-entity payroll, delivered from Dubai and Riyadh.',
+  eyebrow: 'Industries · GCC / Middle East', h1: 'Oracle Fusion HCM for GCC employers',
+  lead: 'Expatriate workforces, contract-driven gratuity and statutory files that must be correct, not only valid. Delivered in the UAE and Saudi Arabia.',
+  facts: [['Delivered', 'UAE, Saudi Arabia'], ['Run from', 'Dubai · Riyadh'], ['Case studies', '2 GCC / Middle East']],
+  diffH: 'What makes GCC payroll hard in Fusion',
+  diff: ['Visa, medical and mobilisation dates tracked outside onboarding, arriving at payroll as retro', 'Gratuity bases that must follow the allowances each contract makes eligible', 'WPS files that pass validation but misclassify a component', 'GOSI contribution bases that drift after a salary restructure', 'Leave accrual that must follow the contract, not the calendar', 'End-of-service provisions that must reconcile to the balance sheet'],
+  links: [['solutions/gcc-payroll-localisation/', 'GCC Payroll Localisation', 'WPS, GOSI, gratuity'], ['solutions/cross-module-handoff-remediation/', 'Cross-Module Handoffs', 'Mobilisation to payroll'], ['solutions/oracle-fusion-hcm-health-check/', 'Health Check', '3 weeks · USD 7,500']],
+  proof: 'A GCC property and facilities group taken live in phases, and a Middle East media group whose gratuity base did not match its contracts.',
+  ctaH: 'Running Fusion HCM in the Gulf?',
+}));
+pages.push(industryPage({
+  slug: 'industries/india/', name: 'India',
+  title: 'Oracle Fusion HCM for Indian Enterprises | AppsDreamz',
+  desc: 'Oracle Fusion HCM and Payroll for Indian enterprises: statutory payroll, state-level rules, attendance integrations and audit readiness, delivered from Bengaluru.',
+  eyebrow: 'Industries · India', h1: 'Oracle Fusion HCM for Indian enterprises',
+  lead: 'Indian statutory payroll in Fusion, designed control-first and delivered from our Bengaluru base.',
+  facts: [['Statutory delivery', 'India'], ['Base', 'Bengaluru']],
+  diffH: 'What makes Indian payroll hard in Fusion',
+  diff: ['Central and state obligations that depend on where each employee is based', 'Statutory bases that depend on how each pay component is classified', 'Attendance and time data from several sources', 'Income-tax deduction and reporting through the year', 'Audit evidence that has to be produced on request'],
+  links: [['solutions/india-payroll-statutory-compliance/', 'India Payroll &amp; Statutory Compliance', 'Control-first design'], ['services/oracle-fusion-hcm-integrations/', 'Integrations', 'Attendance, bank, statutory'], ['solutions/oracle-fusion-hcm-health-check/', 'Health Check', '3 weeks · USD 7,500']],
+  ctaH: 'Running Fusion payroll in India?',
+}));
+pages.push(industryPage({
+  slug: 'industries/global-enterprises/', name: 'Global Enterprises',
+  title: 'Multi-Country Oracle Fusion HCM for Global Enterprises | AppsDreamz',
+  desc: 'Adding countries to an Oracle Fusion HCM estate: global design with country-by-country statutory payroll, integrations and cross-module controls.',
+  eyebrow: 'Industries · Global enterprises', h1: 'Adding countries to an Oracle Fusion HCM estate',
+  lead: 'A global design only holds if each country’s statutory reality is designed in, not adapted afterwards. We deliver for organisations worldwide, and tell you plainly where we have delivered statutory design before.',
+  facts: [['Statutory delivery to date', 'UAE, Saudi Arabia, India'], ['Engagements', 'Worldwide']],
+  diffH: 'What goes wrong when countries are added',
+  diff: ['A global element set that does not match local contracts', 'Statutory files bolted on after the global design is fixed', 'Integrations that differ by country without a shared control model', 'Payroll exceptions that only appear in one country’s cycle', 'Release regression that tests one country and assumes the rest'],
+  links: [['services/oracle-fusion-payroll-statutory-localisation/', 'Payroll &amp; Statutory Localisation', 'Country by country'], ['solutions/ebs-fusion-hcm-coexistence/', 'EBS and Fusion coexistence', 'Phased moves'], ['services/oracle-fusion-hcm-managed-support/', 'Managed Support', 'Multi-country regression']],
+  ctaH: 'Adding a country to Fusion HCM?',
+}));
+
+/* ---------- LEADERSHIP ---------- */
+pages.push(page({
+  file: 'about/leadership/index.html', current: 'about/leadership/',
+  title: 'Leadership &amp; Experts | AppsDreamz',
+  desc: 'Meet the AppsDreamz founders. The consultant who scopes your Oracle Fusion HCM work is the consultant who does it.',
+  crumbs: [['about/', 'About'], ['about/leadership/', 'Leadership &amp; experts']],
+  body: p => `<section class="hero sub"><div class="in">${eyebrow('Leadership &amp; experts')}<h1>The consultant who scopes the work does the work.</h1><p class="lead">AppsDreamz is deliberately small and senior-only. There is no pyramid of unnamed staff behind the people you meet.</p></div></section>
+<section class="sect"><div class="in split"><div>${sectionHead('Founders', 'Who you will be speaking to')}<p class="body">We turn down work we cannot staff with a senior consultant, and we say on the first call if the problem is not ours to fix.</p></div><div>${founders(p)}</div></div></section>
+${ctaBand(p, 'Speak to the people who would do the work.', 'Forty-five minutes, no obligation.')}`
+}));
+
+/* ---------- RISK CHECKLIST ---------- */
+const CHECKLIST = [
+  ['Contracts and elements', [
+    ['Every pay component traces to an employment contract term or written policy', 'Components configured from a template drift from what contracts promise'],
+    ['Allowances eligible for gratuity or end-of-service are listed per contract type', 'An excluded allowance understates the provision every month'],
+  ]],
+  ['Statutory files', [
+    ['Each statutory file reconciles to the payroll register, component by component', 'A file can pass validation and still misclassify a component'],
+    ['Contribution bases are re-checked after every salary restructure', 'Bases drift silently after a restructure'],
+  ]],
+  ['Accruals and provisions', [
+    ['Leave accrual follows contractual entitlement, not the calendar', 'Accrual on the calendar misstates the leave liability'],
+    ['The end-of-service provision reconciles to the balance sheet each month', 'An unreconciled provision surfaces at settlement'],
+  ]],
+  ['Retro and exceptions', [
+    ['The same exception has not appeared in three consecutive cycles', 'Recurring exceptions point to a configuration cause, not data entry'],
+    ['Retro results are checked against expected values for mid-cycle changes', 'Wrong retro results compound across cycles'],
+    ['Payroll does not depend on corrections made in the days before pay date', 'The workaround has become the process'],
+  ]],
+  ['Handoffs into payroll', [
+    ['Offer terms land in the employee record without re-keying', 'Offers approved outside the system arrive with the wrong terms'],
+    ['Visa and mobilisation dates are captured in onboarding, not a spreadsheet', 'Dates tracked outside the system arrive at payroll as a retro'],
+    ['A compensation restructure triggers a recalculation of the gratuity base', 'Nothing recalculates the provision on its own'],
+  ]],
+  ['Integrations and releases', [
+    ['Each interface checks expected volume and totals before sending', 'Partial posts are found weeks later through the data they corrupted'],
+    ['A named owner is alerted when an interface posts partially', 'Unowned failures wait for the reconciliation'],
+    ['Each quarterly update is regression-tested against your configuration', 'An untested update can break a fast formula'],
+  ]],
+];
+const CL_COUNT = CHECKLIST.reduce((n, [, items]) => n + items.length, 0);
+pages.push(page({
+  file: 'resources/payroll-statutory-risk-checklist/index.html', current: 'resources/payroll-statutory-risk-checklist/',
+  title: 'Oracle Fusion HCM Payroll &amp; Statutory Risk Checklist | AppsDreamz',
+  desc: `A free ${CL_COUNT}-point self-assessment for Oracle Fusion HCM payroll and statutory risk: contracts, statutory files, provisions, retro, handoffs and integrations.`,
+  crumbs: [['insights/', 'Insights'], ['resources/payroll-statutory-risk-checklist/', 'Risk checklist']],
+  body: p => `<section class="hero sub"><div class="in">${eyebrow('Free resource · Self-assessment')}<h1>Oracle Fusion HCM Payroll &amp; Statutory Risk Checklist</h1><p class="lead">${CL_COUNT} checks drawn from the failure points we see most often. Tick each one you can evidence today. Anything you cannot tick is worth a closer look.</p><p class="sub-lead">Nothing you tick leaves this page. Use your browser’s print function to save a copy.</p></div></section>
+<section class="sect"><div class="in split cl-split">
+  <form class="checklist" id="checklist" aria-label="Risk checklist">
+  ${CHECKLIST.map(([g, items], gi) => `<fieldset><legend>${g}</legend>${items.map(([c, why], ii) => `<label class="cl"><input type="checkbox" name="c${gi}-${ii}"><span><b>${c}</b><span class="why">${why}</span></span></label>`).join('')}</fieldset>`).join('')}
+  </form>
+  <aside class="clscore" aria-live="polite"><p class="eyebrow"><span class="sl" aria-hidden="true"></span>Your result</p><p class="big"><span id="cl-n">0</span> / ${CL_COUNT}</p><p id="cl-msg">Tick the checks you can evidence today.</p>${btn(p + 'book-diagnostic/?type=health-check', 'Request the Health Check scope')}<p class="fnote dark-note">The Health Check tests these points against your own closed cycles and contracts.</p></aside>
+</div></section>
+${related(p, [['solutions/oracle-fusion-hcm-health-check/', 'Health Check', '3 weeks · USD 7,500'], ['insights/10-signs-your-fusion-hcm-programme-needs-a-health-check/', '10 signs you need a Health Check', 'Article'], ['solutions/gcc-payroll-localisation/', 'GCC Payroll Localisation', 'WPS, GOSI, gratuity']])}`
+}));
+
+/* ---------- INSIGHTS ---------- */
+const AUTHOR = { '@type': 'Organization', name: 'AppsDreamz', url: SITE };
+const ARTICLES = [];
+function article(o) {
+  ARTICLES.push(o);
+  return page({
+    file: 'insights/' + o.slug + '/index.html', current: 'insights/', title: o.seo || (o.title + ' | AppsDreamz'), desc: o.desc,
+    crumbs: [['insights/', 'Insights'], ['insights/' + o.slug + '/', o.short]],
+    schema: [{ '@type': 'Article', headline: o.title.replace(/&amp;/g, '&'), description: o.desc, author: AUTHOR, publisher: { '@id': SITE + '#org' }, datePublished: o.date, dateModified: o.date, mainEntityOfPage: SITE + 'insights/' + o.slug + '/' }, ...(o.faq ? [faqSchema(o.faq)] : [])],
+    body: p => `<article class="post"><header class="hero sub"><div class="in">${eyebrow(o.cat)}<h1>${o.title}</h1><p class="lead">${o.lead}</p><p class="byline">AppsDreamz Oracle Fusion HCM practice · <time datetime="${o.date}">${new Date(o.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</time></p></div></header>
+<div class="sect"><div class="in post-body">${o.body(p)}
+${o.faq ? `<h2>Frequently asked</h2>${faq(o.faq)}` : ''}
+<aside class="post-cta"><h2>${o.ctaH}</h2><p>${o.ctaBody}</p><div class="row">${btn(p + o.cta[0], o.cta[1])}</div></aside>
+</div></div></article>
+${related(p, o.related)}`
+  });
+}
+pages.push(article({
+  slug: 'health-check-vs-design-review', seo: 'Fusion HCM Health Check vs Design Review | AppsDreamz', short: 'Health Check vs Design Review', date: '2026-11-08', cat: 'Oracle Fusion HCM guides',
+  title: 'Oracle Fusion HCM Health Check versus Design Review: which do you need?',
+  desc: 'How to choose between a three-week Oracle Fusion HCM Health Check and a two-to-three-day Design Review: timing, scope, inputs, deliverables and price.',
+  lead: 'Both are fixed-fee entry points. The right one depends on a single question: is the system already running payroll?',
+  body: p => `<h2>The short answer</h2><p>If you are <b>not live yet</b>, you need the Design Review. If you are <b>live</b>, or late enough in testing to have real cycles to read, you need the Health Check.</p>
+<div class="tablewrap"><table class="plain"><thead><tr><th scope="col"></th><th scope="col">Design Review</th><th scope="col">Health Check</th></tr></thead><tbody>
+<tr><th scope="row">Stage</th><td>Before build or before go-live</td><td>Live, or late in testing</td></tr>
+<tr><th scope="row">Reads</th><td>The design: documents and configuration workbooks</td><td>The system: a read-only copy of production and three closed cycles</td></tr>
+<tr><th scope="row">Covers</th><td>Enterprise structure, payroll relationship model, element set against contracts, integration inventory, test approach, go-live shape</td><td>One scope: Payroll and Statutory, or Talent and Recruiting, across eight inspection areas</td></tr>
+<tr><th scope="row">Duration</th><td>2 to 3 days</td><td>3 weeks</td></tr>
+<tr><th scope="row">Fee</th><td>USD 2,500 fixed</td><td>USD 7,500 fixed, credited in full against work from the findings</td></tr>
+<tr><th scope="row">You receive</th><td>Findings rated by risk, design decisions to revisit, walkthrough</td><td>Written report, findings register with evidence, remediation plan, walkthrough</td></tr>
+</tbody></table></div>
+<h2>Why the Design Review comes first when you can</h2><p>A design decision costs least before it is built. Once a payroll relationship model or element set has been configured, tested and migrated against, changing it means rework across every module that depends on it. Two to three days of independent reading at design sign-off is the cheapest assurance a programme can buy.</p>
+<h2>Why the Health Check needs real cycles</h2><p>Localisation and handoff failures rarely show up in a design document. A gratuity base that excludes a contract-eligible allowance looks fine on paper and in the payslip. It only shows when you read closed cycles line by line against the contracts, which is what the Health Check does.</p>
+<h2>Checklist: which one fits</h2>${list(['Payroll has not run live yet: <b>Design Review</b>', 'SIT or UAT is under way and parallel runs exist: <b>either</b>, depending on what is in doubt', 'Live with recurring exceptions: <b>Health Check</b>, Payroll and Statutory scope', 'Hiring happening outside the system: <b>Health Check</b>, Talent and Recruiting scope', 'Implementation partner has handed over with open issues: <b>Health Check</b>'], 'ticks')}`,
+  faq: [['Can we do both?', 'Yes. Many programmes take a Design Review before build and a Health Check after the first live cycles.'], ['Is the Design Review fee credited?', 'The Health Check fee is credited in full against work commissioned from its findings. Ask us on the call about the Design Review.']],
+  ctaH: 'Not sure which you need?', ctaBody: 'Tell us where you are on a 45-minute call and we will recommend one, or neither.', cta: ['book-diagnostic/', 'Book a 45-minute diagnostic'],
+  related: [['solutions/oracle-fusion-hcm-health-check/', 'Health Check', '3 weeks · USD 7,500'], ['solutions/oracle-fusion-hcm-design-review/', 'Design Review', '2–3 days · USD 2,500'], ['resources/payroll-statutory-risk-checklist/', 'Risk checklist', 'Free self-assessment']],
+}));
+pages.push(article({
+  slug: '10-signs-your-fusion-hcm-programme-needs-a-health-check', seo: '10 Signs Your Fusion HCM Programme Needs a Health Check', short: '10 signs you need a Health Check', date: '2026-11-08', cat: 'Implementation risk',
+  title: '10 signs your Oracle Fusion HCM programme needs a Health Check',
+  desc: 'Ten signs an Oracle Fusion HCM implementation is running on workarounds: recurring payroll exceptions, wrong retro, gratuity gaps, off-system approvals and more.',
+  lead: 'Every cycle completes, so nobody calls it broken. These are the signs that the workaround has become the process.',
+  body: p => `<p>None of these raise an error in Fusion. Each is a sign that correction work has moved out of the system and into people’s weeks. Score yourself as you read: one point per sign you recognise.</p>
+<ol class="signs">${[
+  ['The same payroll exception appears every cycle', 'A recurring exception almost always has a configuration cause. Correcting it each month treats the symptom.'],
+  ['Retro produces results nobody can explain', 'Wrong retro compounds: each cycle corrects the last one and introduces the next difference.'],
+  ['Exceptions are worked through just before pay date', 'If the payroll team relies on the days before pay date to fix exceptions, the process now depends on that buffer.'],
+  ['The gratuity base does not match the contracts', 'An allowance the contract makes eligible, left out of the base, understates the end-of-service provision every month.'],
+  ['Statutory files pass validation but finance still finds differences', 'A file can be structurally valid and still misclassify a component.'],
+  ['Contribution bases were not rechecked after a restructure', 'A salary restructure moves the base. Nothing recalculates it on its own.'],
+  ['Offers are approved over email', 'When the approval chain in the system stalls, offers are approved outside it and re-keyed, with the errors that brings.'],
+  ['Visa or mobilisation dates live in a spreadsheet', 'Dates tracked outside onboarding arrive at payroll late, as a retro.'],
+  ['A performance cycle closed because HR chased it manually', 'The system recorded the outcome; it did not run the process.'],
+  ['Your implementation partner has rolled off with open issues', 'Open defects at hand-over become your team’s workload, usually without anyone sizing it.'],
+].map(([h, t]) => `<li><h3>${h}</h3><p>${t}</p></li>`).join('')}</ol>
+<h2>How to read your score</h2>${list(['<b>0–2:</b> keep monitoring; run the risk checklist each quarter', '<b>3–5:</b> a focused Health Check will likely pay for itself in avoided correction work', '<b>6 or more:</b> the workaround is the process; start with a Health Check before any further change'], 'ticks')}
+<p>The Health Check reads three closed cycles line by line against your employment contracts and returns a remediation plan sequenced by exposure and effort. It costs USD 7,500, takes three weeks, and the fee is credited in full against work commissioned from the findings.</p>`,
+  ctaH: 'Recognised three or more?', ctaBody: 'Request the Health Check scope. We confirm it on a 45-minute call before anything is signed.', cta: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'],
+  related: [['solutions/oracle-fusion-hcm-health-check/', 'Health Check', 'What it covers'], ['services/oracle-fusion-hcm-remediation-stabilisation/', 'Remediation &amp; Stabilisation', 'Acting on the findings'], ['resources/payroll-statutory-risk-checklist/', 'Risk checklist', 'Free self-assessment']],
+}));
+pages.push(article({
+  slug: 'wps-gosi-gratuity-end-of-service-validation', seo: 'Validating WPS, GOSI, Gratuity and EOS in Fusion HCM', short: 'WPS, GOSI, gratuity and EOS', date: '2026-11-08', cat: 'Statutory localisation',
+  title: 'WPS, GOSI, gratuity and end-of-service provisions: what Oracle Fusion HCM teams must validate',
+  desc: 'How GCC payroll teams on Oracle Fusion HCM should validate WPS files, GOSI contribution bases, gratuity bases and end-of-service provisions.',
+  lead: 'In the Gulf, these four are where a technically clean implementation most often goes wrong without raising a flag.',
+  body: p => `<p>Each of the four below can be configured, tested and running without a single error in Fusion, and still be wrong. The common cause is the same: the configuration follows a standard template instead of the employment contracts it is meant to implement.</p>
+<h2>1. WPS files: classification, not just validation</h2><p>A WPS file can pass every structural check and still place a pay component in the wrong category. <b>Validate:</b> reconcile each file to the payroll register component by component, and confirm each component’s classification against its contract or policy source.</p>
+<h2>2. GOSI contribution base after restructures</h2><p>The contribution base depends on which components are included. A salary restructure changes those components, and the base does not recalculate itself. <b>Validate:</b> after every restructure, recompute the base for a sample of affected employees and compare it with what payroll used.</p>
+<h2>3. Gratuity base: what the contract makes eligible</h2><p>A gratuity base that leaves out an allowance the contract makes eligible does not throw an error. Payroll runs and the payslip looks right. <b>Validate:</b> list, per contract type, which allowances are eligible, then compare that list with the elements that actually feed the base.</p>
+<h2>4. End-of-service provision to the balance sheet</h2><p>If the base is understated, the provision is understated every month until someone leaves and the accrual does not cover the settlement. <b>Validate:</b> reconcile the provision to the balance sheet monthly, and recompute it independently for a sample of long-tenure employees.</p>
+<h2>Diagnostic checklist</h2>${list(['Every WPS file reconciles to the payroll register by component', 'Each component’s WPS classification has a documented source', 'GOSI bases are recomputed after every restructure', 'Gratuity-eligible allowances are listed per contract type', 'Elements feeding the gratuity base match that list', 'The end-of-service provision reconciles to the balance sheet monthly', 'Leave accrual follows contractual entitlement, not the calendar'], 'ticks')}`,
+  faq: [['Which GCC countries do you deliver?', 'The UAE and Saudi Arabia. For other GCC countries we tell you on the first call what we have and have not done.'], ['Can you review our existing WPS and GOSI set-up?', 'Yes. It is part of the Payroll and Statutory scope of the Health Check.']],
+  ctaH: 'Want these checked against your own cycles?', ctaBody: 'The Payroll and Statutory scope of the Health Check reads three closed cycles line by line against your contracts.', cta: ['book-diagnostic/?type=health-check', 'Request the Health Check scope'],
+  related: [['solutions/gcc-payroll-localisation/', 'GCC Payroll Localisation', 'UAE and Saudi Arabia'], ['services/oracle-fusion-payroll-statutory-localisation/', 'Payroll &amp; Statutory Localisation', 'Designed from the contract'], ['resources/payroll-statutory-risk-checklist/', 'Risk checklist', 'Free self-assessment']],
+}));
+pages.push(article({
+  slug: 'how-to-prepare-payroll-run-readiness', seo: 'Preparing for Fusion Payroll Run Readiness | AppsDreamz', short: 'Payroll run readiness', date: '2026-11-08', cat: 'Payroll compliance',
+  title: 'How to prepare for an Oracle Fusion HCM payroll run readiness assessment',
+  desc: 'Go/no-go criteria for the first live Oracle Fusion payroll run: parallel-run variances, balances, retro, statutory files, handoffs and exception triage.',
+  lead: 'The first live run is the most expensive place to find a payroll error. This is how to find them before it.',
+  body: p => `<h2>Start from the variances, not the matches</h2><p>Parallel runs are usually reported as a match rate. The useful output is the list of variances, each with an explanation and an owner. A variance explained as “timing” or “rounding” without evidence is still open.</p>
+<h2>Go/no-go criteria</h2>${list(['Every parallel-run variance is explained, owned and fixed or accepted in writing', 'Each pay component traces to a contract term or policy', 'Opening balances reconcile to the legacy system', 'Mid-cycle changes produce the expected retro in a test cycle', 'Contract-eligible allowances are in the gratuity base and the provision reconciles', 'A dry-run statutory file reconciles to the payroll register', 'Offer, mobilisation, absence and compensation data arrive complete and on time', 'Each exception type has a named owner and a same-day route'], 'ticks')}
+<h2>What to prepare</h2>${list(['Parallel-run outputs and variance lists', 'Element set and contract templates', 'Cutover balance files', 'A dry-run statutory file', 'The interface schedule for the first cycle'], 'dash')}`,
+  ctaH: 'Approaching your first live run?', ctaBody: 'A Design Review before cutover tests your readiness against these criteria.', cta: ['book-diagnostic/?type=design-review', 'Request a Design Review'],
+  related: [['solutions/payroll-run-readiness/', 'Payroll Run Readiness', 'Go/no-go'], ['solutions/oracle-fusion-hcm-design-review/', 'Design Review', '2–3 days · USD 2,500'], ['services/oracle-fusion-payroll-statutory-localisation/', 'Payroll &amp; Statutory Localisation', 'Designed from the contract']],
+}));
+pages.push(page({
+  file: 'insights/index.html', current: 'insights/',
+  title: 'Oracle Fusion HCM Insights | AppsDreamz',
+  desc: 'Practical guides for Oracle Fusion HCM buyers: Health Check or Design Review, payroll run readiness, GCC statutory validation and implementation risk.',
+  crumbs: [['insights/', 'Insights']],
+  body: p => `<section class="hero sub"><div class="in">${eyebrow('Insights')}<h1>Guides for Oracle Fusion HCM buyers</h1><p class="lead">Practical frameworks and checklists from the failure points we see in payroll, statutory localisation and cross-module handoffs.</p></div></section>
+<section class="sect"><div class="in"><div class="svc-grid">
+<a class="svc res" href="${p}resources/payroll-statutory-risk-checklist/"><p class="cmeta">Free resource</p><h2>Payroll &amp; Statutory Risk Checklist</h2><p>${CL_COUNT}-point self-assessment</p><span class="tlink">Use the checklist${ARROW}</span></a>
+${ARTICLES.map(a => `<a class="svc" href="${p}insights/${a.slug}/"><p class="cmeta">${a.cat}</p><h2>${a.title}</h2><p>${a.lead}</p><span class="tlink">Read${ARROW}</span></a>`).join('')}
+</div></div></section>
+${ctaBody0(p)}`
+}));
+function ctaBody0(p) { return ctaBand(p, 'Prefer to talk it through?', 'Forty-five minutes with the consultant who would do the work.'); }
+
+/* ---------- LEGAL ---------- */
+pages.push(page({
+  file: 'legal/privacy/index.html', current: 'legal/privacy/',
+  title: 'Privacy Notice | AppsDreamz', desc: 'How AppsDreamz handles personal information sent through this website.',
+  crumbs: [['legal/privacy/', 'Privacy notice']],
+  body: p => `<section class="sect"><div class="in post-body legal-body">${eyebrow('Legal')}<h1>Privacy notice</h1><p class="byline">Last updated ${new Date(TODAY).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+<h2>Who we are</h2><p>AppsDreamz (CIN U72900KA2022PTC158740), registered office in Bengaluru, Karnataka, India. Contact: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+<h2>What we collect</h2><p>When you use the booking form, the details you enter (name, work email, company, job title, country, optional phone, Fusion HCM status, challenge and message) are placed into an email in your own email app. Nothing is sent to us until you send that email. We receive only what you send.</p>
+<h2>How we use it</h2><p>To reply to you, arrange the call you asked for and manage any engagement that follows. We do not sell your details or use them for unrelated marketing.</p>
+<h2>Third parties involved in serving this site</h2><p>This site is hosted on GitHub Pages and loads fonts from Google Fonts. Like any web server, these services receive your IP address and browser details to deliver the page. We do not run analytics or advertising trackers on this site.</p>
+<h2>Retention</h2><p>We keep enquiry emails for as long as needed to respond and to manage any engagement that follows.</p>
+<h2>Your choices</h2><p>Email <a href="mailto:${EMAIL}">${EMAIL}</a> to ask what we hold about you, or to correct or delete it.</p>
+</div></section>`
+}));
+pages.push(page({
+  file: 'legal/cookies/index.html', current: 'legal/cookies/',
+  title: 'Cookie Notice | AppsDreamz', desc: 'AppsDreamz does not set cookies on this website.',
+  crumbs: [['legal/cookies/', 'Cookie notice']],
+  body: p => `<section class="sect"><div class="in post-body legal-body">${eyebrow('Legal')}<h1>Cookie notice</h1><p class="byline">Last updated ${new Date(TODAY).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+<p>This website does not set cookies and does not use analytics, advertising or tracking cookies. The risk checklist keeps your ticks only on the page while it is open.</p>
+<p>Fonts are loaded from Google Fonts, which receives your IP address to deliver them. If we add analytics in future, we will update this notice and ask for your consent first.</p>
+<p>Questions: <a href="mailto:${EMAIL}">${EMAIL}</a>.</p>
+</div></section>`
 }));
 
 /* ---------- redirects from old URLs ---------- */

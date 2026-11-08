@@ -8,7 +8,7 @@
   var toggle = document.querySelector('.nav-toggle');
   var nav = document.getElementById('site-nav');
   var panelBtns = [].slice.call(document.querySelectorAll('.has-panel > .toplink'));
-  var mobile = window.matchMedia('(max-width:1080px)');
+  var mobile = window.matchMedia('(max-width:1260px)');
 
   function closePanels(except) {
     panelBtns.forEach(function (b) {
@@ -59,9 +59,42 @@
     update();
   }
 
+  /* ---------- measurement hooks (no third-party tag is loaded; a GA4 / Plausible tag can read window.dataLayer) ---------- */
+  var dl = window.dataLayer = window.dataLayer || [];
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var h = a.getAttribute('href');
+    if (/book-diagnostic|payroll-statutory-risk-checklist|mailto:/.test(h)) {
+      dl.push({ event: /mailto:/.test(h) ? 'email_click' : 'cta_click', cta_text: a.textContent.trim().slice(0, 60), cta_href: h, cta_location: (a.closest('header,footer,section,aside') || {}).className || '' });
+    }
+  });
+  var marks = [25, 50, 75, 90], hit = {};
+  window.addEventListener('scroll', function () {
+    var pct = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+    marks.forEach(function (m) { if (pct >= m && !hit[m]) { hit[m] = 1; dl.push({ event: 'scroll_depth', percent: m }); } });
+  }, { passive: true });
+
+  /* ---------- risk checklist ---------- */
+  var cl = document.getElementById('checklist');
+  if (cl) {
+    var boxes = [].slice.call(cl.querySelectorAll('input[type=checkbox]'));
+    var n = document.getElementById('cl-n'), msg = document.getElementById('cl-msg');
+    var score = function () {
+      var c = boxes.filter(function (b) { return b.checked; }).length, gaps = boxes.length - c;
+      n.textContent = c;
+      msg.textContent = c === 0 ? 'Tick the checks you can evidence today.' : gaps === 0 ? 'Every check evidenced. Re-run this each quarter.' : gaps + (gaps === 1 ? ' check' : ' checks') + ' you cannot evidence yet. ' + (gaps >= 6 ? 'That pattern usually means the workaround has become the process.' : 'Each is worth a closer look.');
+    };
+    cl.addEventListener('change', function () { score(); if (!cl.dataset.s) { cl.dataset.s = 1; dl.push({ event: 'checklist_start' }); } });
+    score();
+  }
+
   /* ---------- booking form ---------- */
   var form = document.getElementById('bookform');
   if (!form) return;
+  var started = false, submitted = false;
+  form.addEventListener('focusin', function () { if (!started) { started = true; dl.push({ event: 'form_start', form_type: form.elements.type.value }); } });
+  window.addEventListener('pagehide', function () { if (started && !submitted) dl.push({ event: 'form_abandon', form_type: form.elements.type.value }); });
   var params = new URLSearchParams(location.search);
   var TYPES = {
     'health-check': ['Request the Health Check scope', 'Health Check scope request'],
@@ -143,7 +176,8 @@
       form.hidden = true;
       var done = document.getElementById('done');
       done.hidden = false; done.focus();
-      if (window.dataLayer) window.dataLayer.push({ event: 'generate_lead', lead_type: type });
+      submitted = true;
+      dl.push({ event: 'generate_lead', lead_type: type });
     };
     if (FORM_ENDPOINT) {
       fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form))) })
