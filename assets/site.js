@@ -61,8 +61,11 @@
     var nodes = [].slice.call(hmap.querySelectorAll('.hm-node'));
     var links = [].slice.call(hmap.querySelectorAll('.hm-link'));
     var esc = function (t) { return String(t).replace(/[<>&]/g, ''); };
-    var cur = 'payroll';
-    var pick = function (k) {
+    var segs = [].slice.call(hmap.querySelectorAll('.hm-prog i'));
+    var order = nodes.map(function (n) { return n.getAttribute('data-k'); });
+    var cards = hmap.querySelector('.hcards');
+    var cur = order[0];
+    var pick = function (k, auto) {
       if (k === cur || !HM[k]) return;
       cur = k;
       nodes.forEach(function (n) { var on = n.getAttribute('data-k') === k; n.classList.toggle('hot', on); n.setAttribute('aria-pressed', String(on)); });
@@ -73,13 +76,56 @@
       var li = function (arr) { return arr.map(function (t, i) { return '<li style="--i:' + i + '">' + esc(t) + '</li>'; }).join(''); };
       hmap.querySelector('.hc-chips').innerHTML = li(HM[k].t);
       hmap.querySelector('.hc-checks').innerHTML = li(HM[k].l);
-      dl.push({ event: 'hero_module_select', module: k });
+      var ix = order.indexOf(k);
+      segs.forEach(function (s, i) { s.classList.toggle('done', i < ix); s.classList.remove('on'); });
+      if (segs[ix]) { void segs[ix].offsetWidth; segs[ix].classList.add('on'); }
+      if (!auto) dl.push({ event: 'hero_module_select', module: k });
     };
+
+    /* auto tour: clockwise from Core HR, one module per progress segment; stops for good once the visitor takes over */
+    var DWELL = 3200, timer = null, stopped = false, inView = true;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var schedule = function () {
+      clearTimeout(timer);
+      if (stopped || !inView || document.hidden) return;
+      timer = setTimeout(function () { pick(order[(order.indexOf(cur) + 1) % order.length], true); schedule(); }, DWELL);
+    };
+    var restart = function () {
+      if (stopped) return;
+      var s = segs[order.indexOf(cur)];
+      if (s) { s.classList.remove('on'); void s.offsetWidth; s.classList.add('on'); }
+      schedule();
+    };
+    var stop = function () {
+      if (stopped) return;
+      stopped = true; clearTimeout(timer);
+      hmap.classList.add('hm-manual');
+      cards.setAttribute('aria-live', 'polite');
+    };
+    if (reduce || !segs.length) { stop(); } else {
+      hmap.classList.add('hm-auto');
+      schedule();
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          var v = es[0].isIntersecting;
+          if (v !== inView) { inView = v; hmap.classList.toggle('hm-paused', !v); if (v) restart(); else clearTimeout(timer); }
+        }, { threshold: 0 }).observe(hmap);
+      }
+      document.addEventListener('visibilitychange', function () {
+        hmap.classList.toggle('hm-paused', document.hidden);
+        if (document.hidden) clearTimeout(timer); else restart();
+      });
+    }
+
+    var stage = hmap.querySelector('.hmap-stage');
+    if (stage) stage.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') stop(); });
+    hmap.addEventListener('focusin', stop);
+    hmap.addEventListener('touchstart', stop, { passive: true });
     nodes.forEach(function (n) {
       var k = n.getAttribute('data-k');
-      n.addEventListener('mouseenter', function () { pick(k); });
-      n.addEventListener('focus', function () { pick(k); });
-      n.addEventListener('click', function () { pick(k); });
+      n.addEventListener('mouseenter', function () { stop(); pick(k); });
+      n.addEventListener('focus', function () { stop(); pick(k); });
+      n.addEventListener('click', function () { stop(); pick(k); });
     });
   }
 

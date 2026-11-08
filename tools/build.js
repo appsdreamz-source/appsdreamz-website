@@ -325,7 +325,7 @@ const HMAP = [
   { k: 'ai', label: 'Fusion AI Agents', x: 191.3, y: 161.3, chip: 'ADVISORY', topics: ['Oracle AI Agent Studio', 'HR helpdesk agents', 'Employee agents', 'Manager agents', 'Generative AI in HCM', 'Security and governance'], checks: ['Use cases scoped', 'Data access reviewed', 'Agent workflows designed', 'Human approval points defined'], ai: 1 }
 ];
 
-const HM0 = HMAP.find(m => m.k === 'payroll');
+const HM0 = HMAP[0];
 pages.push(page({
   file: 'index.html',
   title: 'Oracle Fusion HCM Implementation, Payroll &amp; Remediation | AppsDreamz',
@@ -353,17 +353,18 @@ pages.push(page({
       <circle cx="320" cy="290" r="175" class="hm-ring"/>
       <circle cx="320" cy="290" r="222" class="hm-ring2"/>
       <g class="hm-agents">${[0,120,240].map(d=>`<circle cx="${(320+222*Math.cos(d*Math.PI/180)).toFixed(1)}" cy="${(290+222*Math.sin(d*Math.PI/180)).toFixed(1)}" r="4"/>`).join('')}</g>
-      ${HMAP.map((m,i)=>`<line x1="320" y1="290" x2="${m.x}" y2="${m.y}" class="hm-link${m.k==='payroll'?' hot':''}${m.ai?' ai':''}" data-k="${m.k}" style="--d:${i*.3}s"/>`).join('')}
+      ${HMAP.map((m,i)=>`<line x1="320" y1="290" x2="${m.x}" y2="${m.y}" class="hm-link${i===0?' hot':''}${m.ai?' ai':''}" data-k="${m.k}" style="--d:${i*.3}s"/>`).join('')}
       <rect x="250" y="240" width="140" height="100" class="hm-core"/>
       <path d="M250 240h22l-12 100h-10z" class="hm-core-sl"/>
       <text x="331" y="276" class="hm-k">ORACLE FUSION</text>
       <text x="331" y="312" class="hm-big">HCM</text>
       <text x="331" y="330" class="hm-s">end to end</text>
     </svg>
-    ${HMAP.map((m,i)=>`<button type="button" class="hm-node${m.k==='payroll'?' hot':''}${m.ai?' ai':''}" data-k="${m.k}" aria-pressed="${m.k==='payroll'}" style="--d:${i*.1}s;left:${((m.x-72)/496*100).toFixed(2)}%;top:${((m.y-64)/452*100).toFixed(2)}%">${m.ai?'<span class="spark" aria-hidden="true"></span>':''}${m.label}</button>`).join('')}
+    ${HMAP.map((m,i)=>`<button type="button" class="hm-node${i===0?' hot':''}${m.ai?' ai':''}" data-k="${m.k}" aria-pressed="${i===0}" style="--d:${i*.1}s;left:${((m.x-72)/496*100).toFixed(2)}%;top:${((m.y-64)/452*100).toFixed(2)}%">${m.ai?'<span class="spark" aria-hidden="true"></span>':''}${m.label}</button>`).join('')}
     </div>
     </div>
-    <div class="hcards" aria-live="polite">
+    <div class="hm-prog" aria-hidden="true">${HMAP.map((m,i)=>`<i data-k="${m.k}"${i===0?' class="on"':''}></i>`).join('')}</div>
+    <div class="hcards" aria-live="off">
       <div class="hcard topics"><p class="hc-h"><span class="hc-t">${HM0.label}</span><span class="hc-sub">What should be ready</span></p>
         <ul class="hc-chips">${HM0.topics.map((t,i)=>`<li style="--i:${i}">${t}</li>`).join('')}</ul></div>
       <div class="hcard ready"><p class="hc-h"><span>Readiness checks</span><span class="go">${HM0.chip}</span></p>
